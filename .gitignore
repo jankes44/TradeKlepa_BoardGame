@@ -1,5 +1,4 @@
 
-Temp/UnityLockfile
 # This .gitignore file should be placed at the root of your Unity project directory
 #
 # Get latest from https://github.com/github/gitignore/blob/master/Unity.gitignore
@@ -11,6 +10,10 @@ Temp/UnityLockfile
 /[Bb]uilds/
 /[Ll]ogs/
 /[Uu]ser[Ss]ettings/
+/Temp/
+/Library/
+/obj/
+/Logs/
 
 # MemoryCaptures can get excessive in size.
 # They also could contain extremely sensitive data
@@ -71,3 +74,5 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+Library/SourceAssetDB
+Library/ArtifactDB
