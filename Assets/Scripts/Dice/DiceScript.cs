@@ -8,6 +8,7 @@ public class DiceScript : MonoBehaviour {
 	public static Vector3 diceVelocity;
 	private int whosTurn = 1;
 	private bool coroutineAllowed = true;
+	private GameObject[] players;
 
 	// Use this for initialization
 	void Start () {
@@ -18,6 +19,11 @@ public class DiceScript : MonoBehaviour {
 	{
 		if (!GameControl.gameOver && coroutineAllowed)
 			StartCoroutine("RollTheDice");
+		GameObject GameController = GameObject.Find("GameControl");
+		GameControl controlScript = GameController.GetComponent<GameControl>();
+
+		players = controlScript.players;
+
 	}
 
 	private IEnumerator RollTheDice()
@@ -26,7 +32,7 @@ public class DiceScript : MonoBehaviour {
 
 		Debug.Log("Whosturn? " + whosTurn);
 
-		float forwardForce = Random.Range(350, 1200);
+		float forwardForce = Random.Range(350, 500);
 
 		Debug.Log(forwardForce);
 		DiceNumberTextScript.diceNumber = 0;
@@ -50,8 +56,10 @@ public class DiceScript : MonoBehaviour {
 		//}
 		yield return new WaitUntil(() => DiceNumberTextScript.diceNumber != 0);
 
-			GameControl.diceSideThrown = DiceNumberTextScript.diceNumber;
-			if (whosTurn == 1)
+		GameControl.diceSideThrown = DiceNumberTextScript.diceNumber;
+		GameControl.MovePlayer(whosTurn);
+
+		if (whosTurn == 1)
 			{
 				GameControl.MovePlayer(1);
 			}
@@ -59,6 +67,8 @@ public class DiceScript : MonoBehaviour {
 			{
 				GameControl.MovePlayer(2);
 			}
+		
+		if ()
 		
 		whosTurn *= -1;
 		coroutineAllowed = true;

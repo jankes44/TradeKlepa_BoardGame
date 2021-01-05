@@ -17,6 +17,15 @@ public class FollowThePath : MonoBehaviour
     // Use this for initialization
     private void Start()
     {
+        GameObject GameCont = GameObject.Find("GameControl");
+        GameControl gameContScript = GameCont.GetComponent<GameControl>();
+
+        waypoints = gameContScript.Waypoints;
+        Debug.Log(waypointIndex);
+        foreach(Transform wp in waypoints)
+        {
+            Debug.Log(wp);
+        }
         transform.position = waypoints[waypointIndex].transform.position;
     }
 
