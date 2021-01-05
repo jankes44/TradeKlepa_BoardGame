@@ -68,7 +68,6 @@ public class DiceScript : MonoBehaviour {
 				GameControl.MovePlayer(2);
 			}
 		
-		if ()
 		
 		whosTurn *= -1;
 		coroutineAllowed = true;
