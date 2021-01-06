@@ -30,6 +30,7 @@ public class GameControl : MonoBehaviour
 
     public static GameObject[] playersGo;
     public Player[] players;
+    public int numberOfPlayers;
     public static int whosTurn;
     public static int whosTurnIndex;
     public static int diceSideThrown = 0;
@@ -59,7 +60,7 @@ void Start()
             Waypoints[i] = _waypoints[i].transform;
         }
 
-        int numberOfPlayers = 2;
+        numberOfPlayers = 4;
         for (int i = 0; i < numberOfPlayers; i++)
         {
           //  Player players = new Player(playersGo[i].name, false, counter);
