@@ -13,6 +13,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler
     public bool empty;
 
     public Transform slotIconGO;
+    public Transform IconGO;
     public Sprite icon;
 
     public void OnPointerClick(PointerEventData pointerEventData)
@@ -22,12 +23,16 @@ public class Slot : MonoBehaviour, IPointerClickHandler
 
     private void Start()
     {
+        Sprite sprite;
         slotIconGO = transform.GetChild(0);
+        IconGO = slotIconGO.GetChild(0);
+        Debug.Log(slotIconGO);
     }
 
     public void UpdateSlot()
     {
-        slotIconGO.GetComponent<Image>().sprite = icon;
+        IconGO.GetComponent<Image>().enabled = true;
+        IconGO.GetComponent<Image>().sprite = icon;
     }
 
     public void UseItem()
