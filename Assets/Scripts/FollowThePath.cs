@@ -13,6 +13,9 @@ public class FollowThePath : MonoBehaviour
     public int waypointIndex = 0;
 
     public bool moveAllowed = false;
+    public string PlayerName;
+    public int PlayerID;
+    public int playerStartWaypoint = 0;
 
     // Use this for initialization
     private void Start()
@@ -21,11 +24,12 @@ public class FollowThePath : MonoBehaviour
         GameControl gameContScript = GameCont.GetComponent<GameControl>();
 
         waypoints = gameContScript.Waypoints;
-        Debug.Log(waypointIndex);
-        foreach(Transform wp in waypoints)
-        {
-            Debug.Log(wp);
-        }
+        PlayerName = this.gameObject.name;
+        PlayerID = Random.Range(1,1000000);
+
+        Debug.Log(PlayerName);
+        Debug.Log(PlayerID);
+        
         transform.position = waypoints[waypointIndex].transform.position;
     }
 
@@ -38,6 +42,7 @@ public class FollowThePath : MonoBehaviour
 
     private void Move()
     {
+        Debug.Log(waypointIndex+" "+waypoints.Length);
         if (waypointIndex <= waypoints.Length - 1)
         {
             transform.position = Vector3.MoveTowards(transform.position, waypoints[waypointIndex].transform.position, moveSpeed * Time.deltaTime);
