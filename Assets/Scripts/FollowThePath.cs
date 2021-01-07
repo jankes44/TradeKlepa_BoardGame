@@ -42,7 +42,6 @@ public class FollowThePath : MonoBehaviour
 
     private void Move()
     {
-        Debug.Log(waypointIndex+" "+waypoints.Length);
         if (waypointIndex <= waypoints.Length - 1)
         {
             transform.position = Vector3.MoveTowards(transform.position, waypoints[waypointIndex].transform.position, moveSpeed * Time.deltaTime);

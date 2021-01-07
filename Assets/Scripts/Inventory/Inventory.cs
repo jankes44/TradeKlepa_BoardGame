@@ -19,12 +19,17 @@ public class Inventory : MonoBehaviour
         allSlots = 12;
         slot = new GameObject[allSlots];
 
-        for(int i = 0; i < allSlots; i++)
+        inventory = GameObject.FindGameObjectWithTag("Inventory");
+        slotHolder = GameObject.Find("Slot Holder");
+
+        for (int i = 0; i < allSlots; i++)
         {
             slot[i] = slotHolder.transform.GetChild(i).gameObject;
             if (slot[i].GetComponent<Slot>().item == null)
                 slot[i].GetComponent<Slot>().empty = true;
         }
+
+        
     }
 
 
@@ -53,8 +58,11 @@ public class Inventory : MonoBehaviour
     
     void AddItem(GameObject itemObject, int itemID, string itemType, string itemDescription, Sprite itemIcon)
     {
+        
+
         for (int i = 0; i < allSlots; i++)
         {
+            Debug.Log(slot[i].GetComponent<Slot>().empty + " " + i + " " + allSlots);
             if(slot[i].GetComponent<Slot>().empty)
             {
                 //add item to slot
@@ -70,9 +78,9 @@ public class Inventory : MonoBehaviour
                 itemObject.SetActive(false);
                 slot[i].GetComponent<Slot>().UpdateSlot();
                 slot[i].GetComponent<Slot>().empty = false;
+                Debug.Log(itemObject.activeSelf + " " + "Item picked up AddItem()");
+                return;
             }
-
-            return;
         }
     }
 }
