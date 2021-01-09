@@ -60,7 +60,7 @@ void Start()
             Waypoints[i] = _waypoints[i].transform;
         }
 
-        numberOfPlayers = 4;
+        numberOfPlayers = 2;
         for (int i = 0; i < numberOfPlayers; i++)
         {
           //  Player players = new Player(playersGo[i].name, false, counter);
