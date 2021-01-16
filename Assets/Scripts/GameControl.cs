@@ -45,7 +45,7 @@ public class GameControl : MonoBehaviour
 // Use this for initialization
 void Start()
     {
-
+        
         whoWinsTextShadow = GameObject.Find("WhoWinsText");
         player1MoveText = GameObject.Find("Player1MoveText");
         player2MoveText = GameObject.Find("Player2MoveText");
