@@ -35,6 +35,7 @@ public class Launcher : MonoBehaviourPunCallbacks
         PhotonNetwork.JoinLobby();
         Debug.Log("Joined master");
         PhotonNetwork.AutomaticallySyncScene = true;
+        Debug.Log(PhotonNetwork.CountOfPlayersOnMaster);
     }
 
     public override void OnJoinedLobby()
@@ -52,6 +53,8 @@ public class Launcher : MonoBehaviourPunCallbacks
         }
         PhotonNetwork.CreateRoom(roomNameInputField.text);
         MenuManager.Instance.OpenMenu("loading");
+        Debug.Log(PhotonNetwork.CountOfPlayersOnMaster);
+
     }
 
     public override void OnJoinedRoom()
