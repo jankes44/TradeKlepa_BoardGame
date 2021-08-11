@@ -53,21 +53,41 @@ public class DiceMP : MonoBehaviourPun, IPunOwnershipCallbacks
 		rb.AddForce(transform.right * -150);
 		rb.AddTorque(dirX + 500, dirY, dirZ);
 		yield return new WaitForSeconds(4);
-		//coroutineAllowed = false;
-		//int randomDiceSide = 0;
-		//for (int i = 0; i <= 20; i++)
-		//{
-		//rend.sprite = diceSides[randomDiceSide];
-		//yield return new WaitForSeconds(0.05f);
-		//}
-		gameControl.ChangeTurn();
-		Player nextPlayer = PhotonNetwork.PlayerList[gameControl.whosTurn];
-		photonView.TransferOwnership(nextPlayer);
-		coroutineAllowed = true;
+        //coroutineAllowed = false;
+        //int randomDiceSide = 0;
+        //for (int i = 0; i <= 20; i++)
+        //{
+        //rend.sprite = diceSides[randomDiceSide];
+        //yield return new WaitForSeconds(0.05f);
+        //}
+        //gameControl.ChangeTurn();
+        //Player nextPlayer = PhotonNetwork.PlayerList[gameControl.whosTurn];
+        
+        gameControl.playersList[gameControl.turnIndex].GetComponent<PlayerStats>().SyncTurnMaster(gameControl.turnIndex);
+
+        foreach (Player pl in PhotonNetwork.PlayerList)
+        {
+
+			if (pl.NickName == gameControl.turn)
+            {
+				photonView.TransferOwnership(pl);
+			}
+        }		
+
+        coroutineAllowed = true;
 		yield return new WaitUntil(() => true);
 
 		
 	}
+
+	public void TransferDiceOwnership(int nextPlayerIndex)
+    {
+		
+        foreach (Player pl in PhotonNetwork.PlayerList)
+        {
+
+        }
+    }
 
 	public void OnTransferOwnership(object[] viewAndPlayer)
     {

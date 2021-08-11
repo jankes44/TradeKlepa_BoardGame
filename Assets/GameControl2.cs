@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+using Photon.Realtime;
 
 public class GameControl2 : MonoBehaviourPun
 {
@@ -11,16 +12,16 @@ public class GameControl2 : MonoBehaviourPun
     public float dPosX;
     public float dPosY;
     public float dPosZ;
+    public GameObject[] playersList;
+    public string turn;
+    public int turnIndex;
 
-    public int whosTurn;
     public int playerCount;
-
-    public GameObject playerPrefab;
 
     void Start()
     {
-        Vector3 startPos = new Vector3(startPosX, startPosY, startPosZ);
         Vector3 dicePos = new Vector3(dPosX, dPosY, dPosZ);
+        Vector3 startPos = new Vector3(startPosX, startPosY, startPosZ);
 
         PhotonNetwork.Instantiate("PhotonPrefabs/Player", startPos, Quaternion.Euler(90, 0, 0));
 
@@ -33,29 +34,13 @@ public class GameControl2 : MonoBehaviourPun
         {
             Debug.Log(PhotonNetwork.PlayerList[i].TagObject);
         }
-
         playerCount = PhotonNetwork.PlayerList.Length;
-        whosTurn = 0;
 
-        Debug.Log("First to go: " + PhotonNetwork.PlayerList[whosTurn].NickName);
-    }
-
-    public void ChangeTurn()
-    {
-        PlayerStats[] instances = FindObjectsOfType<PlayerStats>();
-
-        for (int i = 0; i < instances.Length; i++)
-        {
-            instances[i].SyncTurn(whosTurn);
-        }
-
-        Debug.Log(playerCount - 1);
-        Debug.Log(whosTurn);
-        Debug.Log("Next in turn: " + PhotonNetwork.PlayerList[whosTurn].NickName);
     }
 
     void Update()
     {
+        playerCount = PhotonNetwork.PlayerList.Length;
 
     }
 }

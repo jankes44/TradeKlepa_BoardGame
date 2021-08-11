@@ -3035,6 +3035,7 @@ GameObject:
   - component: {fileID: 1543039566}
   - component: {fileID: 1543039565}
   - component: {fileID: 1543039567}
+  - component: {fileID: 1543039568}
   m_Layer: 0
   m_Name: GameControl
   m_TagString: Untagged
@@ -3060,10 +3061,7 @@ MonoBehaviour:
   dPosX: 1.62
   dPosY: 2.08
   dPosZ: -3.15
-  whosTurn: 0
   playerCount: 0
-  playerPrefab: {fileID: 7684413238354401774, guid: 5f867f63c3ef7fd4381abbe7bad3a82c,
-    type: 3}
 --- !u!4 &1543039566
 Transform:
   m_ObjectHideFlags: 0
@@ -3100,6 +3098,19 @@ MonoBehaviour:
   viewIdField: 1
   InstantiationId: 0
   isRuntimeInstantiated: 0
+--- !u!114 &1543039568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1543039564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b28dd60f6abf16d4094cf0f642a043e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dontDestroyOnLoad: 0
 --- !u!1 &1564847411
 GameObject:
   m_ObjectHideFlags: 0
