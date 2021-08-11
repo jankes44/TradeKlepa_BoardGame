@@ -38,6 +38,8 @@ public class DiceMP : MonoBehaviourPun, IPunOwnershipCallbacks
 	{
 		coroutineAllowed = false;
 
+		PlayerStats currentPlayer = gameControl.playersList[gameControl.turnIndex].GetComponent<PlayerStats>();
+
 		float forwardForce = Random.Range(350, 500);
 
 		Debug.Log(forwardForce);
@@ -53,17 +55,21 @@ public class DiceMP : MonoBehaviourPun, IPunOwnershipCallbacks
 		rb.AddForce(transform.right * -150);
 		rb.AddTorque(dirX + 500, dirY, dirZ);
 		yield return new WaitForSeconds(4);
-        //coroutineAllowed = false;
-        //int randomDiceSide = 0;
-        //for (int i = 0; i <= 20; i++)
-        //{
-        //rend.sprite = diceSides[randomDiceSide];
-        //yield return new WaitForSeconds(0.05f);
-        //}
-        //gameControl.ChangeTurn();
-        //Player nextPlayer = PhotonNetwork.PlayerList[gameControl.whosTurn];
-        
-        gameControl.playersList[gameControl.turnIndex].GetComponent<PlayerStats>().SyncTurnMaster(gameControl.turnIndex);
+		//coroutineAllowed = false;
+		//int randomDiceSide = 0;
+		//for (int i = 0; i <= 20; i++)
+		//{
+		//rend.sprite = diceSides[randomDiceSide];
+		//yield return new WaitForSeconds(0.05f);
+		//}
+		//gameControl.ChangeTurn();
+		//Player nextPlayer = PhotonNetwork.PlayerList[gameControl.whosTurn];
+
+		currentPlayer.moveAllowed = true;
+		currentPlayer.targetWaypointIndex = currentPlayer.targetWaypointIndex + 3;
+
+		//SKIP TURN
+        currentPlayer.SyncTurnMaster(gameControl.turnIndex);
 
         foreach (Player pl in PhotonNetwork.PlayerList)
         {

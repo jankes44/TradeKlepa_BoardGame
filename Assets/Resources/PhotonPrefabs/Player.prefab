@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: -1380968995297302127}
   - component: {fileID: 2278731189646453739}
   - component: {fileID: 2015117325431254011}
+  - component: {fileID: -768300282006020650}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -185,6 +186,9 @@ MonoBehaviour:
   PlayerAvatar: {fileID: 0}
   playerName: 
   actorNo: 0
+  waypointIndex: 0
+  targetWaypointIndex: 0
+  moveAllowed: 0
 --- !u!114 &-1380968995297302127
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -230,10 +234,44 @@ MonoBehaviour:
   observableSearch: 2
   Synchronization: 3
   OwnershipTransfer: 0
-  ObservedComponents: []
+  ObservedComponents:
+  - {fileID: -768300282006020650}
   viewIdField: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
+--- !u!114 &-768300282006020650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7684413238354401774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8efc6b1d64977384eb3405357896c656, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_PositionModel:
+    SynchronizeEnabled: 1
+    TeleportEnabled: 1
+    TeleportIfDistanceGreaterThan: 3
+    InterpolateOption: 2
+    InterpolateMoveTowardsSpeed: 1
+    InterpolateLerpSpeed: 1
+    ExtrapolateOption: 0
+    ExtrapolateSpeed: 1
+    ExtrapolateIncludingRoundTripTime: 1
+    ExtrapolateNumberOfStoredPositions: 1
+  m_RotationModel:
+    SynchronizeEnabled: 1
+    InterpolateOption: 1
+    InterpolateRotateTowardsSpeed: 180
+    InterpolateLerpSpeed: 5
+  m_ScaleModel:
+    SynchronizeEnabled: 1
+    InterpolateOption: 0
+    InterpolateMoveTowardsSpeed: 1
+    InterpolateLerpSpeed: 0
 --- !u!1 &7684413238798117894
 GameObject:
   m_ObjectHideFlags: 0

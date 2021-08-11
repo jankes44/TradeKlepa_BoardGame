@@ -14,6 +14,10 @@ public class PlayerStats : MonoBehaviour, IPunInstantiateMagicCallback
     public GameObject PlayerAvatar;
     public string playerName;
     public int actorNo;
+    public int waypointIndex = 0;
+    public int targetWaypointIndex = 0;
+    private float moveSpeed = 3f;
+    public bool moveAllowed = false;
 
     void Start()
     {
@@ -37,6 +41,26 @@ public class PlayerStats : MonoBehaviour, IPunInstantiateMagicCallback
         PlayerNameText.transform.Rotate(0, 180, 0);
         PlayerNameText.GetComponent<TextMesh>().text = nickName;
         playerName = nickName;
+        if (moveAllowed)
+            Move();
+    }
+    
+    public void Move()
+    {
+        if (targetWaypointIndex > waypointIndex)
+        {
+            Debug.Log("move");
+            transform.position = Vector3.MoveTowards(transform.position, gameControl.waypoints[waypointIndex].transform.position, moveSpeed * Time.deltaTime);
+
+            if (transform.position == gameControl.waypoints[waypointIndex].transform.position)
+            {
+                waypointIndex += 1;
+            }
+        } else
+        {
+            Debug.Log("allowed? False");
+            moveAllowed = false;
+        }
     }
 
     public void SyncTurnMaster(int next)

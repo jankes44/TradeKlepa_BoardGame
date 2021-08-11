@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
+using System.IO;
+using System.Linq;
 
 public class GameControl2 : MonoBehaviourPun
 {
@@ -15,6 +17,7 @@ public class GameControl2 : MonoBehaviourPun
     public GameObject[] playersList;
     public string turn;
     public int turnIndex;
+    public Transform[] waypoints;
 
     public int playerCount;
 
@@ -24,6 +27,16 @@ public class GameControl2 : MonoBehaviourPun
         Vector3 startPos = new Vector3(startPosX, startPosY, startPosZ);
 
         PhotonNetwork.Instantiate("PhotonPrefabs/Player", startPos, Quaternion.Euler(90, 0, 0));
+
+        GameObject[] _waypoints = GameObject.FindGameObjectsWithTag("Waypoint");
+
+        waypoints = new Transform[_waypoints.Length];
+        for (int i = 0; i < waypoints.Length; ++i)
+        {
+            waypoints[i] = _waypoints[i].transform;
+            Debug.Log(waypoints[i].name);
+        }
+        waypoints = waypoints.OrderBy(a => a.GetComponent<Waypoint>().id).ToArray();
 
         if (PhotonNetwork.IsMasterClient)
         {
