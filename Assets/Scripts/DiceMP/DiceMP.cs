@@ -68,6 +68,8 @@ public class DiceMP : MonoBehaviourPun, IPunOwnershipCallbacks
 		currentPlayer.moveAllowed = true;
 		currentPlayer.targetWaypointIndex = currentPlayer.targetWaypointIndex + 3;
 
+		//THIS FUNCTION DOESN'T SYNC OVER THE NETWORK, THE DATA IS NOT SYNCHRONISED BECAUSE IT'S ONLY BEING CALLED LOCALLY, MOVEMENT INFO IS SYNCED THROUGH PHOTON TRANSFORM SCRIPT - maybe make a script to RPC the data to other players
+
 		//SKIP TURN
         currentPlayer.SyncTurnMaster(gameControl.turnIndex);
 
