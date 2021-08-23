@@ -8,13 +8,13 @@ public class DiceMP : MonoBehaviourPun, IPunOwnershipCallbacks
 {
 	static Rigidbody rb;
 	private bool coroutineAllowed = true;
-	private PhotonView photonView;
+	public PhotonView photonVw;
 	private GameControl2 gameControl;
 	// Start is called before the first frame update
 	void Start()
     {
 		rb = GetComponent<Rigidbody>();
-		photonView = GetComponent<PhotonView>();
+		photonVw = GetComponent<PhotonView>();
 		gameControl = GameObject.Find("GameControl").GetComponent<GameControl2>();
 	}
 
@@ -24,9 +24,26 @@ public class DiceMP : MonoBehaviourPun, IPunOwnershipCallbacks
         
     }
 
+	public int FindPlayerByActorNo(int actorNo)
+	{
+		int result = 0;
+
+		for (int i = 0; i < PhotonNetwork.PlayerList.Length; i++)
+		{
+			Player ps = PhotonNetwork.PlayerList[i];
+			if (ps.ActorNumber == actorNo)
+			{
+				result = i;
+				break;
+			}
+		}
+		return result;
+
+	}
+
 	private void OnMouseDown()
 	{
-		if (photonView.IsMine && coroutineAllowed)
+		if (photonVw.IsMine && coroutineAllowed)
 			StartCoroutine("RollTheDice");
 		//GameObject GameController = GameObject.Find("GameControl");
 		//GameControl controlScript = GameController.GetComponent<GameControl>();
@@ -52,17 +69,19 @@ public class DiceMP : MonoBehaviourPun, IPunOwnershipCallbacks
 		rb.AddForce(transform.forward * forwardForce);
 		rb.AddForce(transform.right * -150);
 		rb.AddTorque(dirX + 500, dirY, dirZ);
+
 		yield return new WaitForSeconds(4);
-		//coroutineAllowed = false;
-		//int randomDiceSide = 0;
-		//for (int i = 0; i <= 20; i++)
+
+		int number = Random.Range(1, 6);
+		//int nextPlayerActorNo = gameControl.DiceTrigger(number);
+		////PhotonNetwork.PhotonViews[gameControl.whosTurn].gameObject.GetComponent<PlayerStats>().DiceThrown(number);
+		//int nextPlayerIndex = gameControl.FindPlayerByActorNo(nextPlayerActorNo);
+		//for (int i = 0; i < gameControl.players.Length; i++)
 		//{
-		//rend.sprite = diceSides[randomDiceSide];
-		//yield return new WaitForSeconds(0.05f);
+		//	gameControl.players[i].GetComponent<PlayerStats>().SyncTurn(gameControl.players[nextPlayerIndex].GetComponent<PlayerStats>().myActorNumber);
 		//}
-		gameControl.ChangeTurn();
-		Player nextPlayer = PhotonNetwork.PlayerList[gameControl.whosTurn];
-		photonView.TransferOwnership(nextPlayer);
+		Player nextPlayer = PhotonNetwork.PlayerList[FindPlayerByActorNo(gameControl.whosTurn)];
+		photonVw.TransferOwnership(nextPlayer);
 		coroutineAllowed = true;
 		yield return new WaitUntil(() => true);
 
