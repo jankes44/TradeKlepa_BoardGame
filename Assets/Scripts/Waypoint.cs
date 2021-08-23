@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class Waypoint : MonoBehaviour
 {
-    public int id;
+    public int waypointID;
 }

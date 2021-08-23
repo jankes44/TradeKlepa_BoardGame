@@ -36,7 +36,7 @@ public class GameControl2 : MonoBehaviourPun
             waypoints[i] = _waypoints[i].transform;
             Debug.Log(waypoints[i].name);
         }
-        waypoints = waypoints.OrderBy(a => a.GetComponent<Waypoint>().id).ToArray();
+        waypoints = waypoints.OrderBy(a => a.GetComponent<Waypoint>().waypointID).ToArray();
 
         if (PhotonNetwork.IsMasterClient)
         {
