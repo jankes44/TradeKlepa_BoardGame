@@ -22,6 +22,7 @@ public class Launcher : MonoBehaviourPunCallbacks
     private void Awake()
     {
         Instance = this;
+        PhotonNetwork.AutomaticallySyncScene = true;
     }
 
     void Start()
@@ -35,7 +36,7 @@ public class Launcher : MonoBehaviourPunCallbacks
         PhotonNetwork.JoinLobby();
         Debug.Log("Joined master");
         PhotonNetwork.AutomaticallySyncScene = true;
-        Debug.Log(PhotonNetwork.CountOfPlayersOnMaster);
+        Debug.Log(PhotonNetwork.CountOfRooms);
     }
 
     public override void OnJoinedLobby()

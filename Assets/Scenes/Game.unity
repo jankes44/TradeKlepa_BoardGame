@@ -448,10 +448,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 119928548}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 005d6643e93684e4e8e67d27ef043a35, type: 3}
+  m_Script: {fileID: 11500000, guid: 73ed88b7b8c972848a3a51ad97743d6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 1
+  waypointID: 1
 --- !u!1 &127421263
 GameObject:
   m_ObjectHideFlags: 0
@@ -587,10 +587,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 129394874}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 005d6643e93684e4e8e67d27ef043a35, type: 3}
+  m_Script: {fileID: 11500000, guid: 73ed88b7b8c972848a3a51ad97743d6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 21
+  waypointID: 21
 --- !u!1 &156339819
 GameObject:
   m_ObjectHideFlags: 0
@@ -631,10 +631,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 156339819}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 005d6643e93684e4e8e67d27ef043a35, type: 3}
+  m_Script: {fileID: 11500000, guid: 73ed88b7b8c972848a3a51ad97743d6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 10
+  waypointID: 10
 --- !u!1 &160132792
 GameObject:
   m_ObjectHideFlags: 0
@@ -1053,10 +1053,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 297332403}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 005d6643e93684e4e8e67d27ef043a35, type: 3}
+  m_Script: {fileID: 11500000, guid: 73ed88b7b8c972848a3a51ad97743d6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 22
+  waypointID: 22
 --- !u!1 &303857512
 GameObject:
   m_ObjectHideFlags: 0
@@ -1345,10 +1345,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 324159767}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 005d6643e93684e4e8e67d27ef043a35, type: 3}
+  m_Script: {fileID: 11500000, guid: 73ed88b7b8c972848a3a51ad97743d6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 16
+  waypointID: 16
 --- !u!1 &370632990
 GameObject:
   m_ObjectHideFlags: 0
@@ -1389,10 +1389,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 370632990}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 005d6643e93684e4e8e67d27ef043a35, type: 3}
+  m_Script: {fileID: 11500000, guid: 73ed88b7b8c972848a3a51ad97743d6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 6
+  waypointID: 6
 --- !u!1 &372352415
 GameObject:
   m_ObjectHideFlags: 0
@@ -1528,10 +1528,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 452462475}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 005d6643e93684e4e8e67d27ef043a35, type: 3}
+  m_Script: {fileID: 11500000, guid: 73ed88b7b8c972848a3a51ad97743d6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 9
+  waypointID: 9
 --- !u!1 &469179811
 GameObject:
   m_ObjectHideFlags: 0
@@ -1572,10 +1572,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 469179811}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 005d6643e93684e4e8e67d27ef043a35, type: 3}
+  m_Script: {fileID: 11500000, guid: 73ed88b7b8c972848a3a51ad97743d6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 23
+  waypointID: 23
 --- !u!1 &539694540
 GameObject:
   m_ObjectHideFlags: 0
@@ -1806,10 +1806,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 608415926}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 005d6643e93684e4e8e67d27ef043a35, type: 3}
+  m_Script: {fileID: 11500000, guid: 73ed88b7b8c972848a3a51ad97743d6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 12
+  waypointID: 12
 --- !u!1 &674859896
 GameObject:
   m_ObjectHideFlags: 0
@@ -1850,10 +1850,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 674859896}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 005d6643e93684e4e8e67d27ef043a35, type: 3}
+  m_Script: {fileID: 11500000, guid: 73ed88b7b8c972848a3a51ad97743d6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 20
+  waypointID: 20
 --- !u!1 &686660952
 GameObject:
   m_ObjectHideFlags: 0
@@ -1894,10 +1894,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 686660952}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 005d6643e93684e4e8e67d27ef043a35, type: 3}
+  m_Script: {fileID: 11500000, guid: 73ed88b7b8c972848a3a51ad97743d6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 4
+  waypointID: 4
 --- !u!1 &754437391
 GameObject:
   m_ObjectHideFlags: 0
@@ -1938,10 +1938,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 754437391}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 005d6643e93684e4e8e67d27ef043a35, type: 3}
+  m_Script: {fileID: 11500000, guid: 73ed88b7b8c972848a3a51ad97743d6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 7
+  waypointID: 7
 --- !u!1 &800233145
 GameObject:
   m_ObjectHideFlags: 0
@@ -2267,10 +2267,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 940541400}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 005d6643e93684e4e8e67d27ef043a35, type: 3}
+  m_Script: {fileID: 11500000, guid: 73ed88b7b8c972848a3a51ad97743d6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 5
+  waypointID: 5
 --- !u!1 &943340679
 GameObject:
   m_ObjectHideFlags: 0
@@ -2311,10 +2311,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 943340679}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 005d6643e93684e4e8e67d27ef043a35, type: 3}
+  m_Script: {fileID: 11500000, guid: 73ed88b7b8c972848a3a51ad97743d6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 15
+  waypointID: 15
 --- !u!1 &1048337501
 GameObject:
   m_ObjectHideFlags: 0
@@ -2355,10 +2355,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1048337501}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 005d6643e93684e4e8e67d27ef043a35, type: 3}
+  m_Script: {fileID: 11500000, guid: 73ed88b7b8c972848a3a51ad97743d6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 27
+  waypointID: 27
 --- !u!1 &1071112163
 GameObject:
   m_ObjectHideFlags: 0
@@ -2494,10 +2494,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1135756181}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 005d6643e93684e4e8e67d27ef043a35, type: 3}
+  m_Script: {fileID: 11500000, guid: 73ed88b7b8c972848a3a51ad97743d6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 19
+  waypointID: 19
 --- !u!1 &1189388132
 GameObject:
   m_ObjectHideFlags: 0
@@ -2538,10 +2538,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1189388132}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 005d6643e93684e4e8e67d27ef043a35, type: 3}
+  m_Script: {fileID: 11500000, guid: 73ed88b7b8c972848a3a51ad97743d6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 17
+  waypointID: 17
 --- !u!1 &1216530894
 GameObject:
   m_ObjectHideFlags: 0
@@ -2582,10 +2582,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1216530894}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 005d6643e93684e4e8e67d27ef043a35, type: 3}
+  m_Script: {fileID: 11500000, guid: 73ed88b7b8c972848a3a51ad97743d6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 18
+  waypointID: 18
 --- !u!1 &1223087801
 GameObject:
   m_ObjectHideFlags: 0
@@ -3006,10 +3006,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1407489824}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 005d6643e93684e4e8e67d27ef043a35, type: 3}
+  m_Script: {fileID: 11500000, guid: 73ed88b7b8c972848a3a51ad97743d6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 3
+  waypointID: 3
 --- !u!1 &1445596462
 GameObject:
   m_ObjectHideFlags: 0
@@ -3050,10 +3050,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1445596462}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 005d6643e93684e4e8e67d27ef043a35, type: 3}
+  m_Script: {fileID: 11500000, guid: 73ed88b7b8c972848a3a51ad97743d6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 24
+  waypointID: 24
 --- !u!1 &1465735032
 GameObject:
   m_ObjectHideFlags: 0
@@ -3189,10 +3189,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1496370900}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 005d6643e93684e4e8e67d27ef043a35, type: 3}
+  m_Script: {fileID: 11500000, guid: 73ed88b7b8c972848a3a51ad97743d6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 25
+  waypointID: 25
 --- !u!1 &1504822015
 GameObject:
   m_ObjectHideFlags: 0
@@ -3312,7 +3312,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1506049190}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0.110000014, z: -0.09000015}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -3328,10 +3328,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1506049190}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 005d6643e93684e4e8e67d27ef043a35, type: 3}
+  m_Script: {fileID: 11500000, guid: 73ed88b7b8c972848a3a51ad97743d6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 0
+  waypointID: 0
 --- !u!1 &1543039564
 GameObject:
   m_ObjectHideFlags: 0
@@ -3343,7 +3343,6 @@ GameObject:
   - component: {fileID: 1543039566}
   - component: {fileID: 1543039565}
   - component: {fileID: 1543039567}
-  - component: {fileID: 1543039568}
   m_Layer: 0
   m_Name: GameControl
   m_TagString: Untagged
@@ -3369,11 +3368,9 @@ MonoBehaviour:
   dPosX: 1.62
   dPosY: 2.08
   dPosZ: -3.15
-  playersList: []
-  turn: 
-  turnIndex: 0
-  waypoints: []
+  whosTurn: 0
   playerCount: 0
+  playersGO: []
 --- !u!4 &1543039566
 Transform:
   m_ObjectHideFlags: 0
@@ -3410,19 +3407,6 @@ MonoBehaviour:
   viewIdField: 1
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!114 &1543039568
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1543039564}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b28dd60f6abf16d4094cf0f642a043e2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dontDestroyOnLoad: 0
 --- !u!1 &1564847411
 GameObject:
   m_ObjectHideFlags: 0
@@ -3463,10 +3447,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1564847411}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 005d6643e93684e4e8e67d27ef043a35, type: 3}
+  m_Script: {fileID: 11500000, guid: 73ed88b7b8c972848a3a51ad97743d6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 8
+  waypointID: 8
 --- !u!1 &1596262150
 GameObject:
   m_ObjectHideFlags: 0
@@ -3793,10 +3777,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1746709765}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 005d6643e93684e4e8e67d27ef043a35, type: 3}
+  m_Script: {fileID: 11500000, guid: 73ed88b7b8c972848a3a51ad97743d6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 2
+  waypointID: 2
 --- !u!1 &1878261344
 GameObject:
   m_ObjectHideFlags: 0
@@ -4027,10 +4011,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1944322166}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 005d6643e93684e4e8e67d27ef043a35, type: 3}
+  m_Script: {fileID: 11500000, guid: 73ed88b7b8c972848a3a51ad97743d6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 11
+  waypointID: 11
 --- !u!1 &1954607085
 GameObject:
   m_ObjectHideFlags: 0
@@ -4166,10 +4150,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1963160110}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 005d6643e93684e4e8e67d27ef043a35, type: 3}
+  m_Script: {fileID: 11500000, guid: 73ed88b7b8c972848a3a51ad97743d6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 26
+  waypointID: 26
 --- !u!1 &1966762791
 GameObject:
   m_ObjectHideFlags: 0
@@ -4268,10 +4252,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1971537352}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 005d6643e93684e4e8e67d27ef043a35, type: 3}
+  m_Script: {fileID: 11500000, guid: 73ed88b7b8c972848a3a51ad97743d6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 14
+  waypointID: 14
 --- !u!1 &2058214187
 GameObject:
   m_ObjectHideFlags: 0
@@ -4312,10 +4296,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2058214187}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 005d6643e93684e4e8e67d27ef043a35, type: 3}
+  m_Script: {fileID: 11500000, guid: 73ed88b7b8c972848a3a51ad97743d6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 13
+  waypointID: 13
 --- !u!1 &2075105238
 GameObject:
   m_ObjectHideFlags: 0
