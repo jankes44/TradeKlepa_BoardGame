@@ -26,7 +26,7 @@ public class GameControl2 : MonoBehaviourPun
         Vector3 dicePos = new Vector3(dPosX, dPosY, dPosZ);
         Vector3 startPos = new Vector3(startPosX, startPosY, startPosZ);
 
-        PhotonNetwork.Instantiate("PhotonPrefabs/Player", startPos, Quaternion.Euler(90, 0, 0));
+        PhotonNetwork.Instantiate("PhotonPrefabs/Player", startPos, Quaternion.Euler(90, -90, 0));
 
         GameObject[] _waypoints = GameObject.FindGameObjectsWithTag("Waypoint");
 
