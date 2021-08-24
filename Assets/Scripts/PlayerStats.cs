@@ -21,6 +21,11 @@ public class PlayerStats : MonoBehaviour, IPunInstantiateMagicCallback
     Animator animator;
     Transform gosciu;
     int isWalkingHash;
+    public bool isLocal;
+    public Transform brzuch;
+    public Transform body;
+    public Transform klata;
+    public Transform glowa;
 
     void Start()
     {
@@ -39,7 +44,7 @@ public class PlayerStats : MonoBehaviour, IPunInstantiateMagicCallback
         animator = gosciu.GetComponent<Animator>();
         Debug.Log(animator);
         isWalkingHash = Animator.StringToHash("isWalking");
-
+        isLocal = PV.IsMine || !PhotonNetwork.IsConnected;
     }
 
     void Update()

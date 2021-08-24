@@ -106,7 +106,13 @@ MonoBehaviour:
   actorNo: 0
   waypointIndex: 0
   targetWaypointIndex: 0
+  moveSpeed: 2.1
   moveAllowed: 0
+  isLocal: 0
+  brzuch: {fileID: 4811917257509186533}
+  body: {fileID: 8065224193958102758}
+  klata: {fileID: 7440449380743688372}
+  glowa: {fileID: 4227591641945887989}
 --- !u!114 &-1380968995297302127
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -397,6 +403,30 @@ GameObject:
 --- !u!4 &8237919556482972058 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 299635a4658021b41b8dd7e809de5f45,
+    type: 3}
+  m_PrefabInstance: {fileID: 8491608899778272881}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &8065224193958102758 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1888468264314869911, guid: 299635a4658021b41b8dd7e809de5f45,
+    type: 3}
+  m_PrefabInstance: {fileID: 8491608899778272881}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &4811917257509186533 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3971924240885380500, guid: 299635a4658021b41b8dd7e809de5f45,
+    type: 3}
+  m_PrefabInstance: {fileID: 8491608899778272881}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &7440449380743688372 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -7883120106164392251, guid: 299635a4658021b41b8dd7e809de5f45,
+    type: 3}
+  m_PrefabInstance: {fileID: 8491608899778272881}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &4227591641945887989 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5724969574052137604, guid: 299635a4658021b41b8dd7e809de5f45,
     type: 3}
   m_PrefabInstance: {fileID: 8491608899778272881}
   m_PrefabAsset: {fileID: 0}
