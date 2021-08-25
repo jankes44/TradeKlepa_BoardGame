@@ -65,8 +65,9 @@ public class DiceMP : MonoBehaviourPun, IPunOwnershipCallbacks
 		//gameControl.ChangeTurn();
 		//Player nextPlayer = PhotonNetwork.PlayerList[gameControl.whosTurn];
 
+		int randomNumber = Random.Range(1, 7);
 		currentPlayer.moveAllowed = true;
-		currentPlayer.targetWaypointIndex = currentPlayer.targetWaypointIndex + 3;
+		currentPlayer.targetWaypointIndex = currentPlayer.targetWaypointIndex + randomNumber;
 
 		//THIS FUNCTION DOESN'T SYNC OVER THE NETWORK, THE DATA IS NOT SYNCHRONISED BECAUSE IT'S ONLY BEING CALLED LOCALLY, MOVEMENT INFO IS SYNCED THROUGH PHOTON TRANSFORM SCRIPT - maybe make a script to RPC the data to other players
 

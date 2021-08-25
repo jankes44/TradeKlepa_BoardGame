@@ -16,8 +16,13 @@ public class PlayerStats : MonoBehaviour, IPunInstantiateMagicCallback
     public int actorNo;
     public int waypointIndex = 0;
     public int targetWaypointIndex = 0;
-    private float moveSpeed = 3f;
+    public float moveSpeed = 2.1f;
     public bool moveAllowed = false;
+    Animator animator;
+    Transform gosciu;
+    int isWalkingHash;
+    public bool isLocal;
+    public GameObject camera;
 
     void Start()
     {
@@ -31,6 +36,19 @@ public class PlayerStats : MonoBehaviour, IPunInstantiateMagicCallback
         {
             SyncTurnMaster(-1);
 
+        }
+        gosciu = transform.Find("gosciuu");
+        animator = gosciu.GetComponent<Animator>();
+        Debug.Log(animator);
+        isWalkingHash = Animator.StringToHash("isWalking");
+        isLocal = PV.IsMine || !PhotonNetwork.IsConnected;
+
+        if (!isLocal)
+        {
+            camera.SetActive(false);
+        } else
+        {
+            camera.SetActive(true);
         }
     }
 
@@ -49,15 +67,17 @@ public class PlayerStats : MonoBehaviour, IPunInstantiateMagicCallback
     {
         if (targetWaypointIndex > waypointIndex)
         {
-            Debug.Log("move");
-            transform.position = Vector3.MoveTowards(transform.position, gameControl.waypoints[waypointIndex].transform.position, moveSpeed * Time.deltaTime);
+            animator.SetBool(isWalkingHash, true);
 
+            transform.position = Vector3.MoveTowards(transform.position, gameControl.waypoints[waypointIndex].transform.position, moveSpeed * Time.deltaTime);
+            
             if (transform.position == gameControl.waypoints[waypointIndex].transform.position)
             {
                 waypointIndex += 1;
             }
         } else
         {
+            animator.SetBool(isWalkingHash, false);
             Debug.Log("allowed? False");
             moveAllowed = false;
         }
