@@ -22,10 +22,7 @@ public class PlayerStats : MonoBehaviour, IPunInstantiateMagicCallback
     Transform gosciu;
     int isWalkingHash;
     public bool isLocal;
-    public Transform brzuch;
-    public Transform body;
-    public Transform klata;
-    public Transform glowa;
+    public GameObject camera;
 
     void Start()
     {
@@ -45,6 +42,14 @@ public class PlayerStats : MonoBehaviour, IPunInstantiateMagicCallback
         Debug.Log(animator);
         isWalkingHash = Animator.StringToHash("isWalking");
         isLocal = PV.IsMine || !PhotonNetwork.IsConnected;
+
+        if (!isLocal)
+        {
+            camera.SetActive(false);
+        } else
+        {
+            camera.SetActive(true);
+        }
     }
 
     void Update()
