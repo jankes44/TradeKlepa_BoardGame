@@ -50,7 +50,7 @@ Animator:
   m_GameObject: {fileID: 89149511516681026}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 7fc3d910d12bf544e877860fcbbad73f, type: 2}
+  m_Controller: {fileID: 9100000, guid: 147b4a3eb070a1c4291ca9f11a6f842f, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -66,7 +66,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 89149511516681026}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ed229b1cacc470745a6fec9d95a0a5a3, type: 3}
   m_Name: 
@@ -84,8 +84,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitName: Lopez
-  unitLevel: 3
-  damage: 5
+  unitLevel: 4
+  damage: 2
+  agility: 25
+  strength: 19
+  vitality: 10
+  agilityMultiplier: 0
+  strengthMultiplier: 0
+  vitalityMultiplier: 0
+  playerAnimator: {fileID: 0}
   maxHP: 20
   currentHP: 20
 --- !u!1 &160674214456193625
