@@ -56,7 +56,7 @@ public class BattleSystem : MonoBehaviour
 		combatHUD.SetActive(false);
 		playerUnit.SlashAnim(true);
 
-		yield return new WaitForSeconds(1f);
+		yield return new WaitForSeconds(1.5f);
 
 		int damage = playerUnit.damage;
 		int range = 100;
@@ -147,7 +147,7 @@ public class BattleSystem : MonoBehaviour
 		string attackDialog = "";
 
 		dialogueText.text = enemyUnit.unitName + " atakuje!";
-
+		enemyUnit.SlashAnim(true);
 		yield return new WaitForSeconds(1f);
 
 		switch (typeOfAttack)
@@ -203,6 +203,7 @@ public class BattleSystem : MonoBehaviour
 
 		bool isDead = playerUnit.TakeDamage(damage);
 		dialogueText.text = attackDialog;
+		enemyUnit.SlashAnim(false);
 
 		playerHUD.SetHP(playerUnit.currentHP);
 
