@@ -5,4 +5,5 @@ using UnityEngine;
 public class Waypoint : MonoBehaviour
 {
     public int waypointID;
+    public bool fork = false;
 }
