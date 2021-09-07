@@ -5,6 +5,8 @@ using Photon.Pun;
 using Photon.Realtime;
 using System.IO;
 using System.Linq;
+using TMPro;
+using UnityEngine.UI;
 
 public class GameControl2 : MonoBehaviourPun
 {
@@ -18,6 +20,8 @@ public class GameControl2 : MonoBehaviourPun
     public string turn;
     public int turnIndex;
     public Transform[] waypoints;
+    public TMP_Text CurrentPlayerTxt;
+    public Button skipTurnBtn;
 
     public int playerCount;
 
@@ -26,7 +30,7 @@ public class GameControl2 : MonoBehaviourPun
         Vector3 dicePos = new Vector3(dPosX, dPosY, dPosZ);
         Vector3 startPos = new Vector3(startPosX, startPosY, startPosZ);
 
-        PhotonNetwork.Instantiate("PhotonPrefabs/Player", startPos, Quaternion.Euler(90, -90, 0));
+        PhotonNetwork.Instantiate("PhotonPrefabs/Player", startPos, Quaternion.identity);
 
         GameObject[] _waypoints = GameObject.FindGameObjectsWithTag("Waypoint");
 
@@ -38,10 +42,6 @@ public class GameControl2 : MonoBehaviourPun
         }
         waypoints = waypoints.OrderBy(a => a.GetComponent<Waypoint>().waypointID).ToArray();
 
-        if (PhotonNetwork.IsMasterClient)
-        {
-            PhotonNetwork.Instantiate("PhotonPrefabs/Dice", dicePos, Quaternion.identity);
-        }
         Debug.Log("Game started with " + PhotonNetwork.PlayerList.Length + " players");
         for (int i = 0; i < PhotonNetwork.PlayerList.Length; i++)
         {
@@ -50,6 +50,25 @@ public class GameControl2 : MonoBehaviourPun
         playerCount = PhotonNetwork.PlayerList.Length;
 
     }
+
+    public void ChangeTurn()
+    {
+        PlayerStats currentPlayer = playersList[turnIndex].GetComponent<PlayerStats>();
+
+        //end turn here
+        ToggleSkipTurnBtn(false);
+        currentPlayer.moveAllowed = false;
+        currentPlayer.YourTurnStarted = false;
+
+        //begin new players turn \/
+        currentPlayer.SyncTurnMaster(turnIndex);
+
+    }
+
+    public void ToggleSkipTurnBtn(bool toggle)
+    {
+        skipTurnBtn.gameObject.SetActive(toggle);
+    } 
 
     void Update()
     {

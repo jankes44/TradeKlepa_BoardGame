@@ -80,7 +80,7 @@ Material:
     - _Brightness: 1
     - _BumpMapDUV: 1
     - _BumpScale: 1
-    - _Contrast: 1
+    - _Contrast: 1.6
     - _ContrastRef: 0.7
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
@@ -113,10 +113,10 @@ Material:
     - _Parallax: 0.02
     - _Saturation: 1
     - _SaturationRef: 0.4
-    - _Shininess: 0.03
+    - _Shininess: 0.08
     - _SmoothnessTextureChannel: 0
     - _SpecMapDInts: 1
-    - _SpecMapInts: 0.4
+    - _SpecMapInts: 0.31
     - _SpecMapUV: 1
     - _SpecMapUVD: 1
     - _SpecularHighlights: 1
@@ -134,7 +134,8 @@ Material:
     - _WaveYSpeed: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0.727, g: 0.74442554, b: 1, a: 1}
+    - _Color: {r: 0, g: 0, b: 0, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _ReflectColor: {r: 0.888, g: 0.8986667, b: 1, a: 1}
-    - _SpecColor: {r: 0.111587, g: 0.114263624, b: 0.133, a: 1}
+    - _SpecColor: {r: 0, g: 0, b: 0, a: 1}
+  m_BuildTextureStacks: []

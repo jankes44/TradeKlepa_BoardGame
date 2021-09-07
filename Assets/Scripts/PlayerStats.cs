@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using Photon.Pun;
 using Photon.Pun.UtilityScripts;
 using System.Linq;
+using Cinemachine;
 
 public class PlayerStats : MonoBehaviour, IPunInstantiateMagicCallback
 {
@@ -12,43 +13,52 @@ public class PlayerStats : MonoBehaviour, IPunInstantiateMagicCallback
     private PhotonView PV;
     private GameControl2 gameControl;
     public GameObject PlayerAvatar;
+
     public string playerName;
     public int actorNo;
     public int waypointIndex = 0;
     public int targetWaypointIndex = 0;
     public float moveSpeed = 2.1f;
     public bool moveAllowed = false;
+
     Animator animator;
     Transform gosciu;
+
     int isWalkingHash;
     public bool isLocal;
-    public GameObject camera;
+    Camera camera;
+    public GameObject freelook;
+    public Transform follow;
+    public Transform lookat;
+    public bool YourTurnStarted = false;
 
     void Start()
     {
         PV = GetComponent<PhotonView>();
         gameControl = GameObject.Find("GameControl").GetComponent<GameControl2>();
-        Vector3 startPos = new Vector3(gameControl.startPosX, gameControl.startPosY, gameControl.startPosZ);
         actorNo = PV.Owner.ActorNumber;
-        playerName = GetComponent<PhotonView>().Owner.NickName;
         gameControl.playersList = GameObject.FindGameObjectsWithTag("Player").OrderBy(go => go.GetComponent<PlayerStats>().actorNo).ToArray();
-        if (PhotonNetwork.IsMasterClient)
-        {
-            SyncTurnMaster(-1);
-
-        }
+        Vector3 startPos = new Vector3(gameControl.startPosX, gameControl.startPosY, gameControl.startPosZ);
+        playerName = GetComponent<PhotonView>().Owner.NickName;
+        isLocal = PV.IsMine || !PhotonNetwork.IsConnected;
         gosciu = transform.Find("gosciuu");
         animator = gosciu.GetComponent<Animator>();
         Debug.Log(animator);
         isWalkingHash = Animator.StringToHash("isWalking");
-        isLocal = PV.IsMine || !PhotonNetwork.IsConnected;
+
+        if (PhotonNetwork.IsMasterClient && isLocal)
+        {
+            Debug.Log("Only master");
+            StartCoroutine("FirstTurn");
+        }
 
         if (!isLocal)
         {
-            camera.SetActive(false);
         } else
         {
-            camera.SetActive(true);
+            freelook = GameObject.FindGameObjectWithTag("cmfreelook");
+            freelook.GetComponent<CinemachineFreeLook>().Follow = follow;
+            freelook.GetComponent<CinemachineFreeLook>().LookAt = lookat;
         }
     }
 
@@ -59,11 +69,15 @@ public class PlayerStats : MonoBehaviour, IPunInstantiateMagicCallback
         PlayerNameText.transform.Rotate(0, 180, 0);
         PlayerNameText.GetComponent<TextMesh>().text = nickName;
         playerName = nickName;
-        if (moveAllowed)
-            Move();
+        if (moveAllowed && PV.IsMine && !YourTurnStarted)
+        {
+            YourTurnStarted = true;
+            Debug.Log("if !yourturnstarted");
+            StartCoroutine("YourTurn");
+        }
     }
     
-    public void Move()
+    public void Move() //obsolete
     {
         if (targetWaypointIndex > waypointIndex)
         {
@@ -83,20 +97,23 @@ public class PlayerStats : MonoBehaviour, IPunInstantiateMagicCallback
         }
     }
 
-    public void SyncTurnMaster(int next)
+
+
+    public void SyncTurnMaster(int current)
     {
         if (PV.IsMine)
         {
-            if (next == gameControl.playerCount - 1)
+            if (current == gameControl.playerCount - 1)
             {
-                next = 0;
+                current = 0;
             }
             else
             {
-                next++;
+                current++;
             }
-            string nextPlayerName = gameControl.playersList[next].GetComponent<PlayerStats>().playerName;
-            SyncTurn(next, nextPlayerName);
+            string nextPlayerName = gameControl.playersList[current].GetComponent<PlayerStats>().playerName;
+            Debug.Log(nextPlayerName + " " + current + " " + gameControl.playerCount);
+            SyncTurn(current, nextPlayerName);
         }
     }
 
@@ -115,6 +132,27 @@ public class PlayerStats : MonoBehaviour, IPunInstantiateMagicCallback
     {        
         gameControl.turn = nextPlayerName;
         gameControl.turnIndex = whosTurn;
+        gameControl.playersList[whosTurn].GetComponent<PlayerStats>().moveAllowed = true;
+        gameControl.CurrentPlayerTxt.text = nextPlayerName;
         Debug.Log("Synchronised whosTurn " + nextPlayerName);
+    }
+
+    public void animationToggle(bool toggle)
+    {
+        animator.SetBool(isWalkingHash, toggle);
+    }
+
+    private IEnumerator YourTurn()
+    {
+        Debug.Log("Your turn started!");
+        gameControl.ToggleSkipTurnBtn(true);
+        yield return null;
+    }
+
+    private IEnumerator FirstTurn()
+    {
+        yield return new WaitForSeconds(2);
+        SyncTurnMaster(0);
+        yield return null;
     }
 }

@@ -27,7 +27,6 @@ public class Unit : MonoBehaviour
 		strengthMultiplier = strength / 50f + 1f;
 		vitalityMultiplier = vitality / 100f + 1f;
 		playerAnimator = gameObject.GetComponent<Animator>();
-		Debug.Log(strengthMultiplier);
 	}
 
 	public void Anim(bool set)
