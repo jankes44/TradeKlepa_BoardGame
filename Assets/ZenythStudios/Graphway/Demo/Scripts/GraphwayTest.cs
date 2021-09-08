@@ -26,14 +26,8 @@ public class GraphwayTest : MonoBehaviour
 	{
 		if (player.isLocal && player.moveAllowed)
 		{       
-			if (Input.GetKey(KeyCode.Space))
-			{
-				int rand = Random.Range(1, 7);
-				steps = 1000;
-				Debug.Log(rand);
-			}
 			// Handle mouse click
-			if (Input.GetMouseButtonDown(0))
+			if (Input.GetMouseButtonDown(0) && steps > 0)
 			{
 				if (EventSystem.current.IsPointerOverGameObject())    // is the touch on the GUI
 				{

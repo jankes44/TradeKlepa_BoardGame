@@ -114,6 +114,11 @@ namespace Photon.Pun
                 return 1;
             }
 
+            if (sceneName == "BoardSysteme")
+            {
+                return 500;
+            }
+
             PunSceneSettings pss = Instance;
             if (pss == null)
             {

@@ -77,25 +77,25 @@ public class PlayerStats : MonoBehaviour, IPunInstantiateMagicCallback
         }
     }
     
-    public void Move() //obsolete
-    {
-        if (targetWaypointIndex > waypointIndex)
-        {
-            animator.SetBool(isWalkingHash, true);
+    //public void Move() //obsolete
+    //{
+    //    if (targetWaypointIndex > waypointIndex)
+    //    {
+    //        animator.SetBool(isWalkingHash, true);
 
-            transform.position = Vector3.MoveTowards(transform.position, gameControl.waypoints[waypointIndex].transform.position, moveSpeed * Time.deltaTime);
+    //        transform.position = Vector3.MoveTowards(transform.position, gameControl.waypoints[waypointIndex].transform.position, moveSpeed * Time.deltaTime);
             
-            if (transform.position == gameControl.waypoints[waypointIndex].transform.position)
-            {
-                waypointIndex += 1;
-            }
-        } else
-        {
-            animator.SetBool(isWalkingHash, false);
-            Debug.Log("allowed? False");
-            moveAllowed = false;
-        }
-    }
+    //        if (transform.position == gameControl.waypoints[waypointIndex].transform.position)
+    //        {
+    //            waypointIndex += 1;
+    //        }
+    //    } else
+    //    {
+    //        animator.SetBool(isWalkingHash, false);
+    //        Debug.Log("allowed? False");
+    //        moveAllowed = false;
+    //    }
+    //}
 
 
 
@@ -133,7 +133,7 @@ public class PlayerStats : MonoBehaviour, IPunInstantiateMagicCallback
         gameControl.turn = nextPlayerName;
         gameControl.turnIndex = whosTurn;
         gameControl.playersList[whosTurn].GetComponent<PlayerStats>().moveAllowed = true;
-        gameControl.CurrentPlayerTxt.text = nextPlayerName;
+        gameControl.CurrentPlayerTxt.text = nextPlayerName+"'s turn";
         Debug.Log("Synchronised whosTurn " + nextPlayerName);
     }
 
@@ -142,10 +142,35 @@ public class PlayerStats : MonoBehaviour, IPunInstantiateMagicCallback
         animator.SetBool(isWalkingHash, toggle);
     }
 
+    public void RollTheDice()
+    {
+        int rand = Random.Range(1, 7); //temporary before dice rolling is ready <-----TODO----->
+        PV.RPC("RPC_RollTheDice", RpcTarget.AllBuffered, rand);
+    }
+
+    [PunRPC]
+    public void RPC_RollTheDice(int rolled)
+    {
+        StartCoroutine(Roll(rolled));
+        Debug.Log("RPC received, rolled: " + rolled);
+    }
+
+    IEnumerator Roll(int rolled)
+    {
+        gameControl.DiceResultTxt.text = "Rolling dice...";
+        yield return new WaitForSeconds(1);
+        gameControl.DiceResultTxt.text = rolled.ToString();
+        gameObject.GetComponent<GraphwayTest>().steps = rolled;
+        Debug.Log(rolled);
+
+        yield return null;
+    }
+
     private IEnumerator YourTurn()
     {
         Debug.Log("Your turn started!");
         gameControl.ToggleSkipTurnBtn(true);
+        gameControl.ToggleRollDiceBtn(true);
         yield return null;
     }
 
