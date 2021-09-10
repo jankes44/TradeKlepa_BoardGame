@@ -7,6 +7,7 @@ using System.IO;
 using System.Linq;
 using TMPro;
 using UnityEngine.UI;
+using Cinemachine;
 
 public class GameControl2 : MonoBehaviourPun
 {
@@ -21,9 +22,13 @@ public class GameControl2 : MonoBehaviourPun
     public string turn;
     public int turnIndex;
     public TMP_Text CurrentPlayerTxt;
-    public TMP_Text DiceResultTxt;
     public Button skipTurnBtn;
     public Button rollDiceBtn;
+    public Sprite newSprite;
+    public Image imageRenderer;
+    public Sprite[] kostkas;
+    public GameObject MyPlayer;
+    public GameObject freelook;
 
     public int playerCount;
 
@@ -33,7 +38,7 @@ public class GameControl2 : MonoBehaviourPun
         Vector3 startPos = new Vector3(startPosX, startPosY, startPosZ);
 
         PV = GetComponent<PhotonView>();
-        PhotonNetwork.Instantiate("PhotonPrefabs/Player", startPos, Quaternion.identity);
+        MyPlayer = PhotonNetwork.Instantiate("PhotonPrefabs/Player", startPos, Quaternion.identity);
 
         Debug.Log("Game started with " + PhotonNetwork.PlayerList.Length + " players");
         for (int i = 0; i < PhotonNetwork.PlayerList.Length; i++)
@@ -41,7 +46,9 @@ public class GameControl2 : MonoBehaviourPun
             Debug.Log(PhotonNetwork.PlayerList[i].TagObject);
         }
         playerCount = PhotonNetwork.PlayerList.Length;
-
+        freelook = GameObject.FindGameObjectWithTag("cmfreelook");
+        freelook.GetComponent<CinemachineFreeLook>().Follow = MyPlayer.GetComponent<PlayerStats>().follow;
+        freelook.GetComponent<CinemachineFreeLook>().LookAt = MyPlayer.GetComponent<PlayerStats>().lookat;
     }
 
     public void ChangeTurn()

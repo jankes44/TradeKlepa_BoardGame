@@ -56,9 +56,10 @@ public class GraphwayTest : MonoBehaviour
 			}
 		
 			// Move towards waypoints (if has waypoints)
-			if (waypoints != null && waypoints.Length > 0 && steps >= waypoints.Length-1)
+			if (waypoints != null && waypoints.Length > 0 && steps == waypoints.Length-1)
 			{
 				player.animationToggle(true);
+				player.isMoving = true;
 				// Increase speed
 				speed = Mathf.Lerp(speed, MAX_SPEED, Time.deltaTime * ACCELERATION);
 				speed = Mathf.Clamp(speed, 0, MAX_SPEED);
@@ -81,6 +82,7 @@ public class GraphwayTest : MonoBehaviour
 			{
 				// Reset speed
 				player.animationToggle(false);
+				player.isMoving = false;
 				speed = 0;
 			}
 		

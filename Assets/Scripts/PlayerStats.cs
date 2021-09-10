@@ -20,17 +20,18 @@ public class PlayerStats : MonoBehaviour, IPunInstantiateMagicCallback
     public int targetWaypointIndex = 0;
     public float moveSpeed = 2.1f;
     public bool moveAllowed = false;
+    public bool isMoving = false;
 
     Animator animator;
     Transform gosciu;
 
     int isWalkingHash;
     public bool isLocal;
-    Camera camera;
-    public GameObject freelook;
     public Transform follow;
     public Transform lookat;
     public bool YourTurnStarted = false;
+
+    bool collided = false;
 
     void Start()
     {
@@ -51,15 +52,6 @@ public class PlayerStats : MonoBehaviour, IPunInstantiateMagicCallback
             Debug.Log("Only master");
             StartCoroutine("FirstTurn");
         }
-
-        if (!isLocal)
-        {
-        } else
-        {
-            freelook = GameObject.FindGameObjectWithTag("cmfreelook");
-            freelook.GetComponent<CinemachineFreeLook>().Follow = follow;
-            freelook.GetComponent<CinemachineFreeLook>().LookAt = lookat;
-        }
     }
 
     void Update()
@@ -75,8 +67,9 @@ public class PlayerStats : MonoBehaviour, IPunInstantiateMagicCallback
             Debug.Log("if !yourturnstarted");
             StartCoroutine("YourTurn");
         }
+
     }
-    
+
     //public void Move() //obsolete
     //{
     //    if (targetWaypointIndex > waypointIndex)
@@ -84,7 +77,7 @@ public class PlayerStats : MonoBehaviour, IPunInstantiateMagicCallback
     //        animator.SetBool(isWalkingHash, true);
 
     //        transform.position = Vector3.MoveTowards(transform.position, gameControl.waypoints[waypointIndex].transform.position, moveSpeed * Time.deltaTime);
-            
+
     //        if (transform.position == gameControl.waypoints[waypointIndex].transform.position)
     //        {
     //            waypointIndex += 1;
@@ -134,6 +127,8 @@ public class PlayerStats : MonoBehaviour, IPunInstantiateMagicCallback
         gameControl.turnIndex = whosTurn;
         gameControl.playersList[whosTurn].GetComponent<PlayerStats>().moveAllowed = true;
         gameControl.CurrentPlayerTxt.text = nextPlayerName+"'s turn";
+        gameControl.freelook.GetComponent<CinemachineFreeLook>().Follow = gameControl.playersList[whosTurn].GetComponent<PlayerStats>().follow;
+        gameControl.freelook.GetComponent<CinemachineFreeLook>().LookAt = gameControl.playersList[whosTurn].GetComponent<PlayerStats>().lookat;
         Debug.Log("Synchronised whosTurn " + nextPlayerName);
     }
 
@@ -157,9 +152,17 @@ public class PlayerStats : MonoBehaviour, IPunInstantiateMagicCallback
 
     IEnumerator Roll(int rolled)
     {
-        gameControl.DiceResultTxt.text = "Rolling dice...";
-        yield return new WaitForSeconds(1);
-        gameControl.DiceResultTxt.text = rolled.ToString();
+        int rand;
+
+        for (int i = 0; i < 15; i++)
+        {
+            rand = Random.Range(1, 7);
+            gameControl.imageRenderer.sprite = gameControl.kostkas[rand-1];
+            yield return new WaitForSeconds(0.1f);
+        }
+
+        gameControl.imageRenderer.sprite = gameControl.kostkas[rolled-1];
+
         gameObject.GetComponent<GraphwayTest>().steps = rolled;
         Debug.Log(rolled);
 
@@ -179,5 +182,20 @@ public class PlayerStats : MonoBehaviour, IPunInstantiateMagicCallback
         yield return new WaitForSeconds(2);
         SyncTurnMaster(0);
         yield return null;
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (collided) return;
+        if (other.gameObject.GetComponent<EventUnit>() && other.gameObject.GetComponent<EventUnit>().hasEvent == true && !isMoving)
+        {
+            collided = true;
+            Debug.Log("Event " + other.gameObject.GetComponent<EventUnit>().eventType + " start");
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        collided = false;
     }
 }

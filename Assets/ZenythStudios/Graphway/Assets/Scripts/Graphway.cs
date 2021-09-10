@@ -114,7 +114,7 @@ public class Graphway : MonoBehaviour
             }
 
             // Remove graphway child gameobjects as they are no longer needed during runtime
-            Destroy(nodesParent.gameObject);
+            //Destroy(nodesParent.gameObject); COMMENTED OUT, MIGHT CAUSE PROBLEMS, NOTHING YET
             Destroy(connectionsParent.gameObject);
         }
     }
