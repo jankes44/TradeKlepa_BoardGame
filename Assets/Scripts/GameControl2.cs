@@ -18,18 +18,26 @@ public class GameControl2 : MonoBehaviourPun
     public float dPosX;
     public float dPosY;
     public float dPosZ;
+
     public GameObject[] playersList;
     public string turn;
     public int turnIndex;
     public TMP_Text CurrentPlayerTxt;
+
     public Button skipTurnBtn;
     public Button rollDiceBtn;
     public Sprite newSprite;
+
     public Image imageRenderer;
     public Sprite[] kostkas;
+
     public GameObject MyPlayer;
     public GameObject freelook;
     public EventControl eventControl;
+
+    public Light mainLight;
+    public Material day;
+    public Material night;
 
     public int playerCount;
 
@@ -37,6 +45,8 @@ public class GameControl2 : MonoBehaviourPun
     {
         Vector3 dicePos = new Vector3(dPosX, dPosY, dPosZ);
         Vector3 startPos = new Vector3(startPosX, startPosY, startPosZ);
+        
+        //RenderSettings.skybox = material this is how you change a skybox
 
         PV = GetComponent<PhotonView>();
         MyPlayer = PhotonNetwork.Instantiate("PhotonPrefabs/Player", startPos, Quaternion.identity);
@@ -83,6 +93,12 @@ public class GameControl2 : MonoBehaviourPun
     public void ToggleRollDiceBtn(bool toggle)
     {
         rollDiceBtn.gameObject.SetActive(toggle);
+    }
+
+    public void DayAndNight(string dayornight)
+    {
+        RenderSettings.skybox = dayornight == "day" ? day : night;
+        mainLight.intensity = dayornight == "day" ? 1f : 0.1f;
     }
 
     void Update()

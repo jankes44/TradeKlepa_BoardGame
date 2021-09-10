@@ -141,6 +141,14 @@ public class PlayerStats : MonoBehaviour, IPunInstantiateMagicCallback
         gameControl.CurrentPlayerTxt.text = nextPlayerName + "'s turn";
         gameControl.freelook.GetComponent<CinemachineFreeLook>().Follow = gameControl.playersList[whosTurn].GetComponent<PlayerStats>().follow;
         gameControl.freelook.GetComponent<CinemachineFreeLook>().LookAt = gameControl.playersList[whosTurn].GetComponent<PlayerStats>().lookat;
+        int rand = Random.Range(0, 2);
+        if (rand == 0)
+        {
+            gameControl.DayAndNight("day");
+        } else if (rand == 1)
+        {
+            gameControl.DayAndNight("night");
+        }
         Debug.Log("Synchronised whosTurn " + nextPlayerName);
     }
 
