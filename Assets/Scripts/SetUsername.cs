@@ -13,7 +13,6 @@ public class SetUsername : MonoBehaviour
 	{
 		Button btn = yourButton.GetComponent<Button>();
 		btn.onClick.AddListener(TaskOnClick);
-		usernameTxtField = GameObject.Find("NicknameInput").GetComponent<InputField>();
 	}
 
 	void TaskOnClick()

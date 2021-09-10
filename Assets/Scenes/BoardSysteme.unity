@@ -50274,6 +50274,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 4510c25c00b6db143b4b8a67a8d8e34b, type: 3}
   - {fileID: 21300000, guid: a2dcc2179a34a534f8152401808ea8e5, type: 3}
   MyPlayer: {fileID: 0}
+  freelook: {fileID: 0}
+  eventControl: {fileID: 1165186690}
   playerCount: 0
 --- !u!4 &1204490702
 Transform:

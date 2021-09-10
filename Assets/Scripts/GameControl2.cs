@@ -29,6 +29,7 @@ public class GameControl2 : MonoBehaviourPun
     public Sprite[] kostkas;
     public GameObject MyPlayer;
     public GameObject freelook;
+    public EventControl eventControl;
 
     public int playerCount;
 
@@ -57,6 +58,8 @@ public class GameControl2 : MonoBehaviourPun
 
         //end turn here
         ToggleSkipTurnBtn(false);
+        ToggleRollDiceBtn(false);
+
         currentPlayer.moveAllowed = false;
         currentPlayer.YourTurnStarted = false;
 

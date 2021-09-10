@@ -64,34 +64,53 @@ public class PlayerStats : MonoBehaviour, IPunInstantiateMagicCallback
         if (moveAllowed && PV.IsMine && !YourTurnStarted)
         {
             YourTurnStarted = true;
-            Debug.Log("if !yourturnstarted");
             StartCoroutine("YourTurn");
         }
 
     }
 
-    //public void Move() //obsolete
-    //{
-    //    if (targetWaypointIndex > waypointIndex)
-    //    {
-    //        animator.SetBool(isWalkingHash, true);
+    public void OnPhotonInstantiate(PhotonMessageInfo info)
+    {
+        info.Sender.TagObject = gameObject;
+    }
 
-    //        transform.position = Vector3.MoveTowards(transform.position, gameControl.waypoints[waypointIndex].transform.position, moveSpeed * Time.deltaTime);
+    public void animationToggle(bool toggle)
+    {
+        animator.SetBool(isWalkingHash, toggle);
+    }
 
-    //        if (transform.position == gameControl.waypoints[waypointIndex].transform.position)
-    //        {
-    //            waypointIndex += 1;
-    //        }
-    //    } else
-    //    {
-    //        animator.SetBool(isWalkingHash, false);
-    //        Debug.Log("allowed? False");
-    //        moveAllowed = false;
-    //    }
-    //}
+    private IEnumerator YourTurn()
+    {
+        Debug.Log("Your turn started!");
+        gameControl.ToggleSkipTurnBtn(true);
+        gameControl.ToggleRollDiceBtn(true);
+        yield return null;
+    }
 
+    private IEnumerator FirstTurn()
+    {
+        yield return new WaitForSeconds(2);
+        SyncTurnMaster(-1);
+        yield return null;
+    }
 
+    private void OnTriggerStay(Collider other)
+    {
+        if (collided) return;
+        if (other.gameObject.GetComponent<EventUnit>() && other.gameObject.GetComponent<EventUnit>().hasEvent == true && !isMoving)
+        {
+            collided = true;
+            //if event == 'combat' then transfer the player to a different scene. Prepare the scene with the correct enemy and prepare the player for combat
+            Debug.Log("Event " + other.gameObject.GetComponent<EventUnit>().eventType + " start");
+        }
+    }
 
+    private void OnTriggerExit(Collider other)
+    {
+        collided = false;
+    }
+
+    //TURN SYNC ----------------------
     public void SyncTurnMaster(int current)
     {
         if (PV.IsMine)
@@ -104,42 +123,31 @@ public class PlayerStats : MonoBehaviour, IPunInstantiateMagicCallback
             {
                 current++;
             }
+            if (current == 0) CreateEvent();
+
             string nextPlayerName = gameControl.playersList[current].GetComponent<PlayerStats>().playerName;
             Debug.Log(nextPlayerName + " " + current + " " + gameControl.playerCount);
-            SyncTurn(current, nextPlayerName);
+
+            PV.RPC("SyncTurnRPC", RpcTarget.AllBuffered, current, nextPlayerName);
         }
-    }
-
-    public void OnPhotonInstantiate(PhotonMessageInfo info)
-    {
-        info.Sender.TagObject = gameObject;
-    }
-
-    public void SyncTurn(int whosTurn, string nextPlayerName)
-    {
-        PV.RPC("SyncTurnRPC", RpcTarget.AllBuffered, whosTurn, nextPlayerName);
     }
 
     [PunRPC]
     public void SyncTurnRPC(int whosTurn, string nextPlayerName)
-    {        
+    {
         gameControl.turn = nextPlayerName;
         gameControl.turnIndex = whosTurn;
         gameControl.playersList[whosTurn].GetComponent<PlayerStats>().moveAllowed = true;
-        gameControl.CurrentPlayerTxt.text = nextPlayerName+"'s turn";
+        gameControl.CurrentPlayerTxt.text = nextPlayerName + "'s turn";
         gameControl.freelook.GetComponent<CinemachineFreeLook>().Follow = gameControl.playersList[whosTurn].GetComponent<PlayerStats>().follow;
         gameControl.freelook.GetComponent<CinemachineFreeLook>().LookAt = gameControl.playersList[whosTurn].GetComponent<PlayerStats>().lookat;
         Debug.Log("Synchronised whosTurn " + nextPlayerName);
     }
 
-    public void animationToggle(bool toggle)
-    {
-        animator.SetBool(isWalkingHash, toggle);
-    }
-
+    //DICE ROLL ------------------
     public void RollTheDice()
     {
-        int rand = Random.Range(1, 7); //temporary before dice rolling is ready <-----TODO----->
+        int rand = Random.Range(1, 7);
         PV.RPC("RPC_RollTheDice", RpcTarget.AllBuffered, rand);
     }
 
@@ -157,11 +165,11 @@ public class PlayerStats : MonoBehaviour, IPunInstantiateMagicCallback
         for (int i = 0; i < 15; i++)
         {
             rand = Random.Range(1, 7);
-            gameControl.imageRenderer.sprite = gameControl.kostkas[rand-1];
+            gameControl.imageRenderer.sprite = gameControl.kostkas[rand - 1];
             yield return new WaitForSeconds(0.1f);
         }
 
-        gameControl.imageRenderer.sprite = gameControl.kostkas[rolled-1];
+        gameControl.imageRenderer.sprite = gameControl.kostkas[rolled - 1];
 
         gameObject.GetComponent<GraphwayTest>().steps = rolled;
         Debug.Log(rolled);
@@ -169,33 +177,19 @@ public class PlayerStats : MonoBehaviour, IPunInstantiateMagicCallback
         yield return null;
     }
 
-    private IEnumerator YourTurn()
+
+
+    //EVENTS ------------------
+    public void CreateEvent()
     {
-        Debug.Log("Your turn started!");
-        gameControl.ToggleSkipTurnBtn(true);
-        gameControl.ToggleRollDiceBtn(true);
-        yield return null;
+        int rand = Random.Range(0, gameControl.eventControl.unitList.Length+1); //temporary before dice rolling is ready <-----TODO----->
+        PV.RPC("RPC_CreateEvent", RpcTarget.AllBuffered, rand);
     }
 
-    private IEnumerator FirstTurn()
+    [PunRPC]
+    public void RPC_CreateEvent(int rand)
     {
-        yield return new WaitForSeconds(2);
-        SyncTurnMaster(0);
-        yield return null;
-    }
-
-    private void OnTriggerStay(Collider other)
-    {
-        if (collided) return;
-        if (other.gameObject.GetComponent<EventUnit>() && other.gameObject.GetComponent<EventUnit>().hasEvent == true && !isMoving)
-        {
-            collided = true;
-            Debug.Log("Event " + other.gameObject.GetComponent<EventUnit>().eventType + " start");
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        collided = false;
+        Debug.Log("RPC received, spawning event");
+        gameControl.eventControl.RandomEvent(rand);
     }
 }

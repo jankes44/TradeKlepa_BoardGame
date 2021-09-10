@@ -22,4 +22,9 @@ public class EventControl : MonoBehaviour
             unitList[lastEventIndex].RemoveEvent();
         }
     }
+
+    public void RandomEvent(int rand)
+    {
+        unitList[rand].AddEvent("Combat", eventGO);
+    }
 }
