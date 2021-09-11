@@ -97,7 +97,13 @@ public class GameControl2 : MonoBehaviourPun
 
     public void DayAndNight(string dayornight)
     {
+        Color dayColor = new Color(1f, 1f, 1f, 1f);
+        Color nightColor = new Color(0f, 0f, 0f, 1f);
+
         RenderSettings.skybox = dayornight == "day" ? day : night;
+        RenderSettings.ambientLight = dayornight == "day" ? dayColor : nightColor;
+        RenderSettings.ambientIntensity = 0f;
+
         mainLight.intensity = dayornight == "day" ? 1f : 0.1f;
     }
 
