@@ -60,6 +60,7 @@ public class GameControl2 : MonoBehaviourPun
         freelook = GameObject.FindGameObjectWithTag("cmfreelook");
         freelook.GetComponent<CinemachineFreeLook>().Follow = MyPlayer.GetComponent<PlayerStats>().follow;
         freelook.GetComponent<CinemachineFreeLook>().LookAt = MyPlayer.GetComponent<PlayerStats>().lookat;
+        DayAndNight("day");
     }
 
     public void ChangeTurn()

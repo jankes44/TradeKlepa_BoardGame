@@ -42,7 +42,7 @@ public class PlayerStats : MonoBehaviour, IPunInstantiateMagicCallback
         Vector3 startPos = new Vector3(gameControl.startPosX, gameControl.startPosY, gameControl.startPosZ);
         playerName = GetComponent<PhotonView>().Owner.NickName;
         isLocal = PV.IsMine || !PhotonNetwork.IsConnected;
-        gosciu = transform.Find("gosciuu");
+        gosciu = transform.Find("giga_chad");
         animator = gosciu.GetComponent<Animator>();
         Debug.Log(animator);
         isWalkingHash = Animator.StringToHash("isWalking");
@@ -94,22 +94,6 @@ public class PlayerStats : MonoBehaviour, IPunInstantiateMagicCallback
         yield return null;
     }
 
-    private void OnTriggerStay(Collider other)
-    {
-        if (collided) return;
-        if (other.gameObject.GetComponent<EventUnit>() && other.gameObject.GetComponent<EventUnit>().hasEvent == true && !isMoving)
-        {
-            collided = true;
-            //if event == 'combat' then transfer the player to a different scene. Prepare the scene with the correct enemy and prepare the player for combat
-            Debug.Log("Event " + other.gameObject.GetComponent<EventUnit>().eventType + " start");
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        collided = false;
-    }
-
     //TURN SYNC ----------------------
     public void SyncTurnMaster(int current)
     {
@@ -141,14 +125,14 @@ public class PlayerStats : MonoBehaviour, IPunInstantiateMagicCallback
         gameControl.CurrentPlayerTxt.text = nextPlayerName + "'s turn";
         gameControl.freelook.GetComponent<CinemachineFreeLook>().Follow = gameControl.playersList[whosTurn].GetComponent<PlayerStats>().follow;
         gameControl.freelook.GetComponent<CinemachineFreeLook>().LookAt = gameControl.playersList[whosTurn].GetComponent<PlayerStats>().lookat;
-        int rand = Random.Range(0, 2);
-        if (rand == 0)
-        {
-            gameControl.DayAndNight("day");
-        } else if (rand == 1)
-        {
-            gameControl.DayAndNight("night");
-        }
+        //int rand = Random.Range(0, 2);
+        //if (rand == 0)
+        //{
+        //    gameControl.DayAndNight("day");
+        //} else if (rand == 1)
+        //{
+        //    gameControl.DayAndNight("night");
+        //}
         Debug.Log("Synchronised whosTurn " + nextPlayerName);
     }
 
@@ -199,5 +183,25 @@ public class PlayerStats : MonoBehaviour, IPunInstantiateMagicCallback
     {
         Debug.Log("RPC received, spawning event");
         gameControl.eventControl.RandomEvent(rand);
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (collided) return;
+        if (other.gameObject.GetComponent<EventUnit>() && other.gameObject.GetComponent<EventUnit>().hasEvent == true && !isMoving)
+        {
+            string eventType = other.gameObject.GetComponent<EventUnit>().eventType;
+            Sprite eventSprite = other.gameObject.GetComponent<EventUnit>().eventIMG;
+
+            collided = true;
+            gameControl.eventControl.EventEnter(eventSprite);
+            //if event == 'combat' then transfer the player to a different scene. Prepare the scene with the correct enemy and prepare the player for combat
+            Debug.Log("Event " + eventType + " start " + eventSprite.name);
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        collided = false;
     }
 }

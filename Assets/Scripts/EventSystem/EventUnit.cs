@@ -7,6 +7,7 @@ public class EventUnit : MonoBehaviour
 {
     public bool hasEvent = false;
     public string eventType;
+    public Sprite eventIMG;
     GameObject eventObject;
     GameControl2 gameControl;
     BoxCollider boxCollider;
@@ -31,10 +32,11 @@ public class EventUnit : MonoBehaviour
         }
     }
 
-    public void AddEvent(string type, GameObject eventGO)
+    public void AddEvent(string type, GameObject eventGO, Sprite sprite)
     {
         hasEvent = true;
         eventType = type;
+        eventIMG = sprite;
 
         Vector3 pos = transform.position;
         eventObject = Instantiate(eventGO, pos, Quaternion.identity);
