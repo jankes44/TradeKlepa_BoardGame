@@ -11,38 +11,47 @@ public class Inventory : MonoBehaviour
     private int allSlots;
     private int enabledSlots;
     private GameObject[] slot;
+    PlayerStats PS;
 
     public GameObject slotHolder;
 
     void Start()
     {
-        allSlots = 12;
-        slot = new GameObject[allSlots];
-
-        inventory = GameObject.FindGameObjectWithTag("Inventory");
-        slotHolder = GameObject.Find("Slot Holder");
-
-        for (int i = 0; i < allSlots; i++)
+        PS = GetComponent<PlayerStats>();
+        if (PS.isLocal)
         {
-            slot[i] = slotHolder.transform.GetChild(i).gameObject;
-            if (slot[i].GetComponent<Slot>().item == null)
-                slot[i].GetComponent<Slot>().empty = true;
-        }
+            allSlots = 12;
+            slot = new GameObject[allSlots];
 
-        
+            inventory = GameObject.FindGameObjectWithTag("Inventory");
+            slotHolder = GameObject.Find("Slot Holder");
+
+            for (int i = 0; i < allSlots; i++)
+            {
+                slot[i] = slotHolder.transform.GetChild(i).gameObject;
+                if (slot[i].GetComponent<Slot>().item == null)
+                    slot[i].GetComponent<Slot>().empty = true;
+            }
+            inventoryEnabled = false;
+        }
     }
 
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.I))
-            inventoryEnabled = !inventoryEnabled;
-
-        if (inventoryEnabled == true)
+        if (PS.isLocal)
         {
-            inventory.SetActive(true);
-        } else {
-            inventory.SetActive(false);
+            if (Input.GetKeyDown(KeyCode.I))
+                inventoryEnabled = !inventoryEnabled;
+
+            if (inventoryEnabled == true)
+            {
+                inventory.SetActive(true);
+            }
+            else
+            {
+                inventory.SetActive(false);
+            }
         }
     }
      private void OnTriggerEnter(Collider other)
