@@ -42,6 +42,25 @@ public class Unit : MonoBehaviour
 		playerAnimator.SetBool(hash, set);
     }
 
+	public void SlashAnimPlayer(bool set, string type)
+	{
+		int hash = Animator.StringToHash("poke");
+		switch (type)
+		{
+			case "strong":
+				hash = Animator.StringToHash("smash");
+				break;
+			case "medium":
+				hash = Animator.StringToHash("slash");
+				break;
+			case "weak":
+				hash = Animator.StringToHash("poke");
+				break;
+		}
+		playerAnimator.SetBool(hash, set);
+	}
+
+
 	public void SlashAnim(bool set)
 	{
 		int hash = Animator.StringToHash("slash");
@@ -54,14 +73,29 @@ public class Unit : MonoBehaviour
 		playerAnimator.SetBool(hash, set);
 	}
 
+	public void TakeDmgAnim(bool set)
+    {
+		int hash = Animator.StringToHash("takehit");
+		playerAnimator.SetBool(hash, set);
+    }
+
+	public void BlockAnim(bool set)
+    {
+		int hash = Animator.StringToHash("block");
+		playerAnimator.SetBool(hash, set);
+    }
+
 	public bool TakeDamage(int dmg)
 	{
 		currentHP -= dmg;
 
 		if (currentHP <= 0)
+			//die animation
 			return true;
 		else
+        {
 			return false;
+		}
 	}
 
 	public void Heal(int amount)

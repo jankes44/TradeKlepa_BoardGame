@@ -54,9 +54,9 @@ public class BattleSystem : MonoBehaviour
 	{
 		actionInProgress = true;
 		combatHUD.SetActive(false);
-		playerUnit.SlashAnim(true);
+		playerUnit.SlashAnimPlayer(true, typeOfAttack);
 
-		yield return new WaitForSeconds(1.5f);
+		yield return new WaitForSeconds(1f);
 
 		int damage = playerUnit.damage;
 		int range = 100;
@@ -119,7 +119,7 @@ public class BattleSystem : MonoBehaviour
 
 		yield return new WaitForSeconds(2f);
 
-		playerUnit.SlashAnim(false);
+		playerUnit.SlashAnimPlayer(false, typeOfAttack);
 
 		if (isDead)
 		{
@@ -202,6 +202,8 @@ public class BattleSystem : MonoBehaviour
 		Debug.Log(typeOfAttack);
 
 		bool isDead = playerUnit.TakeDamage(damage);
+		if (damage > 0) playerUnit.TakeDmgAnim(true);
+
 		dialogueText.text = attackDialog;
 		enemyUnit.SlashAnim(false);
 
@@ -209,7 +211,9 @@ public class BattleSystem : MonoBehaviour
 
 		yield return new WaitForSeconds(1f);
 
-		if(isDead)
+		if (damage > 0) playerUnit.TakeDmgAnim(false);
+
+		if (isDead)
 		{
 			state = BattleState.LOST;
 			EndBattle();

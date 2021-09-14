@@ -41,6 +41,22 @@ public class GameControl2 : MonoBehaviourPun
 
     public int playerCount;
 
+    private static GameControl2 gameControlInstance;
+
+    void Awake()
+    {
+        DontDestroyOnLoad(this);
+
+        if (gameControlInstance == null)
+        {
+            gameControlInstance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
     void Start()
     {
         Vector3 dicePos = new Vector3(dPosX, dPosY, dPosZ);

@@ -95,12 +95,14 @@ public class GraphwayEditor : Editor
 		{
 			// Disable left click selection on other game objects
 			HandleUtility.AddDefaultControl(GUIUtility.GetControlID(FocusType.Passive));
-
+			Debug.Log("disabled left click selection on game objects");
 			// Handle mouse click event
 			if (Event.current.type == EventType.MouseDown && Event.current.button == 0)
 			{
+				Debug.Log("disabled left click selection on game objects");
+
 				// Raycast to find hit position
-                // NOTE - objects must have colliders attached!
+				// NOTE - objects must have colliders attached!
 				Ray worldRay = HandleUtility.GUIPointToWorldRay(Event.current.mousePosition);
 
 				RaycastHit hit;
