@@ -32,6 +32,7 @@ public class GameControl2 : MonoBehaviourPun
     public Sprite[] kostkas;
 
     public GameObject MyPlayer;
+    public PlayerStats currentPlayer;
     public GameObject freelook;
     public EventControl eventControl;
 
@@ -81,7 +82,7 @@ public class GameControl2 : MonoBehaviourPun
 
     public void ChangeTurn()
     {
-        PlayerStats currentPlayer = playersList[turnIndex].GetComponent<PlayerStats>();
+        currentPlayer = playersList[turnIndex].GetComponent<PlayerStats>();
 
         //end turn here
         ToggleSkipTurnBtn(false);
@@ -98,7 +99,6 @@ public class GameControl2 : MonoBehaviourPun
     public void RollTheDice()
     {
         rollDiceBtn.gameObject.SetActive(false);
-        PlayerStats currentPlayer = playersList[turnIndex].GetComponent<PlayerStats>();
         currentPlayer.RollTheDice();
     }
 

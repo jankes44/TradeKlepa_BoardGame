@@ -3450,7 +3450,6 @@ GameObject:
   - component: {fileID: 7684413238354401779}
   - component: {fileID: 7684413238354401778}
   - component: {fileID: 7684413238354401775}
-  - component: {fileID: -1380968995297302127}
   - component: {fileID: 2278731189646453739}
   - component: {fileID: 2015117325431254011}
   - component: {fileID: -768300282006020650}
@@ -3550,23 +3549,11 @@ MonoBehaviour:
   moveAllowed: 0
   isMoving: 0
   isLocal: 0
-  follow: {fileID: 0}
-  lookat: {fileID: 0}
+  follow: {fileID: 2083406844473004652}
+  lookat: {fileID: 1460600706962334782}
   YourTurnStarted: 0
---- !u!114 &-1380968995297302127
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7684413238354401774}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e273a97072b3d14c81cd4c670e36040, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inventory: {fileID: 0}
-  slotHolder: {fileID: 0}
+  rollDebuffCount: 0
+  skipTurnDebuff: 0
 --- !u!65 &2278731189646453739
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3600,7 +3587,6 @@ MonoBehaviour:
   OwnershipTransfer: 0
   ObservedComponents:
   - {fileID: -768300282006020650}
-  - {fileID: 0}
   - {fileID: 9050170955415171959}
   viewIdField: 0
   InstantiationId: 0
@@ -3651,6 +3637,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   debugMode: 0
+  speed: 0
   steps: 0
 --- !u!54 &-7625198619880254547
 Rigidbody:

@@ -13,6 +13,7 @@ TagManager:
   - lb_groundTarget
   - lb_perchTarget
   - cmfreelook
+  - GameControl
   layers:
   - Default
   - TransparentFX

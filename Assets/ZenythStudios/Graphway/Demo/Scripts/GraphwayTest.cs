@@ -13,7 +13,7 @@ public class GraphwayTest : MonoBehaviour
     public bool debugMode = false;
 
     private GwWaypoint[] waypoints;
-	private float speed = 0;
+	public float speed = 0;
 	public int steps = 0;
 	PlayerStats player;
 

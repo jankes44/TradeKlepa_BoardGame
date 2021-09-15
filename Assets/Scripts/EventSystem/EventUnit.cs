@@ -6,8 +6,10 @@ using Photon.Pun;
 public class EventUnit : MonoBehaviour
 {
     public bool hasEvent = false;
+    public string eventID;
     public string eventType;
     public Sprite eventIMG;
+    public int spriteIndex;
     GameObject eventObject;
     GameControl2 gameControl;
     BoxCollider boxCollider;
@@ -26,17 +28,19 @@ public class EventUnit : MonoBehaviour
 
     private void Update()
     {
-        if (hasEvent && eventObject != null)
+        if (gameObject != null && hasEvent && eventObject != null)
         {
             eventObject.transform.LookAt(gameControl.MyPlayer.transform);
         }
     }
 
-    public void AddEvent(string type, GameObject eventGO, Sprite sprite)
+    public void AddEvent(string uid, string type, GameObject eventGO, Sprite sprite, int index)
     {
         hasEvent = true;
+        eventID = uid;
         eventType = type;
         eventIMG = sprite;
+        spriteIndex = index;
 
         Vector3 pos = transform.position;
         eventObject = Instantiate(eventGO, pos, Quaternion.identity);
@@ -45,6 +49,10 @@ public class EventUnit : MonoBehaviour
     {
         hasEvent = false;
         eventType = "";
+        eventID = null;
+        eventIMG = null;
+        spriteIndex = 0;
+
         if (eventObject != null)
         {
             Destroy(eventObject);

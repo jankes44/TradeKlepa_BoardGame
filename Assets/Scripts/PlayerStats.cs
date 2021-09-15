@@ -1,11 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
+﻿using Cinemachine;
 using Photon.Pun;
-using Photon.Pun.UtilityScripts;
+using System.Collections;
 using System.Linq;
-using Cinemachine;
+using UnityEngine;
 
 public class PlayerStats : MonoBehaviour, IPunInstantiateMagicCallback
 {
@@ -31,12 +28,16 @@ public class PlayerStats : MonoBehaviour, IPunInstantiateMagicCallback
     public Transform lookat;
     public bool YourTurnStarted = false;
 
+    //DEBUFFS ----------
+    public int rollDebuffCount = 0;
+    public bool skipTurnDebuff = false;
+
     bool collided = false;
 
     void Start()
     {
         PV = GetComponent<PhotonView>();
-        gameControl = GameObject.Find("GameControl").GetComponent<GameControl2>();
+        gameControl = GameObject.FindGameObjectWithTag("GameControl").GetComponent<GameControl2>();
         actorNo = PV.Owner.ActorNumber;
         gameControl.playersList = GameObject.FindGameObjectsWithTag("Player").OrderBy(go => go.GetComponent<PlayerStats>().actorNo).ToArray();
         Vector3 startPos = new Vector3(gameControl.startPosX, gameControl.startPosY, gameControl.startPosZ);
@@ -80,10 +81,18 @@ public class PlayerStats : MonoBehaviour, IPunInstantiateMagicCallback
     }
 
     private IEnumerator YourTurn()
-    {
-        Debug.Log("Your turn started!");
-        gameControl.ToggleSkipTurnBtn(true);
-        gameControl.ToggleRollDiceBtn(true);
+    {        
+        if (skipTurnDebuff)
+        {
+            Debug.Log("Sorry, skip...");
+            skipTurnDebuff = false;
+            gameControl.ChangeTurn();
+        } else
+        {
+            Debug.Log("Your turn started!");
+            gameControl.ToggleSkipTurnBtn(true);
+            gameControl.ToggleRollDiceBtn(true);
+        }
         yield return null;
     }
 
@@ -92,6 +101,11 @@ public class PlayerStats : MonoBehaviour, IPunInstantiateMagicCallback
         yield return new WaitForSeconds(2);
         SyncTurnMaster(-1);
         yield return null;
+    }
+
+    public void Heal(int healthGain)
+    {
+        Debug.Log($"healed {healthGain} hp");
     }
 
     //TURN SYNC ----------------------
@@ -125,6 +139,7 @@ public class PlayerStats : MonoBehaviour, IPunInstantiateMagicCallback
         gameControl.CurrentPlayerTxt.text = nextPlayerName + "'s turn";
         gameControl.freelook.GetComponent<CinemachineFreeLook>().Follow = gameControl.playersList[whosTurn].GetComponent<PlayerStats>().follow;
         gameControl.freelook.GetComponent<CinemachineFreeLook>().LookAt = gameControl.playersList[whosTurn].GetComponent<PlayerStats>().lookat;
+        gameControl.currentPlayer = gameControl.playersList[gameControl.turnIndex].GetComponent<PlayerStats>();
         //int rand = Random.Range(0, 2);
         //if (rand == 0)
         //{
@@ -140,6 +155,11 @@ public class PlayerStats : MonoBehaviour, IPunInstantiateMagicCallback
     public void RollTheDice()
     {
         int rand = Random.Range(1, 7);
+        if (rollDebuffCount > 0)
+        {
+            rand = 1;
+        }
+        rollDebuffCount--;
         PV.RPC("RPC_RollTheDice", RpcTarget.AllBuffered, rand);
     }
 
@@ -174,29 +194,49 @@ public class PlayerStats : MonoBehaviour, IPunInstantiateMagicCallback
     //EVENTS ------------------
     public void CreateEvent()
     {
-        int rand = Random.Range(0, gameControl.eventControl.unitList.Length+1); //temporary before dice rolling is ready <-----TODO----->
-        PV.RPC("RPC_CreateEvent", RpcTarget.AllBuffered, rand);
+        int randPlace = Random.Range(0, gameControl.eventControl.unitList.Length); //temporary before dice rolling is ready <-----TODO----->
+        int randEvent = Random.Range(0, gameControl.eventControl.eventList.Length);
+        string uid = System.Guid.NewGuid().ToString();
+
+        PV.RPC("RPC_CreateEvent", RpcTarget.AllBuffered, uid, randPlace, randEvent);
     }
 
     [PunRPC]
-    public void RPC_CreateEvent(int rand)
+    public void RPC_CreateEvent(string uid, int randPlace, int randEvent)
     {
         Debug.Log("RPC received, spawning event");
-        gameControl.eventControl.RandomEvent(rand);
+        gameControl.eventControl.AddEvent(uid, randPlace, randEvent);
+    }
+
+    public void EnterEvent(string eventID, int spriteIndex)
+    {
+        PV.RPC("RPC_EnterEvent", RpcTarget.AllBuffered, eventID, spriteIndex);
+    }
+
+    [PunRPC]
+    public void RPC_EnterEvent(string eventID, int spriteIndex)
+    {
+        Debug.Log("RPC received, enter event");
+        gameControl.eventControl.EventEnter(eventID, gameControl.eventControl.eventList[spriteIndex]);
     }
 
     private void OnTriggerStay(Collider other)
     {
-        if (collided) return;
-        if (other.gameObject.GetComponent<EventUnit>() && other.gameObject.GetComponent<EventUnit>().hasEvent == true && !isMoving)
+        if (isLocal && gameControl.currentPlayer && actorNo == gameControl.currentPlayer.actorNo)
         {
-            string eventType = other.gameObject.GetComponent<EventUnit>().eventType;
-            Sprite eventSprite = other.gameObject.GetComponent<EventUnit>().eventIMG;
+            if (collided) return;
+            if (other.gameObject.GetComponent<EventUnit>() && other.gameObject.GetComponent<EventUnit>().hasEvent == true && !isMoving && gameObject.GetComponent<GraphwayTest>().speed == 0)
+            {
+                string eventType = other.gameObject.GetComponent<EventUnit>().eventType;
+                Sprite eventSprite = other.gameObject.GetComponent<EventUnit>().eventIMG;
+                int spriteIndex = other.gameObject.GetComponent<EventUnit>().spriteIndex;
+                string eventID = other.gameObject.GetComponent<EventUnit>().eventID;
 
-            collided = true;
-            gameControl.eventControl.EventEnter(eventSprite);
-            //if event == 'combat' then transfer the player to a different scene. Prepare the scene with the correct enemy and prepare the player for combat
-            Debug.Log("Event " + eventType + " start " + eventSprite.name);
+                collided = true;
+                EnterEvent(eventID, spriteIndex);
+
+                Debug.Log("Event " + eventType + " start " + eventSprite.name);
+            }
         }
     }
 
