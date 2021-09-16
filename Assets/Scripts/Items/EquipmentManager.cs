@@ -31,6 +31,13 @@ public class EquipmentManager : MonoBehaviour {
 	Equipment[] currentEquipment;
 	SkinnedMeshRenderer[] currentMeshes;
 
+	public EqSlot WeaponSlot;
+	public EqSlot HeadSlot;
+	public EqSlot ChestSlot;
+	public EqSlot LegsSlot;
+	public EqSlot ShieldSlot;
+	public EqSlot FeetSlot;
+
 	public SkinnedMeshRenderer targetMesh;
 
 	// Callback for when an item is equipped
@@ -69,6 +76,10 @@ public class EquipmentManager : MonoBehaviour {
 		// Find out what slot the item fits in
 		// and put it there.
 		int slotIndex = (int)newItem.equipSlot;
+		if (newItem.equipSlot == EquipmentSlot.Weapon)
+        {
+			WeaponSlot.Equip(newItem);
+        }
 
 		// If there was already an item in the slot
 		// make sure to put it back in the inventory
@@ -94,7 +105,7 @@ public class EquipmentManager : MonoBehaviour {
 
 	}
 
-	void Unequip(int slotIndex) {
+	public void Unequip(int slotIndex) {
 		if (currentEquipment[slotIndex] != null)
 		{
 			Equipment oldItem = currentEquipment [slotIndex];

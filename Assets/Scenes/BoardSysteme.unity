@@ -1175,6 +1175,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -1776,6 +1777,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -1828,6 +1830,167 @@ MonoBehaviour:
   speedWeight: 1
   connectionType: 0
   editorSubnodeCounter: 0
+--- !u!1001 &48989070
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 747803795}
+    m_Modifications:
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.57430017
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.57430017
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.57430017
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 27.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 82.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7701057769631862205, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_Name
+      value: EqSlot (2)
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 7731799585367378547, guid: ed8e6306355068246bbb043185672201, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: ed8e6306355068246bbb043185672201, type: 3}
+--- !u!224 &48989071 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+    type: 3}
+  m_PrefabInstance: {fileID: 48989070}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &48989072 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7701057769631862205, guid: ed8e6306355068246bbb043185672201,
+    type: 3}
+  m_PrefabInstance: {fileID: 48989070}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &48989073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 48989072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70a0158d779d7114a942a9d99c55e366, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  icon: {fileID: 0}
+  equipSlot: 2
 --- !u!1 &49607193
 GameObject:
   m_ObjectHideFlags: 0
@@ -2209,6 +2372,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -2722,6 +2886,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -3404,6 +3569,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -3940,6 +4106,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -4180,6 +4347,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -4862,6 +5030,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -5395,6 +5564,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -5445,6 +5615,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -6727,6 +6898,167 @@ MonoBehaviour:
   speedWeight: 1
   connectionType: 0
   editorSubnodeCounter: 0
+--- !u!1001 &153938315
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 747803795}
+    m_Modifications:
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.57430017
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.57430017
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.57430017
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 80.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 60.499992
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7701057769631862205, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_Name
+      value: EqSlot (5)
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 7731799585367378547, guid: ed8e6306355068246bbb043185672201, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: ed8e6306355068246bbb043185672201, type: 3}
+--- !u!224 &153938316 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+    type: 3}
+  m_PrefabInstance: {fileID: 153938315}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &153938317 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7701057769631862205, guid: ed8e6306355068246bbb043185672201,
+    type: 3}
+  m_PrefabInstance: {fileID: 153938315}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &153938318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 153938317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70a0158d779d7114a942a9d99c55e366, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  icon: {fileID: 0}
+  equipSlot: 5
 --- !u!1 &156740884
 GameObject:
   m_ObjectHideFlags: 0
@@ -6885,6 +7217,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -7594,6 +7927,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -8355,9 +8689,171 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
+--- !u!1001 &204139398
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 747803795}
+    m_Modifications:
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.57430017
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.57430017
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.57430017
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 27.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -4.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7701057769631862205, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_Name
+      value: EqSlot (4)
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 7731799585367378547, guid: ed8e6306355068246bbb043185672201, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: ed8e6306355068246bbb043185672201, type: 3}
+--- !u!224 &204139399 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+    type: 3}
+  m_PrefabInstance: {fileID: 204139398}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &204139400 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7701057769631862205, guid: ed8e6306355068246bbb043185672201,
+    type: 3}
+  m_PrefabInstance: {fileID: 204139398}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &204139401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 204139400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70a0158d779d7114a942a9d99c55e366, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  icon: {fileID: 0}
+  equipSlot: 6
 --- !u!1001 &204391042
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8704,6 +9200,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -9333,6 +9830,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -9507,6 +10005,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -9856,6 +10355,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -9968,6 +10468,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -10499,6 +11000,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -11390,6 +11892,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -11758,6 +12261,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -12570,6 +13074,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -13478,6 +13983,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -14439,6 +14945,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -14788,6 +15295,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -15077,6 +15585,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -16645,6 +17154,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -16806,6 +17316,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -16918,6 +17429,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -17030,6 +17542,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -18450,6 +18963,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -18641,9 +19155,171 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
+--- !u!1001 &440043897
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 747803795}
+    m_Modifications:
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.57430017
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.57430017
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.57430017
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 26.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 126
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7701057769631862205, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_Name
+      value: EqSlot (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 7731799585367378547, guid: ed8e6306355068246bbb043185672201, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: ed8e6306355068246bbb043185672201, type: 3}
+--- !u!224 &440043898 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+    type: 3}
+  m_PrefabInstance: {fileID: 440043897}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &440043899 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7701057769631862205, guid: ed8e6306355068246bbb043185672201,
+    type: 3}
+  m_PrefabInstance: {fileID: 440043897}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &440043900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 440043899}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70a0158d779d7114a942a9d99c55e366, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  icon: {fileID: 0}
+  equipSlot: 1
 --- !u!1001 &441206827
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19346,6 +20022,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -19727,6 +20404,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -19997,6 +20675,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -20109,6 +20788,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -20556,6 +21236,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -21553,6 +22234,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -22020,6 +22702,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -22664,6 +23347,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -23561,6 +24245,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -23673,6 +24358,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -23834,6 +24520,167 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 549295465}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &551343647
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 747803795}
+    m_Modifications:
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.57430017
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.57430017
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.57430017
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 27
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 40.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7701057769631862205, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_Name
+      value: EqSlot (3)
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 7731799585367378547, guid: ed8e6306355068246bbb043185672201, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: ed8e6306355068246bbb043185672201, type: 3}
+--- !u!224 &551343648 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+    type: 3}
+  m_PrefabInstance: {fileID: 551343647}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &551343649 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7701057769631862205, guid: ed8e6306355068246bbb043185672201,
+    type: 3}
+  m_PrefabInstance: {fileID: 551343647}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &551343650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 551343649}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70a0158d779d7114a942a9d99c55e366, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  icon: {fileID: 0}
+  equipSlot: 3
 --- !u!1 &552918383
 GameObject:
   m_ObjectHideFlags: 0
@@ -23943,6 +24790,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -25148,6 +25996,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -25840,6 +26689,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -26336,6 +27186,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -26606,6 +27457,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -27089,6 +27941,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -27201,6 +28054,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -27590,6 +28444,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -27830,6 +28685,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -28021,6 +28877,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -28291,6 +29148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -28798,6 +29656,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -29456,6 +30315,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -29774,6 +30634,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -30744,6 +31605,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -31188,6 +32050,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -31378,6 +32241,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 747803795}
   - {fileID: 1190665319}
   m_Father: {fileID: 1727824271}
   m_RootOrder: 0
@@ -31899,6 +32763,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -32169,6 +33034,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -32360,6 +33226,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -32472,6 +33339,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -33256,6 +34124,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -33316,6 +34185,47 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 144403e0e442d2a448335e0c845d665b, type: 3}
+--- !u!1 &747803794
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 747803795}
+  m_Layer: 5
+  m_Name: EqHolder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &747803795
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 747803794}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 8834049614170278143}
+  - {fileID: 440043898}
+  - {fileID: 48989071}
+  - {fileID: 551343648}
+  - {fileID: 204139399}
+  - {fileID: 153938316}
+  m_Father: {fileID: 711570688}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &749235676
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -33504,6 +34414,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -33878,6 +34789,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -35084,6 +35996,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -35196,6 +36109,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -35357,6 +36271,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -35469,6 +36384,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -37313,6 +38229,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -37553,6 +38470,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -38036,6 +38954,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -38406,6 +39325,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -38456,6 +39376,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -38630,6 +39551,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -39048,6 +39970,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -39209,6 +40132,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -40106,6 +41030,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -40905,6 +41830,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -41175,6 +42101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -41366,6 +42293,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -42010,6 +42938,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -42489,6 +43418,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -42798,6 +43728,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -42995,6 +43926,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -43620,6 +44552,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -43969,6 +44902,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -44099,6 +45033,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -44612,6 +45547,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -44724,6 +45660,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -44915,6 +45852,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -45076,6 +46014,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -45371,6 +46310,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -45878,6 +46818,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -46355,6 +47296,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -46467,6 +47409,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -46658,6 +47601,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -46770,6 +47714,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -47820,6 +48765,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -48017,6 +48963,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -48731,6 +49678,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -50518,6 +51466,8 @@ MonoBehaviour:
   - {fileID: 1537464540}
   - {fileID: 1687663373}
   eventList:
+  - {fileID: 21300000, guid: ae03e6f5d8e26094790c66b36d44ccc4, type: 3}
+  - {fileID: 21300000, guid: 5b6d4cce362e62d44a0c588eba3d3b0d, type: 3}
   - {fileID: 21300000, guid: e7ec22c254483e848b2cfd767bdb6322, type: 3}
   addEvent: 0
   eventGO: {fileID: 3725368419083329798, guid: 4f9cfa2c828b05746a26f95e615ab766, type: 3}
@@ -50648,6 +51598,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -51076,6 +52027,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -51267,6 +52219,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -51379,6 +52332,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -51491,6 +52445,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -51786,6 +52741,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -51886,7 +52842,7 @@ RectTransform:
   - {fileID: 247711578}
   - {fileID: 149327095}
   m_Father: {fileID: 711570688}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -52130,6 +53086,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -52327,6 +53284,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -52445,6 +53403,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -52946,6 +53905,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultWear: []
+  WeaponSlot: {fileID: 8755497573591248278}
+  HeadSlot: {fileID: 0}
+  ChestSlot: {fileID: 0}
+  LegsSlot: {fileID: 0}
+  ShieldSlot: {fileID: 0}
+  FeetSlot: {fileID: 0}
   targetMesh: {fileID: 0}
 --- !u!1001 &1205562356
 PrefabInstance:
@@ -53184,6 +54149,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -53454,6 +54420,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -54381,6 +55348,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -54572,6 +55540,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -54684,6 +55653,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -55033,6 +56003,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -55698,6 +56669,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -56270,6 +57242,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -56478,6 +57451,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -56701,6 +57675,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -57214,6 +58189,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -57467,6 +58443,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -57816,6 +58793,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -59016,6 +59994,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -59365,6 +60344,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -59477,6 +60457,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -59971,6 +60952,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -60471,6 +61453,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -60918,6 +61901,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -61087,6 +62071,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -61278,6 +62263,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -61538,6 +62524,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -61988,6 +62975,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -62038,6 +63026,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -62537,6 +63526,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -62796,6 +63786,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -64300,6 +65291,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -64752,6 +65744,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -64992,6 +65985,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -65238,6 +66232,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -65350,6 +66345,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -65462,6 +66458,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -65653,6 +66650,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -65893,6 +66891,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -66005,6 +67004,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -66196,6 +67196,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -66387,6 +67388,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -66548,6 +67550,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -67329,6 +68332,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -67853,6 +68857,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -68207,6 +69212,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -68447,6 +69453,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -68559,6 +69566,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -68671,6 +69679,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -69431,6 +70440,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -70235,6 +71245,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -70554,6 +71565,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -71672,6 +72684,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -71790,6 +72803,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -71969,6 +72983,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -72473,6 +73488,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -73552,6 +74568,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -74174,6 +75191,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -74414,6 +75432,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -74812,6 +75831,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -74924,6 +75944,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -75400,6 +76421,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -75907,6 +76929,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -76362,6 +77385,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -77216,6 +78240,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -78523,6 +79548,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -78635,6 +79661,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -79395,6 +80422,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -79817,6 +80845,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -80176,6 +81205,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -80495,6 +81525,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -80545,6 +81576,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -80926,6 +81958,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -82036,6 +83069,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -82344,6 +83378,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   debugMode: 0
+  speed: 0
   steps: 0
 --- !u!4 &1922434785 stripped
 Transform:
@@ -82460,6 +83495,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -83086,6 +84122,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -83545,6 +84582,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -83657,6 +84695,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -83848,6 +84887,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -84213,6 +85253,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -85006,6 +86047,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -86048,6 +87090,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -86098,6 +87141,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -86560,6 +87604,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -86824,6 +87869,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -87162,6 +88208,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -89096,6 +90143,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -89287,6 +90335,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -90690,6 +91739,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -90802,6 +91852,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -92002,6 +93053,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -92114,6 +93166,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -92512,6 +93565,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -92757,6 +93811,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -92869,6 +93924,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -93297,6 +94353,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEvent: 0
+  eventID: 
   eventType: 
   eventIMG: {fileID: 0}
   spriteIndex: 0
@@ -93379,6 +94436,178 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2146855453}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1395660251807096872
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 747803795}
+    m_Modifications:
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.57430017
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.57430017
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.57430017
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -26.100008
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 60.499992
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7701057769631862205, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_Name
+      value: EqSlot
+      objectReference: {fileID: 0}
+    - target: {fileID: 7731814773413503453, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7731814773413503453, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 8755497573591248278}
+    - target: {fileID: 7731814773413503453, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Unequip
+      objectReference: {fileID: 0}
+    - target: {fileID: 7731814773413503453, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: EqSlot, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7731814773413503453, guid: ed8e6306355068246bbb043185672201,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 7731799585367378547, guid: ed8e6306355068246bbb043185672201, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: ed8e6306355068246bbb043185672201, type: 3}
+--- !u!114 &1395660251807096873 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7731594394354515473, guid: ed8e6306355068246bbb043185672201,
+    type: 3}
+  m_PrefabInstance: {fileID: 1395660251807096872}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &3780784678281347958
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -93622,3 +94851,29 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6058c7da65b345f41b405575e1ace14e, type: 3}
+--- !u!1 &8755497573591248277 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7701057769631862205, guid: ed8e6306355068246bbb043185672201,
+    type: 3}
+  m_PrefabInstance: {fileID: 1395660251807096872}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8755497573591248278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8755497573591248277}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70a0158d779d7114a942a9d99c55e366, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  icon: {fileID: 1395660251807096873}
+  equipSlot: 4
+--- !u!224 &8834049614170278143 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 7621982603483277527, guid: ed8e6306355068246bbb043185672201,
+    type: 3}
+  m_PrefabInstance: {fileID: 1395660251807096872}
+  m_PrefabAsset: {fileID: 0}
