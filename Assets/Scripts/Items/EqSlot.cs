@@ -13,6 +13,8 @@ public class EqSlot : MonoBehaviour
 
 	Item item;  // Current item in the slot
 
+	//ONLY WEAPON SLOT IS DONE, NEED TO MAP ALL THE OTHER ONES!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
 	private void Start()
 	{
 		
