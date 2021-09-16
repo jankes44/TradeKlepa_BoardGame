@@ -196,7 +196,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7731799585367378547}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: InventorySlot, Assembly-CSharp
         m_MethodName: AddItem
         m_Mode: 2
@@ -218,7 +218,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7621982603483277527}
   - component: {fileID: 7623881362275566887}
-  - component: {fileID: 7731799585367378547}
   m_Layer: 5
   m_Name: EqSlot
   m_TagString: Untagged
@@ -254,19 +253,3 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7701057769631862205}
   m_CullTransparentMesh: 1
---- !u!114 &7731799585367378547
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7701057769631862205}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80e9ba3df7681bc42ae1a15529bdaa6b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  icon: {fileID: 7731594394354515473}
-  removeButton: {fileID: 0}
-  equipSlot: 4
-  isEqHolder: 1

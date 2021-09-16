@@ -25,18 +25,23 @@ public class EqSlot : MonoBehaviour
 	{
 		item = newItem;
 
-		icon.sprite = item.icon;
+		icon.sprite = item.slotIcon;
 		icon.enabled = true;
 	}
 
 	// Use the item
 	public void Unequip()
 	{
-		item = null;
-		int slotIndex = (int)equipSlot;
-		EquipmentManager.instance.Unequip(slotIndex);
-		icon.sprite = null;
-		icon.enabled = false;
+		if (item != null)
+        {
+			Debug.Log("unequip " + item.name);
+			item = null;
+			int slotIndex = (int)equipSlot;
+			EquipmentManager.instance.Unequip(slotIndex);
+			icon.sprite = null;
+			icon.enabled = false;
+		}
+
 	}
 
 }

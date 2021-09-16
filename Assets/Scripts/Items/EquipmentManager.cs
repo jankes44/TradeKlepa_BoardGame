@@ -76,10 +76,19 @@ public class EquipmentManager : MonoBehaviour {
 		// Find out what slot the item fits in
 		// and put it there.
 		int slotIndex = (int)newItem.equipSlot;
+		Debug.Log(newItem);
 		if (newItem.equipSlot == EquipmentSlot.Weapon)
         {
 			WeaponSlot.Equip(newItem);
         }
+		if (newItem.equipSlot == EquipmentSlot.Head)
+		{
+			HeadSlot.Equip(newItem);
+		}
+		if (newItem.equipSlot == EquipmentSlot.Chest)
+		{
+			ChestSlot.Equip(newItem);
+		}
 
 		// If there was already an item in the slot
 		// make sure to put it back in the inventory
