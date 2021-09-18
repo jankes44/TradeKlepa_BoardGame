@@ -57,16 +57,20 @@ public class PlayerStats : MonoBehaviour, IPunInstantiateMagicCallback
 
     void Update()
     {
-        string nickName = GetComponent<PhotonView>().Owner.NickName;
-        PlayerNameText.transform.LookAt(Camera.main.transform.position);
-        PlayerNameText.transform.Rotate(0, 180, 0);
-        PlayerNameText.GetComponent<TextMesh>().text = nickName;
-        playerName = nickName;
-        if (moveAllowed && PV.IsMine && !YourTurnStarted)
+        if (GetComponent<PhotonView>().Owner != null)
         {
-            YourTurnStarted = true;
-            StartCoroutine("YourTurn");
+            string nickName = GetComponent<PhotonView>().Owner.NickName;
+            PlayerNameText.transform.LookAt(Camera.main.transform.position);
+            PlayerNameText.transform.Rotate(0, 180, 0);
+            PlayerNameText.GetComponent<TextMesh>().text = nickName;
+            playerName = nickName;
+            if (moveAllowed && PV.IsMine && !YourTurnStarted)
+            {
+                YourTurnStarted = true;
+                StartCoroutine("YourTurn");
+            }
         }
+        
 
     }
 

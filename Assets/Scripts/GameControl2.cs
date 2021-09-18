@@ -11,6 +11,30 @@ using Cinemachine;
 
 public class GameControl2 : MonoBehaviourPun
 {
+
+    #region Singleton
+
+
+    public static GameControl2 instance
+    {
+        get
+        {
+            if (_instance == null)
+            {
+                _instance = FindObjectOfType<GameControl2>();
+            }
+            return _instance;
+        }
+    }
+    static GameControl2 _instance;
+
+    void Awake()
+    {
+        _instance = this;
+    }
+
+    #endregion
+
     private PhotonView PV;
     public float startPosX;
     public float startPosY;
@@ -41,22 +65,6 @@ public class GameControl2 : MonoBehaviourPun
     public Material night;
 
     public int playerCount;
-
-    private static GameControl2 gameControlInstance;
-
-    void Awake()
-    {
-        DontDestroyOnLoad(this);
-
-        if (gameControlInstance == null)
-        {
-            gameControlInstance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }
 
     void Start()
     {

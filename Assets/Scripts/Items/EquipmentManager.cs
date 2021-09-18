@@ -6,27 +6,8 @@ using UnityEngine;
 
 public class EquipmentManager : MonoBehaviour {
 
-	#region Singleton
-
-
-	public static EquipmentManager instance {
-		get {
-			if (_instance == null) {
-				_instance = FindObjectOfType<EquipmentManager> ();
-			}
-			return _instance;
-		}
-	}
-	static EquipmentManager _instance;
-
-	void Awake ()
-	{
-		_instance = this;
-	}
-
-	#endregion
-
 	public Equipment[] defaultWear;
+	public Appearance[] appearance;
 
 	Equipment[] currentEquipment;
 	SkinnedMeshRenderer[] currentMeshes;
@@ -48,18 +29,49 @@ public class EquipmentManager : MonoBehaviour {
 
 	void Start ()
 	{
-		inventory = Inventory.instance;
+		inventory = GameControl2.instance.MyPlayer.GetComponent<Inventory>();
+		EqSlot[] EqSlots = Resources.FindObjectsOfTypeAll<EqSlot>();
+
+		foreach (EqSlot item in EqSlots)
+        {
+            switch (item.equipSlot)
+            {
+                case EquipmentSlot.Null:
+					break;
+                case EquipmentSlot.Head:
+					HeadSlot = item;
+					break;
+                case EquipmentSlot.Chest:
+					ChestSlot = item;
+					break;
+                case EquipmentSlot.Legs:
+					LegsSlot = item;
+					break;
+                case EquipmentSlot.Weapon:
+					WeaponSlot = item;
+					break;
+                case EquipmentSlot.Shield:
+					ShieldSlot = item;
+					break;
+                case EquipmentSlot.Feet:
+					FeetSlot = item;
+					break;
+                default:
+                    break;
+            }
+        }
 
 		int numSlots = System.Enum.GetNames (typeof(EquipmentSlot)).Length;
 		currentEquipment = new Equipment[numSlots];
 		currentMeshes = new SkinnedMeshRenderer[numSlots];
 
-		EquipAllDefault ();
+		EquipAllDefault();
+		EquipAllAppearance();
 	}
 
 	void Update() {
 		if (Input.GetKeyDown (KeyCode.U)) {
-			UnequipAll ();
+			UnequipAll();
 		}
 	}
 
@@ -71,34 +83,42 @@ public class EquipmentManager : MonoBehaviour {
 	// Equip a new item
 	public void Equip (Equipment newItem)
 	{
-		Equipment oldItem = null;
 
 		// Find out what slot the item fits in
 		// and put it there.
 		int slotIndex = (int)newItem.equipSlot;
-		Debug.Log(newItem);
-		if (newItem.equipSlot == EquipmentSlot.Weapon)
+		Equipment oldItem = Unequip(slotIndex);
+
+		//if there was already item in the slot it will
+		//get replaced in this function \/
+
+
+		switch (newItem.equipSlot)
         {
-			WeaponSlot.Equip(newItem);
+            case EquipmentSlot.Null:
+				Debug.Log("EquipmentSlot = null");
+                break;
+            case EquipmentSlot.Head:
+				HeadSlot.Equip(newItem);
+				break;
+            case EquipmentSlot.Chest:
+				ChestSlot.Equip(newItem);
+				break;
+            case EquipmentSlot.Legs:
+				LegsSlot.Equip(newItem);
+                break;
+            case EquipmentSlot.Weapon:
+				WeaponSlot.Equip(newItem);
+				break;
+            case EquipmentSlot.Shield:
+				ShieldSlot.Equip(newItem);
+                break;
+            case EquipmentSlot.Feet:
+				FeetSlot.Equip(newItem);
+                break;
+            default:
+                break;
         }
-		if (newItem.equipSlot == EquipmentSlot.Head)
-		{
-			HeadSlot.Equip(newItem);
-		}
-		if (newItem.equipSlot == EquipmentSlot.Chest)
-		{
-			ChestSlot.Equip(newItem);
-		}
-
-		// If there was already an item in the slot
-		// make sure to put it back in the inventory
-		if (currentEquipment[slotIndex] != null)
-		{
-			oldItem = currentEquipment [slotIndex];
-
-			inventory.Add (oldItem);
-	
-		}
 
 		// An item has been equipped so we trigger the callback
 		if (onEquipmentChanged != null)
@@ -108,13 +128,13 @@ public class EquipmentManager : MonoBehaviour {
 		Debug.Log(newItem.name + " equipped!");
 
 		if (newItem.prefab) {
-			AttachToMesh (newItem.prefab, slotIndex);
+			AttachToMesh(newItem.prefab, slotIndex);
 		}
 		//equippedItems [itemIndex] = newMesh.gameObject;
 
 	}
 
-	public void Unequip(int slotIndex) {
+	public Equipment Unequip(int slotIndex) {
 		if (currentEquipment[slotIndex] != null)
 		{
 			Equipment oldItem = currentEquipment [slotIndex];
@@ -122,16 +142,17 @@ public class EquipmentManager : MonoBehaviour {
 				
 			currentEquipment [slotIndex] = null;
 			if (currentMeshes [slotIndex] != null) {
-				Destroy (currentMeshes [slotIndex].gameObject);
+				Destroy(currentMeshes [slotIndex].gameObject);
 			}
 
 
 			// Equipment has been removed so we trigger the callback
 			if (onEquipmentChanged != null)
 				onEquipmentChanged.Invoke(null, oldItem);
-			
-		}
 
+			return oldItem;
+		}
+		return null;
 	
 	}
 
@@ -139,19 +160,36 @@ public class EquipmentManager : MonoBehaviour {
 		for (int i = 0; i < currentEquipment.Length; i++) {
 			Unequip (i);
 		}
-		EquipAllDefault ();
+		EquipAllDefault();
 	}
 
 	void EquipAllDefault() {
 		foreach (Equipment e in defaultWear) {
-			Equip (e);
+			Equip(e);
+		}
+	}
+	void EquipAllAppearance()
+	{
+		foreach (Appearance e in appearance)
+		{
+			EquipAppearance(e);
+		}
+	}
+
+	public void EquipAppearance(Appearance newItem)
+    {
+		if (newItem.prefab)
+		{
+			SkinnedMeshRenderer newMesh = Instantiate(newItem.prefab) as SkinnedMeshRenderer;
+			newMesh.bones = targetMesh.bones;
+			newMesh.rootBone = targetMesh.rootBone;
 		}
 	}
 
 	void AttachToMesh(SkinnedMeshRenderer mesh, int slotIndex) {
 
 		if (currentMeshes [slotIndex] != null) {
-			Destroy (currentMeshes [slotIndex].gameObject);
+			Destroy(currentMeshes [slotIndex].gameObject);
 		}
 
 		SkinnedMeshRenderer newMesh = Instantiate(mesh) as SkinnedMeshRenderer;

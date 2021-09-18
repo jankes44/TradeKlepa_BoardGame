@@ -13,7 +13,7 @@ public class InventoryUI : MonoBehaviour {
 
 	void Start ()
 	{
-		inventory = Inventory.instance;
+		inventory = GameControl2.instance.MyPlayer.GetComponent<Inventory>();
 		inventory.onItemChangedCallback += UpdateUI;
 	}
 

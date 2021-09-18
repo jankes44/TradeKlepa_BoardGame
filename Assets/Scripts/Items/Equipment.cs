@@ -13,7 +13,8 @@ public class Equipment : Item {
 	// Called when pressed in the inventory
 	public override void Use ()
 	{
-		EquipmentManager.instance.Equip(this);	// Equip
+		//EquipmentManager.instance.Equip(this);  // Equip
+		GameControl2.instance.MyPlayer.GetComponent<EquipmentManager>().Equip(this);	// Equip
 		RemoveFromInventory();	// Remove from inventory
 	}
 

@@ -9,18 +9,8 @@ public class InventorySlot : MonoBehaviour {
 
 	public Image icon;
 	public Button removeButton;
-	public EquipmentSlot equipSlot;
-	public bool isEqHolder = false;
 
 	Item item;  // Current item in the slot
-
-    private void Start()
-    {
-        if (!isEqHolder)
-        {
-			equipSlot = EquipmentSlot.Null;
-        }
-    }
 
     // Add item to the slot
     public void AddItem (Item newItem)
@@ -48,7 +38,7 @@ public class InventorySlot : MonoBehaviour {
 	// If the remove button is pressed, this function will be called.
 	public void RemoveItemFromInventory ()
 	{
-		Inventory.instance.Remove(item);
+		GameControl2.instance.MyPlayer.GetComponent<Inventory>().Remove(item);
 	}
 
 	// Use the item

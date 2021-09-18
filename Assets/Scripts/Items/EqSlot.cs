@@ -13,8 +13,6 @@ public class EqSlot : MonoBehaviour
 
 	Item item;  // Current item in the slot
 
-	//ONLY WEAPON SLOT IS DONE, NEED TO MAP ALL THE OTHER ONES!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
 	private void Start()
 	{
 		
@@ -37,7 +35,7 @@ public class EqSlot : MonoBehaviour
 			Debug.Log("unequip " + item.name);
 			item = null;
 			int slotIndex = (int)equipSlot;
-			EquipmentManager.instance.Unequip(slotIndex);
+			GameControl2.instance.MyPlayer.GetComponent<EquipmentManager>().Unequip(slotIndex);
 			icon.sprite = null;
 			icon.enabled = false;
 		}
