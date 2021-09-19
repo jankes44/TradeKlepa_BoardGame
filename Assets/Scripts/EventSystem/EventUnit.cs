@@ -13,6 +13,7 @@ public class EventUnit : MonoBehaviour
     GameObject eventObject;
     GameControl2 gameControl;
     BoxCollider boxCollider;
+    public bool playerOnField = false;
     Rigidbody rb;
 
     private void Start()
@@ -36,14 +37,17 @@ public class EventUnit : MonoBehaviour
 
     public void AddEvent(string uid, string type, GameObject eventGO, Sprite sprite, int index)
     {
-        hasEvent = true;
-        eventID = uid;
-        eventType = type;
-        eventIMG = sprite;
-        spriteIndex = index;
+        if (!playerOnField) {
+            hasEvent = true;
+            eventID = uid;
+            eventType = type;
+            eventIMG = sprite;
+            spriteIndex = index;
 
-        Vector3 pos = transform.position;
-        eventObject = Instantiate(eventGO, pos, Quaternion.identity);
+            Vector3 pos = transform.position;
+            eventObject = Instantiate(eventGO, pos, Quaternion.identity);
+        }
+        
     }
     public void RemoveEvent()
     {
@@ -60,4 +64,17 @@ public class EventUnit : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter(Collider other) {
+        if (other.tag == "Player") {
+            Debug.Log(other.tag + " enter");
+            playerOnField = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other) {
+        if (other.tag == "Player") {
+            Debug.Log(other.tag + " exit");
+            playerOnField = false;
+        }
+    }
 }

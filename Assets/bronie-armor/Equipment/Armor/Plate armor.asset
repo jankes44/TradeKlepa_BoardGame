@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Plate armor
   m_EditorClassIdentifier: 
   name: Plate armor
-  icon: {fileID: 21300000, guid: 2f1eaeeaad36ee5469eff7ff158f37ba, type: 3}
-  slotIcon: {fileID: 21300000, guid: 2f1eaeeaad36ee5469eff7ff158f37ba, type: 3}
+  icon: {fileID: 21300000, guid: 683dc19c29b3b424887010b2cc793fd6, type: 3}
+  slotIcon: {fileID: 21300000, guid: 683dc19c29b3b424887010b2cc793fd6, type: 3}
   showInInventory: 1
   equipSlot: 2
   armorModifier: 5

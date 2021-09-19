@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: ShirtDefault
   m_EditorClassIdentifier: 
   name: "Koszula wie\u015Bniaka"
-  icon: {fileID: 21300000, guid: 2f1eaeeaad36ee5469eff7ff158f37ba, type: 3}
-  slotIcon: {fileID: 21300000, guid: 2f1eaeeaad36ee5469eff7ff158f37ba, type: 3}
+  icon: {fileID: 21300000, guid: 81a3def07881e11479410a1476cc8387, type: 3}
+  slotIcon: {fileID: 21300000, guid: 81a3def07881e11479410a1476cc8387, type: 3}
   showInInventory: 1
   equipSlot: 2
   armorModifier: 1

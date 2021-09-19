@@ -31,7 +31,7 @@ public class EquipmentManager : MonoBehaviour {
 	{
 		inventory = GameControl2.instance.MyPlayer.GetComponent<Inventory>();
 		EqSlot[] EqSlots = Resources.FindObjectsOfTypeAll<EqSlot>();
-
+		
 		foreach (EqSlot item in EqSlots)
         {
             switch (item.equipSlot)
@@ -96,7 +96,7 @@ public class EquipmentManager : MonoBehaviour {
 		switch (newItem.equipSlot)
         {
             case EquipmentSlot.Null:
-				Debug.Log("EquipmentSlot = null");
+				Debug.Log("EquipmentSlot is null");
                 break;
             case EquipmentSlot.Head:
 				HeadSlot.Equip(newItem);
