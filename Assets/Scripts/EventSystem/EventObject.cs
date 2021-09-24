@@ -7,6 +7,7 @@ public class EventObject : ScriptableObject {
 
 	public new string name;
 	public string description;
+	public string type;
 
 	public Sprite artwork;
 

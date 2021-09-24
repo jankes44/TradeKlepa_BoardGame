@@ -28,5 +28,11 @@ public class EventDisplay : MonoBehaviour {
         artworkImage.sprite = eventObject.artwork;
 
 	}
+
+	public void UpdateDisplay() {
+		nameText.text = eventObject.name;
+        descriptionText.text = eventObject.description;
+        artworkImage.sprite = eventObject.artwork;
+	}
 	
 }

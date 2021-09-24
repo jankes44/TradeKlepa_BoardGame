@@ -231,15 +231,12 @@ public class PlayerStats : MonoBehaviour, IPunInstantiateMagicCallback
             if (collided) return;
             if (other.gameObject.GetComponent<EventUnit>() && other.gameObject.GetComponent<EventUnit>().hasEvent == true && !isMoving && gameObject.GetComponent<GraphwayTest>().speed == 0)
             {
-                string eventType = other.gameObject.GetComponent<EventUnit>().eventType;
-                Sprite eventSprite = other.gameObject.GetComponent<EventUnit>().eventIMG;
-                int spriteIndex = other.gameObject.GetComponent<EventUnit>().spriteIndex;
-                string eventID = other.gameObject.GetComponent<EventUnit>().eventID;
+
 
                 collided = true;
-                EnterEvent(eventID, spriteIndex);
+                EnterEvent(other.gameObject.GetComponent<EventUnit>().eventID, other.gameObject.GetComponent<EventUnit>().eventIndex);
 
-                Debug.Log("Event " + eventType + " start " + eventSprite.name);
+                Debug.Log("Event start " + other.gameObject.GetComponent<EventUnit>().eventName);
             }
         }
     }

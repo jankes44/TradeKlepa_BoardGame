@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class EventControl : MonoBehaviour
 {
     public EventUnit[] unitList;
-    public Sprite[] eventList;
+    public EventObject[] eventList;
     public bool addEvent = false;
     public GameObject eventGO;
     public int lastEventIndex;
@@ -25,10 +25,11 @@ public class EventControl : MonoBehaviour
         if (addEvent == true)
         {
             int rand = Random.Range(0, unitList.Length);
-            int spriteRand = Random.Range(0, eventList.Length);
+            int randEvent = Random.Range(0, eventList.Length);
             lastEventIndex = rand;
             string uid = System.Guid.NewGuid().ToString();
-            unitList[rand].AddEvent(uid, "Combat", eventGO, eventList[spriteRand], spriteRand);
+            EventObject randEventObj = eventList[randEvent];
+            unitList[rand].AddEvent(uid, randEventObj, eventGO, randEvent);
         }
         else if (addEvent == false)
         {
@@ -38,12 +39,14 @@ public class EventControl : MonoBehaviour
 
     public void AddEvent(string uid, int randPlace, int randEvent)
     {
-        unitList[randPlace].AddEvent(uid, "Combat", eventGO, eventList[randEvent], randEvent);
+        EventObject randEventObj = eventList[randEvent];
+        unitList[randPlace].AddEvent(uid, randEventObj, eventGO, randEvent);
     }
 
-    public void EventEnter(string eventID, Sprite eventSprite)
+    public void EventEnter(string eventID, EventObject eventObj)
     {
-        eventHolder.GetComponent<Image>().sprite = eventSprite;
+        eventHolder.GetComponent<EventDisplay>().eventObject = eventObj;
+        eventHolder.GetComponent<EventDisplay>().UpdateDisplay();
         eventHolder.SetActive(true);
         foreach (EventUnit item in unitList)
         {
@@ -64,7 +67,7 @@ public class EventControl : MonoBehaviour
             eventCloseButton.SetActive(true);
         }
         
-        string eventName = eventSprite.name;
+        string eventName = eventObj.name;
         switch (eventName)
         {
             case "bandyciprawidlowi":
@@ -74,11 +77,11 @@ public class EventControl : MonoBehaviour
             case "bagno":
                 GC.currentPlayer.skipTurnDebuff = true;
                 break;
-            case "akcja_waz":
+            case "akcja waz":
                 Debug.Log("przez nastepne 5 tur player losuje 1");
                 GC.currentPlayer.rollDebuffCount = 5;
                 break;
-            case "troll":
+            case "Leroy Jenkins":
                 Debug.Log("dopoki nie ukonczysz questa losujesz 1");
                 break;
         }
