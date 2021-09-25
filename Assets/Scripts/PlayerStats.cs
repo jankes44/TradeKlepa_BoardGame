@@ -27,6 +27,7 @@ public class PlayerStats : MonoBehaviour, IPunInstantiateMagicCallback
     public Transform follow;
     public Transform lookat;
     public bool YourTurnStarted = false;
+    int stop;
 
     //DEBUFFS ----------
     public int rollDebuffCount = 0;
@@ -85,7 +86,7 @@ public class PlayerStats : MonoBehaviour, IPunInstantiateMagicCallback
     }
 
     private IEnumerator YourTurn()
-    {        
+    {
         if (skipTurnDebuff)
         {
             Debug.Log("Sorry, skip...");
@@ -94,7 +95,6 @@ public class PlayerStats : MonoBehaviour, IPunInstantiateMagicCallback
         } else
         {
             Debug.Log("Your turn started!");
-            gameControl.ToggleSkipTurnBtn(true);
             gameControl.ToggleRollDiceBtn(true);
         }
         yield return null;
@@ -144,6 +144,8 @@ public class PlayerStats : MonoBehaviour, IPunInstantiateMagicCallback
         gameControl.freelook.GetComponent<CinemachineFreeLook>().Follow = gameControl.playersList[whosTurn].GetComponent<PlayerStats>().follow;
         gameControl.freelook.GetComponent<CinemachineFreeLook>().LookAt = gameControl.playersList[whosTurn].GetComponent<PlayerStats>().lookat;
         gameControl.currentPlayer = gameControl.playersList[gameControl.turnIndex].GetComponent<PlayerStats>();
+        gameControl.ToggleKostka(true);
+        gameControl.RollTheDice();
         //int rand = Random.Range(0, 2);
         //if (rand == 0)
         //{
@@ -174,21 +176,38 @@ public class PlayerStats : MonoBehaviour, IPunInstantiateMagicCallback
         Debug.Log("RPC received, rolled: " + rolled);
     }
 
+    public void StopDice() {
+        gameControl.ToggleSkipTurnBtn(true);
+        PV.RPC("RPC_StopDice", RpcTarget.AllBuffered);
+    }
+
+    [PunRPC]
+    public void RPC_StopDice()
+    {
+        stop = 1;
+        Debug.Log("RPC received, stopped the dice");
+    }
+
     IEnumerator Roll(int rolled)
     {
         int rand;
-
-        for (int i = 0; i < 15; i++)
-        {
+        stop = 0;
+        gameControl.imageRenderer.gameObject.transform.rotation = Quaternion.Euler(0,0,0);
+        
+        while (stop == 0) {
             rand = Random.Range(1, 7);
             gameControl.imageRenderer.sprite = gameControl.kostkas[rand - 1];
-            yield return new WaitForSeconds(0.1f);
+            gameControl.imageRenderer.gameObject.transform.Rotate(0.0f, 0.0f, 38f+rand, Space.Self);
+            yield return new WaitForSeconds(0.05f);
         }
 
         gameControl.imageRenderer.sprite = gameControl.kostkas[rolled - 1];
 
         gameObject.GetComponent<GraphwayTest>().steps = rolled;
         Debug.Log(rolled);
+
+        yield return new WaitForSeconds(1f);
+        gameControl.ToggleKostka(false);
 
         yield return null;
     }

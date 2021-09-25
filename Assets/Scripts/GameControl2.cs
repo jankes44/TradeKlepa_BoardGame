@@ -110,6 +110,11 @@ public class GameControl2 : MonoBehaviourPun
         currentPlayer.RollTheDice();
     }
 
+    public void StopDice()
+    {
+        currentPlayer.StopDice();
+    }
+
     public void ToggleSkipTurnBtn(bool toggle)
     {
         skipTurnBtn.gameObject.SetActive(toggle);
@@ -118,6 +123,11 @@ public class GameControl2 : MonoBehaviourPun
     public void ToggleRollDiceBtn(bool toggle)
     {
         rollDiceBtn.gameObject.SetActive(toggle);
+    }
+
+    public void ToggleKostka(bool toggle)
+    {
+        imageRenderer.gameObject.SetActive(toggle);
     }
 
     public void DayAndNight(string dayornight)
