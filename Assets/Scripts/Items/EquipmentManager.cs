@@ -82,8 +82,8 @@ public class EquipmentManager : MonoBehaviour {
 
 	// Equip a new item
 	public void Equip (Equipment newItem)
-	{
-
+	{	
+		PlayerStats myPlayer = GameControl2.instance.MyPlayer.GetComponent<PlayerStats>();
 		// Find out what slot the item fits in
 		// and put it there.
 		int slotIndex = (int)newItem.equipSlot;
@@ -129,9 +129,25 @@ public class EquipmentManager : MonoBehaviour {
 
 		if (newItem.prefab) {
 			AttachToMesh(newItem.prefab, slotIndex);
+			myPlayer.EquipItem(newItem.name);
 		}
 		//equippedItems [itemIndex] = newMesh.gameObject;
 
+	}
+
+	public void EquipSync(Equipment newItem) {
+		//attach mesh for other players to see TODO
+		int slotIndex = (int)newItem.equipSlot;
+		if (newItem.prefab) {
+			AttachToMesh(newItem.prefab, slotIndex);
+		}
+	}
+
+	public void UnequipSync(int slotIndex) {
+		//attach mesh for other players to see TODO
+		if (currentMeshes [slotIndex] != null) {
+			Destroy(currentMeshes [slotIndex].gameObject);
+		}
 	}
 
 	public Equipment Unequip(int slotIndex) {
@@ -139,9 +155,12 @@ public class EquipmentManager : MonoBehaviour {
 		{
 			Equipment oldItem = currentEquipment [slotIndex];
 			inventory.Add(oldItem);
-				
+
+			PlayerStats myPlayer = GameControl2.instance.MyPlayer.GetComponent<PlayerStats>();
+
 			currentEquipment [slotIndex] = null;
 			if (currentMeshes [slotIndex] != null) {
+				myPlayer.UnequipItem(slotIndex);
 				Destroy(currentMeshes [slotIndex].gameObject);
 			}
 
@@ -181,6 +200,8 @@ public class EquipmentManager : MonoBehaviour {
 		if (newItem.prefab)
 		{
 			SkinnedMeshRenderer newMesh = Instantiate(newItem.prefab) as SkinnedMeshRenderer;
+			newMesh.transform.parent = DontDestroy.Instance.gameObject.transform;
+
 			newMesh.bones = targetMesh.bones;
 			newMesh.rootBone = targetMesh.rootBone;
 		}
@@ -193,6 +214,8 @@ public class EquipmentManager : MonoBehaviour {
 		}
 
 		SkinnedMeshRenderer newMesh = Instantiate(mesh) as SkinnedMeshRenderer;
+		newMesh.transform.parent = DontDestroy.Instance.gameObject.transform;
+
 		newMesh.bones = targetMesh.bones;
 		newMesh.rootBone = targetMesh.rootBone;
 		currentMeshes [slotIndex] = newMesh;

@@ -37,6 +37,7 @@ public class PlayerStats : MonoBehaviour, IPunInstantiateMagicCallback
 
     void Start()
     {
+        DontDestroyOnLoad(this.gameObject);
         PV = GetComponent<PhotonView>();
         gameControl = GameObject.FindGameObjectWithTag("GameControl").GetComponent<GameControl2>();
         actorNo = PV.Owner.ActorNumber;
@@ -52,6 +53,10 @@ public class PlayerStats : MonoBehaviour, IPunInstantiateMagicCallback
         if (PhotonNetwork.IsMasterClient && isLocal)
         {
             Debug.Log("Only master");
+
+            string uid = System.Guid.NewGuid().ToString();
+
+            PV.RPC("RPC_CreateEvent", RpcTarget.AllBuffered, uid, 1, 0);
             StartCoroutine("FirstTurn");
         }
     }
@@ -144,7 +149,7 @@ public class PlayerStats : MonoBehaviour, IPunInstantiateMagicCallback
         gameControl.freelook.GetComponent<CinemachineFreeLook>().Follow = gameControl.playersList[whosTurn].GetComponent<PlayerStats>().follow;
         gameControl.freelook.GetComponent<CinemachineFreeLook>().LookAt = gameControl.playersList[whosTurn].GetComponent<PlayerStats>().lookat;
         gameControl.currentPlayer = gameControl.playersList[gameControl.turnIndex].GetComponent<PlayerStats>();
-        gameControl.ToggleKostka(true);
+        // gameControl.ToggleKostka(true);
         gameControl.RollTheDice();
         //int rand = Random.Range(0, 2);
         //if (rand == 0)
@@ -178,6 +183,7 @@ public class PlayerStats : MonoBehaviour, IPunInstantiateMagicCallback
 
     public void StopDice() {
         gameControl.ToggleSkipTurnBtn(true);
+        gameControl.ToggleRollDiceBtn(false);
         PV.RPC("RPC_StopDice", RpcTarget.AllBuffered);
     }
 
@@ -207,7 +213,7 @@ public class PlayerStats : MonoBehaviour, IPunInstantiateMagicCallback
         Debug.Log(rolled);
 
         yield return new WaitForSeconds(1f);
-        gameControl.ToggleKostka(false);
+        // gameControl.ToggleKostka(false);
 
         yield return null;
     }
@@ -263,5 +269,34 @@ public class PlayerStats : MonoBehaviour, IPunInstantiateMagicCallback
     private void OnTriggerExit(Collider other)
     {
         collided = false;
+    }
+
+    // EQUIPMENT - EQUIPPING ITEMS SYNC
+    public void EquipItem(string newItemName) {
+        if (isLocal) {
+            PV.RPC("RPC_EquipItem", RpcTarget.Others, newItemName, actorNo);
+        }
+    }
+
+    [PunRPC]
+    public void RPC_EquipItem(string newItemName, int actor) {
+        EquipmentManager player = gameControl.playersList.Where(pl => pl.GetComponent<PlayerStats>().actorNo == actor).SingleOrDefault().GetComponent<EquipmentManager>();
+        
+        Equipment newItem = gameControl.ItemList.Where(item => item.name == newItemName).SingleOrDefault();
+
+        player.EquipSync(newItem);
+    }
+
+    public void UnequipItem(int slotIndex) {
+        if (isLocal) {
+            PV.RPC("RPC_UnequipItem", RpcTarget.Others, slotIndex, actorNo);
+        }
+    }
+
+    [PunRPC]
+    public void RPC_UnequipItem(int slotIndex, int actor) {
+        EquipmentManager player = gameControl.playersList.Where(pl => pl.GetComponent<PlayerStats>().actorNo == actor).SingleOrDefault().GetComponent<EquipmentManager>();
+        
+        player.UnequipSync(slotIndex);
     }
 }

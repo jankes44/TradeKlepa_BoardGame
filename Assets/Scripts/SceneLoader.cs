@@ -10,6 +10,11 @@ public class SceneLoader : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
+    public void Combat() 
+    {
+        SceneManager.LoadScene("Combat");
+    }
+
     public void QuitGame()
     {
         Application.Quit();

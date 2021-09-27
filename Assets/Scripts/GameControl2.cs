@@ -14,23 +14,19 @@ public class GameControl2 : MonoBehaviourPun
 
     #region Singleton
 
+    private static GameControl2 _instance;
 
-    public static GameControl2 instance
+    public static GameControl2 instance { get { return _instance; } }
+
+    private void Awake()
     {
-        get
+        if (_instance != null && _instance != this)
         {
-            if (_instance == null)
-            {
-                _instance = FindObjectOfType<GameControl2>();
-            }
-            return _instance;
+            Destroy(this.gameObject);
+        } else {
+            _instance = this;
+             DontDestroyOnLoad(gameObject);
         }
-    }
-    static GameControl2 _instance;
-
-    void Awake()
-    {
-        _instance = this;
     }
 
     #endregion
@@ -59,6 +55,7 @@ public class GameControl2 : MonoBehaviourPun
     public PlayerStats currentPlayer;
     public GameObject freelook;
     public EventControl eventControl;
+    public Equipment[] ItemList;
 
     public Light mainLight;
     public Material day;

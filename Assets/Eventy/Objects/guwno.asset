@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7c0dd01b75fe5d438fa0c42c43db9c6, type: 3}
   m_Name: guwno
   m_EditorClassIdentifier: 
-  name: guwno
-  description: potezna sraka
-  type: kupkja
+  name: bandyci
+  description: masz wpierdol
+  type: combat
   artwork: {fileID: 21300000, guid: 76e0a0cef5d53ff48988e64d110a6777, type: 3}

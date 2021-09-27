@@ -7,11 +7,11 @@ namespace Cinemachine
         private CinemachineFreeLook freelook;
         private CinemachineFreeLook.Orbit[] originalOrbits;
         [Tooltip("The minimum scale for the orbits")]
-        [Range(0.01f, 1f)]
+        [Range(0.01f, 20f)]
         public float minScale = 0.5f;
 
         [Tooltip("The maximum scale for the orbits")]
-        [Range(1F, 5f)]
+        [Range(1F, 30f)]
         public float maxScale = 1;
 
         [Tooltip("The zoom axis.  Value is 0..1.  How much to scale the orbits")]

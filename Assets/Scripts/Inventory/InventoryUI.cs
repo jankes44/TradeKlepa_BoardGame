@@ -6,6 +6,25 @@ using UnityEngine.UI;
 
 public class InventoryUI : MonoBehaviour {
 
+    #region Singleton
+
+    private static InventoryUI _instance;
+
+    public static InventoryUI instance { get { return _instance; } }
+
+    private void Awake()
+    {
+        if (_instance != null && _instance != this)
+        {
+            Destroy(this.gameObject);
+        } else {
+            _instance = this;
+             DontDestroyOnLoad(gameObject);
+        }
+    }
+
+    #endregion
+
 	public GameObject inventoryUI;	// The entire UI
 	public Transform itemsParent;	// The parent object of all the items
 
@@ -25,6 +44,11 @@ public class InventoryUI : MonoBehaviour {
 			inventoryUI.SetActive(!inventoryUI.activeSelf);
 			UpdateUI();
 		}
+	}
+
+	public void OpenInventory() {
+		inventoryUI.SetActive(!inventoryUI.activeSelf);
+		UpdateUI();
 	}
 
 	// Update the inventory UI by:

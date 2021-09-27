@@ -2,9 +2,31 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Photon.Pun;
+using UnityEngine.SceneManagement;
 
 public class EventControl : MonoBehaviour
 {
+
+    #region Singleton
+
+    private static EventControl _instance;
+
+    public static EventControl instance { get { return _instance; } }
+
+    private void Awake()
+    {
+        if (_instance != null && _instance != this)
+        {
+            Destroy(this.gameObject);
+        } else {
+            _instance = this;
+             DontDestroyOnLoad(gameObject);
+        }
+    }
+
+    #endregion
+    
     public EventUnit[] unitList;
     public EventObject[] eventList;
     public bool addEvent = false;
@@ -14,10 +36,11 @@ public class EventControl : MonoBehaviour
     public GameObject eventHolderButton;
     public GameObject eventCloseButton;
     GameControl2 GC;
+    public PlayerStats eventPlayer;
 
     private void Start()
     {
-        GC = GameObject.FindGameObjectWithTag("GameControl").GetComponent<GameControl2>();
+        GC = GameControl2.instance;
     }
 
     public void OnValidate()
@@ -37,10 +60,10 @@ public class EventControl : MonoBehaviour
         }
     }
 
-    public void AddEvent(string uid, int randPlace, int randEvent)
+    public void AddEvent(string uid, int randPlace, int eventIndex)
     {
-        EventObject randEventObj = eventList[randEvent];
-        unitList[randPlace].AddEvent(uid, randEventObj, eventGO, randEvent);
+        EventObject randEventObj = eventList[eventIndex];
+        unitList[randPlace].AddEvent(uid, randEventObj, eventGO, eventIndex);
     }
 
     public void EventEnter(string eventID, EventObject eventObj)
@@ -48,6 +71,7 @@ public class EventControl : MonoBehaviour
         eventHolder.GetComponent<EventDisplay>().eventObject = eventObj;
         eventHolder.GetComponent<EventDisplay>().UpdateDisplay();
         eventHolder.SetActive(true);
+        eventPlayer = GC.currentPlayer;
         foreach (EventUnit item in unitList)
         {
             if (item.eventID == eventID)
@@ -67,10 +91,47 @@ public class EventControl : MonoBehaviour
             eventCloseButton.SetActive(true);
         }
         
+        // string eventName = eventObj.name;
+        // switch (eventName)
+        // {
+        //     case "bandyci":
+        //         Debug.Log("transfer to bitka z trzema rzesimieszkami");
+        //         break;
+        //     case "bagno":
+        //         GC.currentPlayer.skipTurnDebuff = true;
+        //         break;
+        //     case "akcja waz":
+        //         Debug.Log("przez nastepne 5 tur player losuje 1");
+        //         GC.currentPlayer.rollDebuffCount = 5;
+        //         break;
+        //     case "Leroy Jenkins":
+        //         Debug.Log("dopoki nie ukonczysz questa losujesz 1");
+        //         break;
+        // }
+    }
+
+    public void TransferToCombat()
+    {
+        SceneManager.LoadScene("Combat");
+        DontDestroy.Instance.gameObject.SetActive(false);
+    }
+
+    public void TransferBack() {
+        DontDestroy.Instance.gameObject.SetActive(true);
+        SceneManager.LoadScene("BoardSysteme");
+    }
+
+    public void EventConfirm()
+    {
+        EventObject eventObj = eventHolder.GetComponent<EventDisplay>().eventObject;
+        eventHolder.SetActive(false);
+        eventCloseButton.SetActive(false);
+        eventHolderButton.SetActive(false);
+
         string eventName = eventObj.name;
         switch (eventName)
         {
-            case "bandyciprawidlowi":
+            case "bandyci":
                 Debug.Log("transfer to bitka z trzema rzesimieszkami");
                 TransferToCombat();
                 break;
@@ -85,18 +146,6 @@ public class EventControl : MonoBehaviour
                 Debug.Log("dopoki nie ukonczysz questa losujesz 1");
                 break;
         }
-    }
-
-    public void TransferToCombat()
-    {
-
-    }
-
-    public void EventConfirm()
-    {
-        eventHolder.SetActive(false);
-        eventCloseButton.SetActive(false);
-        eventHolderButton.SetActive(false);
     }
 
     public void EventImgClose()

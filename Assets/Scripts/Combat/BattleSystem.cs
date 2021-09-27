@@ -33,6 +33,9 @@ public class BattleSystem : MonoBehaviour
 
 	IEnumerator SetupBattle()
 	{
+		PlayerStats player = EventControl.instance.eventPlayer;
+		Debug.Log(player.playerName);
+		GameControl2.instance.ToggleKostka(false);
 		GameObject playerGO = Instantiate(playerPrefab);
 		playerUnit = playerGO.GetComponent<Unit>();
 
@@ -234,6 +237,8 @@ public class BattleSystem : MonoBehaviour
 		{
 			dialogueText.text = "Sroga porażka.";
 		}
+		EventControl.instance.TransferBack();
+		GameControl2.instance.ToggleKostka(true);
 	}
 
 	void PlayerTurn()

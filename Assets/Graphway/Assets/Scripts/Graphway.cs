@@ -6,8 +6,23 @@ using UnityEngine;
 
 public class Graphway : MonoBehaviour 
 {
-	public static Graphway instance;
+	// public static Graphway instance;
 	
+    private static Graphway _instance;
+
+    public static Graphway instance { get { return _instance; } }
+
+    private void Awake()
+    {
+        if (_instance != null && _instance != this)
+        {
+            Destroy(this.gameObject);
+        } else {
+            _instance = this;
+             DontDestroyOnLoad(gameObject);
+        }
+    }
+
 	[Tooltip("Color of NODES in editor.")]
 	public Color nodeColor = new Color32(236, 13, 69, 255);
 	
@@ -36,10 +51,10 @@ public class Graphway : MonoBehaviour
     private List<int> closedNodes;
     private int currentNodeID;
     
-    void Awake()
-    {
-        instance = this;
-    }
+    // void Awake()
+    // {
+    //     instance = this;
+    // }
     
     void Start()
     {

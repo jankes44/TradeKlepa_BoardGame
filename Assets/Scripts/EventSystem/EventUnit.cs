@@ -46,6 +46,8 @@ public class EventUnit : MonoBehaviour
 
             Vector3 pos = transform.position;
             eventGO = Instantiate(eventGOPassed, pos, Quaternion.identity);
+            eventGO.transform.parent = DontDestroy.Instance.gameObject.transform;
+
         }
         
     }
