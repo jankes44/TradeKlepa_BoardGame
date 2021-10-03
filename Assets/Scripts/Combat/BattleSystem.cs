@@ -128,7 +128,7 @@ public class BattleSystem : MonoBehaviour
 		{
 			state = BattleState.WON;
 			actionInProgress = false;
-			EndBattle();
+			StartCoroutine(EndBattle());
 		} else
 		{
 			state = BattleState.ENEMYTURN;
@@ -219,7 +219,7 @@ public class BattleSystem : MonoBehaviour
 		if (isDead)
 		{
 			state = BattleState.LOST;
-			EndBattle();
+			StartCoroutine(EndBattle());
 		} else
 		{
 			state = BattleState.PLAYERTURN;
@@ -228,8 +228,7 @@ public class BattleSystem : MonoBehaviour
 
 	}
 
-	void EndBattle()
-	{
+	IEnumerator EndBattle() {
 		if(state == BattleState.WON)
 		{
 			dialogueText.text = "Wygrałeś bitkę!";
@@ -237,9 +236,16 @@ public class BattleSystem : MonoBehaviour
 		{
 			dialogueText.text = "Sroga porażka.";
 		}
+		yield return new WaitForSeconds(3);
 		EventControl.instance.TransferBack();
 		GameControl2.instance.ToggleKostka(true);
+		yield return null;
 	}
+
+	// void EndBattle()
+	// {
+		
+	// }
 
 	void PlayerTurn()
 	{
