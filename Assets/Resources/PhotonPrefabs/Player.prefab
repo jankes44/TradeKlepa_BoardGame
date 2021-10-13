@@ -1328,6 +1328,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerNameText: {fileID: 7684413238798117894}
+  PV: {fileID: 0}
   PlayerAvatar: {fileID: 0}
   playerName: 
   actorNo: 0
@@ -1340,6 +1341,11 @@ MonoBehaviour:
   follow: {fileID: 2083406844473004652}
   lookat: {fileID: 1460600706962334782}
   YourTurnStarted: 0
+  level: 1
+  maxHP: 30
+  agility: 10
+  strength: 10
+  vitality: 10
   rollDebuffCount: 0
   skipTurnDebuff: 0
 --- !u!114 &2015117325431254011
