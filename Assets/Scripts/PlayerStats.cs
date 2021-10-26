@@ -7,7 +7,7 @@ using UnityEngine;
 public class PlayerStats : MonoBehaviour, IPunInstantiateMagicCallback
 {
     public GameObject PlayerNameText;
-    private PhotonView PV;
+    public PhotonView PV;
     private GameControl2 gameControl;
     public GameObject PlayerAvatar;
 
@@ -28,6 +28,15 @@ public class PlayerStats : MonoBehaviour, IPunInstantiateMagicCallback
     public Transform lookat;
     public bool YourTurnStarted = false;
     int stop;
+
+    //STATS
+    public int level = 1;
+
+    public int maxHP = 100;
+	public float agility = 10f;
+	public float strength = 10f;
+	public float vitality = 10f;
+    public int damage = 1;
 
     //DEBUFFS ----------
     public int rollDebuffCount = 0;
@@ -63,7 +72,7 @@ public class PlayerStats : MonoBehaviour, IPunInstantiateMagicCallback
 
     void Update()
     {
-        if (GetComponent<PhotonView>().Owner != null)
+        if (GetComponent<PhotonView>().Owner != null && PlayerNameText)
         {
             string nickName = GetComponent<PhotonView>().Owner.NickName;
             PlayerNameText.transform.LookAt(Camera.main.transform.position);
@@ -165,13 +174,15 @@ public class PlayerStats : MonoBehaviour, IPunInstantiateMagicCallback
     //DICE ROLL ------------------
     public void RollTheDice()
     {
-        int rand = Random.Range(1, 7);
-        if (rollDebuffCount > 0)
-        {
-            rand = 1;
+        if (PV.IsMine) {
+            int rand = Random.Range(1, 7);
+            if (rollDebuffCount > 0)
+            {
+                rand = 1;
+            }
+            rollDebuffCount--;
+            PV.RPC("RPC_RollTheDice", RpcTarget.AllBuffered, rand);
         }
-        rollDebuffCount--;
-        PV.RPC("RPC_RollTheDice", RpcTarget.AllBuffered, rand);
     }
 
     [PunRPC]
@@ -218,7 +229,35 @@ public class PlayerStats : MonoBehaviour, IPunInstantiateMagicCallback
         yield return null;
     }
 
+    //COMBAT SYSTEM
+    public void OnAttack(string attackType) {
+        int chance = Random.Range(1, 100);
+        int chanceEnemy = Random.Range(1, 100);
+		int typeOfAttackEnemy = Random.Range(1,4);
 
+        PV.RPC("RPC_OnAttack", RpcTarget.AllBuffered, attackType, chance, chanceEnemy, typeOfAttackEnemy);
+    }
+
+	[PunRPC]
+    public void RPC_OnAttack(string attackType, int chance, int chanceEnemy, int typeOfAttackEnemy) {
+        BattleSystem BS = GameObject.FindGameObjectWithTag("BattleSystem").GetComponent<BattleSystem>();
+        BS.StartCoroutine(BS.PlayerAttack(attackType, chance, chanceEnemy, typeOfAttackEnemy));
+		print("Attack " + $"{attackType}, chance {chance}, chanceEnemy {chanceEnemy}, attackEnemy {typeOfAttackEnemy}");
+
+    }
+
+    public void OnHeal() {
+        int chanceEnemy = Random.Range(1, 100);
+		int typeOfAttackEnemy = Random.Range(1,4);
+        PV.RPC("RPC_Heal", RpcTarget.AllBuffered, chanceEnemy, typeOfAttackEnemy);
+    }
+
+	[PunRPC]
+    public void RPC_Heal(int chanceEnemy, int typeOfAttackEnemy) {
+		print("Heal");
+        BattleSystem BS = GameObject.FindGameObjectWithTag("BattleSystem").GetComponent<BattleSystem>();
+        BS.StartCoroutine(BS.PlayerHeal(chanceEnemy, typeOfAttackEnemy));
+    }
 
     //EVENTS ------------------
     public void CreateEvent()
@@ -269,6 +308,18 @@ public class PlayerStats : MonoBehaviour, IPunInstantiateMagicCallback
     private void OnTriggerExit(Collider other)
     {
         collided = false;
+    }
+
+    public void EventConfirm() {
+        if (isLocal) {
+            PV.RPC("RPC_EventConfirm", RpcTarget.Others);
+        }
+    }
+
+    [PunRPC]
+    public void RPC_EventConfirm() {
+        print("Event confirm RPC");
+		EventControl.instance.EventConfirm();
     }
 
     // EQUIPMENT - EQUIPPING ITEMS SYNC

@@ -72,6 +72,8 @@ public class GameControl2 : MonoBehaviourPun
 
         PV = GetComponent<PhotonView>();
         MyPlayer = PhotonNetwork.Instantiate("PhotonPrefabs/Player", startPos, Quaternion.identity);
+        PhotonNetwork.AutomaticallySyncScene = false; //TODO, SYNC SCENE MANUALLY -------------------------------
+        
 
         Debug.Log("Game started with " + PhotonNetwork.PlayerList.Length + " players");
         for (int i = 0; i < PhotonNetwork.PlayerList.Length; i++)

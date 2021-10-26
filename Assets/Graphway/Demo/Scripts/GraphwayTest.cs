@@ -27,7 +27,7 @@ public class GraphwayTest : MonoBehaviour
 		if (player.isLocal && player.moveAllowed)
 		{       
 			// Handle mouse click
-			if (Input.GetMouseButtonDown(0) && steps > 0)
+			if (Input.GetMouseButtonDown(0) && steps > 0 && !player.isMoving)
 			{
 				if (EventSystem.current.IsPointerOverGameObject())    // is the touch on the GUI
 				{
@@ -60,6 +60,7 @@ public class GraphwayTest : MonoBehaviour
 			{
 				player.animationToggle(true);
 				player.isMoving = true;
+				GameControl2.instance.ToggleSkipTurnBtn(false);
 				// Increase speed
 				speed = Mathf.Lerp(speed, MAX_SPEED, Time.deltaTime * ACCELERATION);
 				speed = Mathf.Clamp(speed, 0, MAX_SPEED);
@@ -83,6 +84,7 @@ public class GraphwayTest : MonoBehaviour
 				// Reset speed
 				player.animationToggle(false);
 				player.isMoving = false;
+				GameControl2.instance.ToggleSkipTurnBtn(true);
 				speed = 0;
 			}
 		

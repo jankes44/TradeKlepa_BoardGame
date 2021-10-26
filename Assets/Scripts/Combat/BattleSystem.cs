@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Photon.Pun;
 
 public enum BattleState { START, PLAYERTURN, ENEMYTURN, WON, LOST }
 
@@ -22,6 +23,8 @@ public class BattleSystem : MonoBehaviour
 
 	public BattleState state;
 
+	PlayerStats eventPlayer;
+
 	bool actionInProgress = false;
 
     // Start is called before the first frame update
@@ -33,12 +36,35 @@ public class BattleSystem : MonoBehaviour
 
 	IEnumerator SetupBattle()
 	{
-		PlayerStats player = EventControl.instance.eventPlayer;
-		Debug.Log(player.playerName);
-		GameControl2.instance.ToggleKostka(false);
+		// GameControl2.instance.ToggleKostka(false);
+
+		//player unit
 		GameObject playerGO = Instantiate(playerPrefab);
 		playerUnit = playerGO.GetComponent<Unit>();
+		if (EventControl.instance != null) {
+			eventPlayer = EventControl.instance.eventPlayer.GetComponent<PlayerStats>();
+		}
 
+		if (eventPlayer != null) {
+			int eventActorNo = eventPlayer.actorNo;
+			int myActorNo = GameControl2.instance.MyPlayer.GetComponent<PlayerStats>().actorNo;
+
+			if (eventActorNo != myActorNo) {
+				combatHUD.SetActive(false);
+			}
+
+			Debug.Log(eventPlayer.playerName);
+			playerUnit.unitLevel = eventPlayer.level;
+			playerUnit.unitName = eventPlayer.playerName; 
+			playerUnit.maxHP = eventPlayer.maxHP;
+			playerUnit.currentHP = eventPlayer.maxHP; 
+			playerUnit.agility = eventPlayer.agility; 
+			playerUnit.strength = eventPlayer.strength; 
+			playerUnit.vitality = eventPlayer.vitality; 
+			playerUnit.damage = eventPlayer.damage;
+		}
+
+		//enemy unit
 		GameObject enemyGO = Instantiate(enemyPrefab);
 		enemyUnit = enemyGO.GetComponent<Unit>();
 
@@ -53,7 +79,7 @@ public class BattleSystem : MonoBehaviour
 		PlayerTurn();
 	}
 
-	IEnumerator PlayerAttack(string typeOfAttack)
+	public IEnumerator PlayerAttack(string typeOfAttack, int chance, int chanceEnemy, int typeOfAttackEnemy)
 	{
 		actionInProgress = true;
 		combatHUD.SetActive(false);
@@ -61,20 +87,22 @@ public class BattleSystem : MonoBehaviour
 
 		yield return new WaitForSeconds(1f);
 
-		int damage = playerUnit.damage;
-		int range = 100;
-		int chance;
+		int baseDamage = playerUnit.damage;
+		int damage = baseDamage;
+
 		float chanceMultiplier = playerUnit.agilityMultiplier;
 		float strengthMultiplier = playerUnit.strengthMultiplier;
 		string attackDialog = "";
 
+		float chanceCalculated = 1f+chance/100f;
+
 		switch (typeOfAttack)
         {
 			case "strong":
-				chance = Random.Range(1, range);
+				// chance = Random.Range(1, range);
 
 				//multipliers
-				damage = Mathf.RoundToInt(damage * Random.Range(2.25f, 3f) * strengthMultiplier);
+				damage = Mathf.RoundToInt(baseDamage * chanceCalculated * strengthMultiplier * 1.75f);
 
 				if (chance < 75 / chanceMultiplier)
 				{
@@ -87,8 +115,8 @@ public class BattleSystem : MonoBehaviour
 
 				break;
 			case "medium":
-				chance = Random.Range(1, range);
-				damage = Mathf.RoundToInt(damage * Random.Range(1.25f, 2f) * strengthMultiplier);
+				// chance = Random.Range(1, range);
+				damage = Mathf.RoundToInt(baseDamage * chanceCalculated * strengthMultiplier * 1.4f);
 
 				if (chance < 50 / chanceMultiplier)
 				{
@@ -101,8 +129,8 @@ public class BattleSystem : MonoBehaviour
 
 				break;
 			case "weak":
-				chance = Random.Range(1, range);
-				damage = Mathf.RoundToInt(damage * Random.Range(0.75f, 1f) * strengthMultiplier);
+				// chance = Random.Range(1, range);
+				damage = Mathf.RoundToInt(baseDamage * chanceCalculated * strengthMultiplier);
 
 				if (chance < 15 / chanceMultiplier)
 				{
@@ -128,36 +156,38 @@ public class BattleSystem : MonoBehaviour
 		{
 			state = BattleState.WON;
 			actionInProgress = false;
-			EndBattle();
+			StartCoroutine(EndBattle());
 		} else
 		{
 			state = BattleState.ENEMYTURN;
 			actionInProgress = false;
-			StartCoroutine(EnemyTurn());
+			StartCoroutine(EnemyTurn(chanceEnemy, typeOfAttackEnemy));
 		}
 	}
 
-	IEnumerator EnemyTurn()
+	IEnumerator EnemyTurn(int chance, int typeOfAttack)
 	{
-		int damage = enemyUnit.damage;
-		int range = 100;
-		int chance;
+		int baseDamage = enemyUnit.damage;
+		int damage = baseDamage;
+		// int chance;
 
 		float agilityMultiplier = enemyUnit.agilityMultiplier;
 		float strengthMultiplier = enemyUnit.strengthMultiplier;
 
-		int typeOfAttack = Random.Range(1, 4);
+		// int typeOfAttack = Random.Range(1, 4);
 		string attackDialog = "";
 
 		dialogueText.text = enemyUnit.unitName + " atakuje!";
 		enemyUnit.SlashAnim(true);
 		yield return new WaitForSeconds(1f);
+	
+		float chanceCalculated = 1f+chance/100f;
 
 		switch (typeOfAttack)
 		{
 			case 1:
-				chance = Random.Range(1, range);
-				damage = Mathf.RoundToInt(damage * Random.Range(2.25f,3f) * strengthMultiplier);
+				// chance = Random.Range(1, range);
+				damage = Mathf.RoundToInt(baseDamage * chanceCalculated * strengthMultiplier * 1.75f);
 
 				if (chance < 75 / agilityMultiplier)
 				{
@@ -171,8 +201,8 @@ public class BattleSystem : MonoBehaviour
 
 				break;
 			case 2:
-				chance = Random.Range(1, range);
-				damage = Mathf.RoundToInt(damage * Random.Range(1.25f, 2f) * strengthMultiplier);
+				// chance = Random.Range(1, range);
+				damage = Mathf.RoundToInt(baseDamage * chanceCalculated * strengthMultiplier * 1.4f);
 
 				if (chance < 50 / agilityMultiplier)
 				{
@@ -186,8 +216,8 @@ public class BattleSystem : MonoBehaviour
 
 				break;
 			case 3:
-				chance = Random.Range(1, range);
-				damage = Mathf.RoundToInt(damage * Random.Range(0.75f, 1f) * strengthMultiplier);
+				// chance = Random.Range(1, range);
+				damage = Mathf.RoundToInt(baseDamage * chanceCalculated * strengthMultiplier);
 
 				if (chance < 15 / agilityMultiplier)
 				{
@@ -202,7 +232,7 @@ public class BattleSystem : MonoBehaviour
 				break;
 		}
 
-		Debug.Log(typeOfAttack);
+		Debug.Log(typeOfAttack + " " + chanceCalculated);
 
 		bool isDead = playerUnit.TakeDamage(damage);
 		if (damage > 0) playerUnit.TakeDmgAnim(true);
@@ -219,7 +249,7 @@ public class BattleSystem : MonoBehaviour
 		if (isDead)
 		{
 			state = BattleState.LOST;
-			EndBattle();
+			StartCoroutine(EndBattle());
 		} else
 		{
 			state = BattleState.PLAYERTURN;
@@ -228,8 +258,7 @@ public class BattleSystem : MonoBehaviour
 
 	}
 
-	void EndBattle()
-	{
+	IEnumerator EndBattle() {
 		if(state == BattleState.WON)
 		{
 			dialogueText.text = "Wygrałeś bitkę!";
@@ -237,17 +266,22 @@ public class BattleSystem : MonoBehaviour
 		{
 			dialogueText.text = "Sroga porażka.";
 		}
+		yield return new WaitForSeconds(3);
 		EventControl.instance.TransferBack();
 		GameControl2.instance.ToggleKostka(true);
+		yield return null;
 	}
 
 	void PlayerTurn()
 	{
-		combatHUD.SetActive(true);
+		if (eventPlayer != null && eventPlayer.actorNo == GameControl2.instance.MyPlayer.GetComponent<PlayerStats>().actorNo) {
+			//only event player ------------
+			combatHUD.SetActive(true);
+		}
 		dialogueText.text = "Co robimy szefunciu?";
 	}
 
-	IEnumerator PlayerHeal()
+	public IEnumerator PlayerHeal(int chanceEnemy, int typeOfAttackEnemy)
 	{
 		playerUnit.HealAnim(true);
 		actionInProgress = true;
@@ -264,8 +298,21 @@ public class BattleSystem : MonoBehaviour
 
 		state = BattleState.ENEMYTURN;
 		actionInProgress = false;
-		StartCoroutine(EnemyTurn());
+
+		StartCoroutine(EnemyTurn(chanceEnemy, typeOfAttackEnemy));
 	}
+
+	// [PunRPC]
+    // public void RPC_OnAttack(string attackType) {
+	// 	print("Attack " + attackType);
+    //     StartCoroutine(PlayerAttack(attackType));
+    // }
+
+	// [PunRPC]
+    // public void RPC_Heal() {
+	// 	print("Heal");
+	// 	StartCoroutine(PlayerHeal());
+    // }
 
 	public void OnAttackStrongButton()
 	{
@@ -273,8 +320,9 @@ public class BattleSystem : MonoBehaviour
 			return;
 		if (actionInProgress)
 			return;
-
-		StartCoroutine(PlayerAttack("strong"));
+		
+		// StartCoroutine(PlayerAttack("strong"));
+		eventPlayer.OnAttack("strong");
 	}
 
 	public void OnAttackMediumButton()
@@ -284,7 +332,8 @@ public class BattleSystem : MonoBehaviour
 		if (actionInProgress)
 			return;
 
-		StartCoroutine(PlayerAttack("medium"));
+		// StartCoroutine(PlayerAttack("medium"));
+		eventPlayer.OnAttack("medium");
 	}
 
 	public void OnAttackWeakButton()
@@ -294,7 +343,8 @@ public class BattleSystem : MonoBehaviour
 		if (actionInProgress)
 			return;
 
-		StartCoroutine(PlayerAttack("weak"));
+		// StartCoroutine(PlayerAttack("weak"));
+		eventPlayer.OnAttack("weak");
 	}
 
 	public void OnHealButton()
@@ -304,7 +354,8 @@ public class BattleSystem : MonoBehaviour
 		if (actionInProgress)
 			return;
 
-		StartCoroutine(PlayerHeal());
+		// StartCoroutine(PlayerHeal());
+		eventPlayer.OnHeal();
 	}
 
 }

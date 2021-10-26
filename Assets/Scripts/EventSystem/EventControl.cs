@@ -36,7 +36,7 @@ public class EventControl : MonoBehaviour
     public GameObject eventHolderButton;
     public GameObject eventCloseButton;
     GameControl2 GC;
-    public PlayerStats eventPlayer;
+    public GameObject eventPlayer;
 
     private void Start()
     {
@@ -71,7 +71,9 @@ public class EventControl : MonoBehaviour
         eventHolder.GetComponent<EventDisplay>().eventObject = eventObj;
         eventHolder.GetComponent<EventDisplay>().UpdateDisplay();
         eventHolder.SetActive(true);
-        eventPlayer = GC.currentPlayer;
+        eventPlayer = GC.currentPlayer.gameObject;
+        GC.ToggleSkipTurnBtn(false);
+        
         foreach (EventUnit item in unitList)
         {
             if (item.eventID == eventID)
@@ -88,7 +90,7 @@ public class EventControl : MonoBehaviour
         } else
         {
             //only for other players to close the event card
-            eventCloseButton.SetActive(true);
+            // eventCloseButton.SetActive(true);
         }
         
         // string eventName = eventObj.name;
@@ -121,12 +123,26 @@ public class EventControl : MonoBehaviour
         SceneManager.LoadScene("BoardSysteme");
     }
 
+    // [PunRPC]
+    // public void RPC_EventConfirm() {
+    //     print("Event confirm RPC");
+	// 	EventConfirm();
+    // }
+
+	// public void EventConfirmRPC()
+	// {
+	// 	// StartCoroutine(PlayerAttack("strong"));
+	// 	GC.currentPlayer.PV.RPC("RPC_OnAttack", RpcTarget.AllBuffered, "strong");
+	// }
+
     public void EventConfirm()
     {
+        GC.currentPlayer.EventConfirm();
         EventObject eventObj = eventHolder.GetComponent<EventDisplay>().eventObject;
         eventHolder.SetActive(false);
         eventCloseButton.SetActive(false);
         eventHolderButton.SetActive(false);
+        GC.ToggleSkipTurnBtn(true);
 
         string eventName = eventObj.name;
         switch (eventName)

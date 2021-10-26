@@ -21,12 +21,20 @@ public class Unit : MonoBehaviour
 	public int maxHP;
 	public int currentHP;
 
-    public void Start()
+	void OnValidate() {
+		updateStats();
+	}
+
+    void Start()
     {
+		updateStats();
+		playerAnimator = gameObject.GetComponent<Animator>();
+	}
+
+	void updateStats() {
 		agilityMultiplier = agility / 100f + 1f;
 		strengthMultiplier = strength / 50f + 1f;
 		vitalityMultiplier = vitality / 100f + 1f;
-		playerAnimator = gameObject.GetComponent<Animator>();
 	}
 
 	public void Anim(bool set)
