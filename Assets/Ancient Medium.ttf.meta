@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 69fc750b9efa6eb408322a824144c173
+guid: 4cd2e3bc4d952d14eb27e68a930e7469
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,8 +9,9 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - Kingthings Petrock
-  fallbackFontReferences: []
+  - Ancient
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 41b6391f84368c14a8c885e019dcb439, type: 3}
   customCharacters: 
   fontRenderingMode: 0
   ascentCalculationMode: 1

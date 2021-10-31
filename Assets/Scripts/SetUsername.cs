@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Photon.Pun;
+using TMPro;
 
 public class SetUsername : MonoBehaviour
 {
 	public Button yourButton;
-	public InputField usernameTxtField;
+	public TMP_InputField usernameTxtField;
 
 	void Start()
 	{
