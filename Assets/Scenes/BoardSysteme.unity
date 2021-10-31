@@ -3539,7 +3539,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -70, y: 142.5}
+  m_AnchoredPosition: {x: -60, y: 130}
   m_SizeDelta: {x: 85, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &81579019
@@ -46040,8 +46040,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -70, y: 65}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: -60, y: 60}
+  m_SizeDelta: {x: 85, y: 85}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &955988682
 MonoBehaviour:
@@ -46063,7 +46063,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 65267eea92104f3448e57979ba53e2d7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8da1746eb2cb79e4bb1a738460046e66, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -57717,7 +57717,7 @@ MonoBehaviour:
   CurrentPlayerTxt: {fileID: 861219416}
   skipTurnBtn: {fileID: 81579019}
   rollDiceBtn: {fileID: 1467321287}
-  newSprite: {fileID: 21300000, guid: a2dcc2179a34a534f8152401808ea8e5, type: 3}
+  newSprite: {fileID: 21300000, guid: 9db6b1b2e6745ce4b89ad0a5702f5940, type: 3}
   imageRenderer: {fileID: 955988682}
   kostkas:
   - {fileID: 21300000, guid: 65267eea92104f3448e57979ba53e2d7, type: 3}
@@ -70140,8 +70140,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -60, y: 100}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: -60, y: 60}
+  m_SizeDelta: {x: 90, y: 90}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1467321287
 MonoBehaviour:
