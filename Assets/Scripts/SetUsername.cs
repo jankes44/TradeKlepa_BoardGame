@@ -9,6 +9,7 @@ public class SetUsername : MonoBehaviour
 {
 	public Button yourButton;
 	public TMP_InputField usernameTxtField;
+	public GameObject usernameDialog;
 
 	void Start()
 	{
@@ -20,5 +21,14 @@ public class SetUsername : MonoBehaviour
 	{
 		string userNameInputText = usernameTxtField.text;
 		PhotonNetwork.NickName = userNameInputText;
+		gameObject.SetActive(false);
+		usernameDialog.SetActive(false);
 	}
+
+	void Update()
+    {
+        if (Input.GetKeyUp(KeyCode.Return)) { 
+			TaskOnClick();
+		}
+    }
 }
