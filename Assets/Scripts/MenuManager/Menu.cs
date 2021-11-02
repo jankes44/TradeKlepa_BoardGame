@@ -6,6 +6,13 @@ public class Menu : MonoBehaviour
 {
     public string menuName;
     public bool open;
+    public GameObject NicknameDialogObj;
+
+    private void OnEnable() {
+        if (menuName == "title") {
+            NicknameDialogObj.SetActive(true);
+        }    
+    }
 
     public void Open()
     {

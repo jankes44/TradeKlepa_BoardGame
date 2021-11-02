@@ -21,7 +21,6 @@ public class SetUsername : MonoBehaviour
 	{
 		string userNameInputText = usernameTxtField.text;
 		PhotonNetwork.NickName = userNameInputText;
-		gameObject.SetActive(false);
 		usernameDialog.SetActive(false);
 	}
 
