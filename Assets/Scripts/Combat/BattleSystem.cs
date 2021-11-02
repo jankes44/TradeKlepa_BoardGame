@@ -63,7 +63,7 @@ public class BattleSystem : MonoBehaviour
 			playerUnit.vitality = eventPlayer.vitality; 
 			playerUnit.damage = eventPlayer.damage;
 		}
-
+		enemyPrefab = EventControl.instance.currentEnemy;
 		//enemy unit
 		GameObject enemyGO = Instantiate(enemyPrefab);
 		enemyUnit = enemyGO.GetComponent<Unit>();

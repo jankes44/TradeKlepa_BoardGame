@@ -55301,7 +55301,8 @@ MonoBehaviour:
   - {fileID: 1296850773}
   - {fileID: 134917562}
   eventList:
-  - {fileID: 11400000, guid: b37ff0ded0732bd47a0856fd91c340d9, type: 2}
+  - {fileID: 11400000, guid: ce3007fb8f061dc45afb0be69628e76d, type: 2}
+  - {fileID: 11400000, guid: d8d2ca658c4f659408079c38b0003853, type: 2}
   addEvent: 0
   eventGO: {fileID: 3725368419083329798, guid: 4f9cfa2c828b05746a26f95e615ab766, type: 3}
   lastEventIndex: 0
@@ -55309,6 +55310,7 @@ MonoBehaviour:
   eventHolderButton: {fileID: 1559608474}
   eventCloseButton: {fileID: 2134906072}
   eventPlayer: {fileID: 0}
+  currentEnemy: {fileID: 0}
 --- !u!4 &1165186691
 Transform:
   m_ObjectHideFlags: 0
@@ -65158,7 +65160,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1352301319
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -65,7 +65,7 @@ public class PlayerStats : MonoBehaviour, IPunInstantiateMagicCallback
 
             string uid = System.Guid.NewGuid().ToString();
 
-            PV.RPC("RPC_CreateEvent", RpcTarget.AllBuffered, uid, 1, 0);
+            PV.RPC("RPC_CreateEvent", RpcTarget.AllBuffered, uid, 1, 1);
             StartCoroutine("FirstTurn");
         }
     }
@@ -262,7 +262,7 @@ public class PlayerStats : MonoBehaviour, IPunInstantiateMagicCallback
     //EVENTS ------------------
     public void CreateEvent()
     {
-        int randPlace = Random.Range(0, gameControl.eventControl.unitList.Length); //temporary before dice rolling is ready <-----TODO----->
+        int randPlace = Random.Range(0, gameControl.eventControl.unitList.Length);
         int randEvent = Random.Range(0, gameControl.eventControl.eventList.Length);
         string uid = System.Guid.NewGuid().ToString();
 

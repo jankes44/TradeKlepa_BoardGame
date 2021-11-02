@@ -14,4 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: akcja waz
   description: upierdolil cie waz
+  type: debuff
+  enemy: {fileID: 0}
   artwork: {fileID: 21300000, guid: e489ec24a6f671844a04a42afdcf6f71, type: 3}

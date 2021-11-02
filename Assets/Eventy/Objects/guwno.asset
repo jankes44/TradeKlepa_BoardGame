@@ -15,4 +15,5 @@ MonoBehaviour:
   name: bandyci
   description: masz wpierdol
   type: combat
+  enemy: {fileID: 1589313662307642140, guid: e3651ca2bf66c9b479ebc508c201d8ba, type: 3}
   artwork: {fileID: 21300000, guid: 76e0a0cef5d53ff48988e64d110a6777, type: 3}

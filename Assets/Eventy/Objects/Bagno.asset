@@ -15,4 +15,5 @@ MonoBehaviour:
   name: Leroy Jenkins
   description: Leeeeerooooooooooooooy Jenkiiiiiiiiiiiiiiiiiins
   type: Leroy
+  enemy: {fileID: 0}
   artwork: {fileID: 21300000, guid: e489ec24a6f671844a04a42afdcf6f71, type: 3}

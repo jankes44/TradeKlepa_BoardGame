@@ -37,6 +37,7 @@ public class EventControl : MonoBehaviour
     public GameObject eventCloseButton;
     GameControl2 GC;
     public GameObject eventPlayer;
+    public GameObject currentEnemy;
 
     private void Start()
     {
@@ -145,23 +146,44 @@ public class EventControl : MonoBehaviour
         GC.ToggleSkipTurnBtn(true);
 
         string eventName = eventObj.name;
-        switch (eventName)
-        {
-            case "bandyci":
-                Debug.Log("transfer to bitka z trzema rzesimieszkami");
+        string eventType = eventObj.type;
+        switch (eventType) {
+            case "combat":
+                currentEnemy = eventObj.enemy;
                 TransferToCombat();
                 break;
-            case "bagno":
-                GC.currentPlayer.skipTurnDebuff = true;
-                break;
-            case "akcja waz":
-                Debug.Log("przez nastepne 5 tur player losuje 1");
-                GC.currentPlayer.rollDebuffCount = 5;
-                break;
-            case "Leroy Jenkins":
-                Debug.Log("dopoki nie ukonczysz questa losujesz 1");
+            case "debuff":
+                switch (eventName) {
+                    case "bagno":
+                        GC.currentPlayer.skipTurnDebuff = true;
+                        break;
+                    case "akcja waz":
+                        Debug.Log("przez nastepne 5 tur player losuje 1");
+                        GC.currentPlayer.rollDebuffCount = 5;
+                        break;
+                    case "Leroy Jenkins":
+                        Debug.Log("dopoki nie ukonczysz questa losujesz 1");
+                        break;
+                }
                 break;
         }
+        // switch (eventName)
+        // {
+        //     case "bandyci":
+        //         Debug.Log("transfer to bitka z trzema rzesimieszkami");
+        //         TransferToCombat();
+        //         break;
+        //     case "bagno":
+        //         GC.currentPlayer.skipTurnDebuff = true;
+        //         break;
+        //     case "akcja waz":
+        //         Debug.Log("przez nastepne 5 tur player losuje 1");
+        //         GC.currentPlayer.rollDebuffCount = 5;
+        //         break;
+        //     case "Leroy Jenkins":
+        //         Debug.Log("dopoki nie ukonczysz questa losujesz 1");
+        //         break;
+        // }
     }
 
     public void EventImgClose()
