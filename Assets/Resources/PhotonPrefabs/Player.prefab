@@ -1440,6 +1440,9 @@ MonoBehaviour:
   appearance:
   - {fileID: 11400000, guid: 6bf16e7c666198049bf96c18239fe894, type: 2}
   - {fileID: 11400000, guid: ab934b07c3b3b9941b63d403377e6a76, type: 2}
+  combatPlayer: 0
+  currentEquipment: []
+  currentMeshes: []
   WeaponSlot: {fileID: 0}
   HeadSlot: {fileID: 0}
   ChestSlot: {fileID: 0}
@@ -1547,7 +1550,7 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7684413238798117894}
-  m_Text: Eryczeg
+  m_Text: GigaChad
   m_OffsetZ: 0
   m_CharacterSize: 1
   m_LineSpacing: 1

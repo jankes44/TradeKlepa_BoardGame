@@ -9,8 +9,13 @@ public class EquipmentManager : MonoBehaviour {
 	public Equipment[] defaultWear;
 	public Appearance[] appearance;
 
+	public bool combatPlayer;
+
+	[SerializeField]
 	Equipment[] currentEquipment;
+	[SerializeField]
 	SkinnedMeshRenderer[] currentMeshes;
+	SkinnedMeshRenderer[] appearanceMeshes;
 
 	public EqSlot WeaponSlot;
 	public EqSlot HeadSlot;
@@ -64,9 +69,16 @@ public class EquipmentManager : MonoBehaviour {
 		int numSlots = System.Enum.GetNames (typeof(EquipmentSlot)).Length;
 		currentEquipment = new Equipment[numSlots];
 		currentMeshes = new SkinnedMeshRenderer[numSlots];
+		appearanceMeshes = new SkinnedMeshRenderer[2];
 
-		EquipAllDefault();
+		if (combatPlayer) {
+			EquipmentManager eventPlayer = EventControl.instance.eventPlayer.GetComponent<EquipmentManager>();
+			defaultWear = eventPlayer.currentEquipment;
+			appearance = eventPlayer.appearance;
+		}
+		
 		EquipAllAppearance();
+		EquipAllDefault();
 	}
 
 	void Update() {
@@ -83,6 +95,7 @@ public class EquipmentManager : MonoBehaviour {
 	// Equip a new item
 	public void Equip (Equipment newItem)
 	{	
+		if (!newItem) return;
 		PlayerStats myPlayer = GameControl2.instance.MyPlayer.GetComponent<PlayerStats>();
 		// Find out what slot the item fits in
 		// and put it there.
@@ -100,6 +113,7 @@ public class EquipmentManager : MonoBehaviour {
                 break;
             case EquipmentSlot.Head:
 				HeadSlot.Equip(newItem);
+				UnequipAppearance();
 				break;
             case EquipmentSlot.Chest:
 				ChestSlot.Equip(newItem);
@@ -136,7 +150,7 @@ public class EquipmentManager : MonoBehaviour {
 	}
 
 	public void EquipSync(Equipment newItem) {
-		//attach mesh for other players to see TODO
+		//attach mesh for other players to see
 		int slotIndex = (int)newItem.equipSlot;
 		if (newItem.prefab) {
 			AttachToMesh(newItem.prefab, slotIndex);
@@ -144,7 +158,7 @@ public class EquipmentManager : MonoBehaviour {
 	}
 
 	public void UnequipSync(int slotIndex) {
-		//attach mesh for other players to see TODO
+		//attach mesh for other players to see
 		if (currentMeshes [slotIndex] != null) {
 			Destroy(currentMeshes [slotIndex].gameObject);
 		}
@@ -160,6 +174,7 @@ public class EquipmentManager : MonoBehaviour {
 
 			currentEquipment [slotIndex] = null;
 			if (currentMeshes [slotIndex] != null) {
+				if (oldItem.equipSlot == EquipmentSlot.Head) EquipAllAppearance();
 				myPlayer.UnequipItem(slotIndex);
 				Destroy(currentMeshes [slotIndex].gameObject);
 			}
@@ -200,10 +215,20 @@ public class EquipmentManager : MonoBehaviour {
 		if (newItem.prefab)
 		{
 			SkinnedMeshRenderer newMesh = Instantiate(newItem.prefab) as SkinnedMeshRenderer;
-			newMesh.transform.parent = DontDestroy.Instance.gameObject.transform;
+			if (newItem.name == "Beard") appearanceMeshes[0] = newMesh;
+			if (newItem.name == "Hair") appearanceMeshes[1] = newMesh;
+			
+			newMesh.transform.parent = gameObject.transform;
 
 			newMesh.bones = targetMesh.bones;
 			newMesh.rootBone = targetMesh.rootBone;
+		}
+	}
+
+	public void UnequipAppearance() {
+		foreach (SkinnedMeshRenderer e in appearanceMeshes)
+		{
+			Destroy(e.gameObject);
 		}
 	}
 
@@ -214,7 +239,8 @@ public class EquipmentManager : MonoBehaviour {
 		}
 
 		SkinnedMeshRenderer newMesh = Instantiate(mesh) as SkinnedMeshRenderer;
-		newMesh.transform.parent = DontDestroy.Instance.gameObject.transform;
+		newMesh.transform.parent = gameObject.transform;
+		// newMesh.transform.parent = DontDestroy.Instance.gameObject.transform;
 
 		newMesh.bones = targetMesh.bones;
 		newMesh.rootBone = targetMesh.rootBone;

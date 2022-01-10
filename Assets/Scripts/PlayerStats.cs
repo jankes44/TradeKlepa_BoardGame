@@ -66,7 +66,7 @@ public class PlayerStats : MonoBehaviour, IPunInstantiateMagicCallback
             string uid = System.Guid.NewGuid().ToString();
 
             PV.RPC("RPC_CreateEvent", RpcTarget.AllBuffered, uid, 1, 1);
-            PV.RPC("RPC_CreateEvent", RpcTarget.AllBuffered, uid, 230, 4);
+            PV.RPC("RPC_CreateEvent", RpcTarget.AllBuffered, uid, 230, -1); //creates the shop
             StartCoroutine("FirstTurn");
         }
     }
