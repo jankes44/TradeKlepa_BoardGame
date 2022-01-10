@@ -20,6 +20,11 @@ public class SceneLoader : MonoBehaviour
         SceneManager.LoadScene("Shop");
     }
 
+    public void BackToBoard() {
+        DontDestroy.Instance.gameObject.SetActive(true);
+        SceneManager.LoadScene("BoardSysteme");
+    }
+
     public void Board()
     {
         SceneManager.LoadScene("BoardSysteme");

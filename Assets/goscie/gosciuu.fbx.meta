@@ -32,7 +32,7 @@ ModelImporter:
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
     importConstraints: 0
-    animationCompression: 1
+    animationCompression: 3
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
@@ -172,8 +172,391 @@ ModelImporter:
   importAnimation: 1
   humanDescription:
     serializedVersion: 3
-    human: []
-    skeleton: []
+    human:
+    - boneName: BODY
+      humanName: Hips
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: L Udo
+      humanName: LeftUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: P Udo
+      humanName: RightUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: L Piszczel
+      humanName: LeftLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: P Piszczel
+      humanName: RightLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: L Kostka
+      humanName: LeftFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: P Kostka
+      humanName: RightFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Lower Brzuch
+      humanName: Spine
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Brzuch
+      humanName: Chest
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: lower szyja
+      humanName: Neck
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: szyja
+      humanName: Head
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: L Obojczyk
+      humanName: LeftShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: P Obojczyk
+      humanName: RightShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: L Ramie
+      humanName: LeftUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: P Ramie
+      humanName: RightUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: L Przedramie
+      humanName: LeftLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: P Przedramie
+      humanName: RightLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: L kciuk1
+      humanName: LeftHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: P Kciuk1
+      humanName: RightHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: "G\u0142owa"
+      humanName: RightEye
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Klata
+      humanName: UpperChest
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    skeleton:
+    - name: gosciuu(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Armature
+      parentName: gosciuu(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071067, y: 5.302452e-33, z: 5.302451e-33, w: 0.7071068}
+      scale: {x: 100, y: 100, z: 100}
+    - name: BODY
+      parentName: Armature
+      position: {x: -0, y: 0.00031128293, z: 0.010833063}
+      rotation: {x: 0.7071068, y: 0.00000003051315, z: 0.000000030513135, w: -0.7071068}
+      scale: {x: 1, y: 0.9999999, z: 0.9999999}
+    - name: Lower Brzuch
+      parentName: BODY
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.99993944, y: -6.5288575e-10, z: 0.00000011915576, w: 0.011010528}
+      scale: {x: 1, y: 0.9999996, z: 1.000915}
+    - name: Brzuch
+      parentName: Lower Brzuch
+      position: {x: -2.7057467e-11, y: 0.0017951148, z: -2.3874236e-11}
+      rotation: {x: 0.008013613, y: -6.0768945e-11, z: -0.0000000039150563, w: 0.99996793}
+      scale: {x: 1, y: 1, z: 1.0000001}
+    - name: Klata
+      parentName: Brzuch
+      position: {x: 1.0724079e-11, y: 0.0016885729, z: 4.4260557e-11}
+      rotation: {x: -0.031775434, y: -5.751507e-11, z: 0.000000008949564, w: 0.9994951}
+      scale: {x: 1, y: 1.0000112, z: 0.99998844}
+    - name: lower szyja
+      parentName: Klata
+      position: {x: -8.241159e-12, y: 0.0015495068, z: -4.1309248e-11}
+      rotation: {x: -0.045106392, y: -1.5072524e-10, z: 0.0000000106435145, w: 0.99898225}
+      scale: {x: 1, y: 0.99995345, z: 1.0000477}
+    - name: szyja
+      parentName: lower szyja
+      position: {x: 2.5011105e-13, y: 0.0010694568, z: 6.08452e-11}
+      rotation: {x: 0.27134925, y: -0.00000011450672, z: -0.00000009742597, w: 0.9624809}
+      scale: {x: 1, y: 1.0006585, z: 0.99934185}
+    - name: "G\u0142owa"
+      parentName: szyja
+      position: {x: 5.0086157e-11, y: 0.00066972687, z: 4.9964e-10}
+      rotation: {x: -0.14092371, y: 0.000000118214615, z: 0.000000052272288, w: 0.9900205}
+      scale: {x: 1, y: 1.0011425, z: 0.9988588}
+    - name: L Obojczyk
+      parentName: Klata
+      position: {x: -0.00044922458, y: 0.0018977339, z: 0.000008878194}
+      rotation: {x: -0.49213016, y: 0.49933138, z: 0.5106114, w: 0.49774706}
+      scale: {x: 0.9995981, y: 1.0000609, z: 1.0003488}
+    - name: L Ramie
+      parentName: L Obojczyk
+      position: {x: 5.7742e-10, y: 0.0018258295, z: 1.11758706e-10}
+      rotation: {x: 0.00075095874, y: -0.000018730756, z: -0.0021617408, w: 0.9999974}
+      scale: {x: 0.9998628, y: 1.0000633, z: 1.0000734}
+    - name: L Przedramie
+      parentName: L Ramie
+      position: {x: 6.3329936e-10, y: 0.0023257423, z: 1.4901161e-10}
+      rotation: {x: 0.0025762622, y: -0.00029085303, z: 0.00941397, w: -0.9999524}
+      scale: {x: 0.99975646, y: 1.0002441, z: 1.0000021}
+    - name: L kciuk1
+      parentName: L Przedramie
+      position: {x: -3.7252902e-11, y: 0.0029015222, z: -9.313225e-11}
+      rotation: {x: -0.013895666, y: -0.00433436, z: -0.3237077, w: -0.9460452}
+      scale: {x: 1.0000758, y: 0.99995184, z: 0.9999759}
+    - name: L kciuk2
+      parentName: L kciuk1
+      position: {x: -0.0000000010186341, y: 0.0007292049, z: 7.4505804e-11}
+      rotation: {x: -0.008783293, y: -0.0005986395, z: -0.032726247, w: 0.99942565}
+      scale: {x: 1.0000899, y: 0.9999113, z: 1.0000036}
+    - name: L Kciuk3
+      parentName: L kciuk2
+      position: {x: -4.080357e-10, y: 0.0002214497, z: -9.3132255e-12}
+      rotation: {x: -0.00030849673, y: -0.00062724884, z: -0.08041148, w: 0.9967615}
+      scale: {x: 1.0002095, y: 0.9997918, z: 1.0000029}
+    - name: L palce1
+      parentName: L Przedramie
+      position: {x: -3.7252902e-11, y: 0.0029015222, z: -9.313225e-11}
+      rotation: {x: -0.056702007, y: 0.001187394, z: 0.022446034, w: -0.99813807}
+      scale: {x: 1.0000262, y: 1.0000166, z: 0.9999591}
+    - name: L palce2
+      parentName: L palce1
+      position: {x: -7.0082024e-10, y: 0.00076637097, z: 3.4458936e-10}
+      rotation: {x: 0.076503545, y: -0.00038021553, z: -0.013106288, w: -0.9969831}
+      scale: {x: 1.0000091, y: 1.0000063, z: 0.99998546}
+    - name: L palce3
+      parentName: L palce2
+      position: {x: 0.0000000010803342, y: 0.00053796003, z: -3.7252902e-11}
+      rotation: {x: -0.07117339, y: -0.0007774062, z: 0.0058019822, w: 0.99744684}
+      scale: {x: 1.000017, y: 1.0000051, z: 0.99997765}
+    - name: P Obojczyk
+      parentName: Klata
+      position: {x: 0.00043629858, y: 0.0018977334, z: 0.000008877944}
+      rotation: {x: 0.4921304, y: 0.49933118, z: 0.51061136, w: -0.49774703}
+      scale: {x: 0.99966395, y: 1.0000619, z: 1.0002804}
+    - name: P Ramie
+      parentName: P Obojczyk
+      position: {x: -1.8626451e-11, y: 0.00182583, z: 9.685754e-10}
+      rotation: {x: 0.00075088424, y: 0.000018715855, z: 0.0021618004, w: 0.9999974}
+      scale: {x: 0.99974805, y: 1.0000665, z: 1.0001836}
+    - name: P Przedramie
+      parentName: P Ramie
+      position: {x: 0.000000001695007, y: 0.0023257418, z: -1.4901161e-10}
+      rotation: {x: -0.0026236086, y: 0.000017032547, z: 0.00941338, w: 0.9999523}
+      scale: {x: 0.9998037, y: 1.0002011, z: 1.0000027}
+    - name: P Kciuk1
+      parentName: P Przedramie
+      position: {x: -9.173527e-10, y: 0.0029015222, z: -1.11758706e-10}
+      rotation: {x: 0.02496986, y: 0.027364243, z: -0.323045, w: 0.9456583}
+      scale: {x: 1.0001597, y: 0.99983424, z: 1.0000033}
+    - name: P Kciuk2
+      parentName: P Kciuk1
+      position: {x: 0.0000000010489021, y: 0.00072920666, z: 9.313225e-11}
+      rotation: {x: -0.0103508895, y: -0.018760366, z: 0.032264873, w: 0.99924964}
+      scale: {x: 1.0000892, y: 0.9999257, z: 0.99998665}
+    - name: P Kciuk3
+      parentName: P Kciuk2
+      position: {x: 5.5850247e-10, y: 0.00022144926, z: 2.7939677e-11}
+      rotation: {x: -0.0023543607, y: -0.0027797904, z: 0.08037768, w: 0.99675786}
+      scale: {x: 1.0002028, y: 0.99980175, z: 0.99999905}
+    - name: P palce1
+      parentName: P Przedramie
+      position: {x: -9.173527e-10, y: 0.0029015222, z: -1.11758706e-10}
+      rotation: {x: -0.055596326, y: -0.05482499, z: -0.025510333, w: -0.9966206}
+      scale: {x: 1.0000104, y: 1.0000627, z: 0.9999242}
+    - name: P Palce2
+      parentName: P palce1
+      position: {x: -4.0978193e-10, y: 0.0007663707, z: 9.3132255e-12}
+      rotation: {x: 0.07584298, y: 0.07335229, z: 0.015769813, w: -0.99429303}
+      scale: {x: 1.0001285, y: 1.0000054, z: 0.99986726}
+    - name: P Palce3
+      parentName: P Palce2
+      position: {x: -3.0267983e-10, y: 0.00053796143, z: 2.7939677e-11}
+      rotation: {x: -0.07113764, y: -0.0695886, z: 0.0019458144, w: 0.9950342}
+      scale: {x: 1.0000509, y: 1.0000217, z: 0.9999344}
+    - name: L Udo
+      parentName: BODY
+      position: {x: -0.0010648669, y: 0.00017974277, z: 0.000017787665}
+      rotation: {x: -0.050743014, y: -0.0048878132, z: 0.08046879, w: 0.99545264}
+      scale: {x: 0.99999976, y: 0.9999995, z: 1}
+    - name: L Piszczel
+      parentName: L Udo
+      position: {x: -1.0011717e-10, y: 0.0045813164, z: 2.3050233e-10}
+      rotation: {x: 0.074432045, y: 0.0032971264, z: -0.042442072, w: 0.9963171}
+      scale: {x: 1.0000002, y: 1.0000021, z: 1.0000012}
+    - name: L Kostka
+      parentName: L Piszczel
+      position: {x: 4.0599843e-11, y: 0.004911278, z: 1.9790605e-11}
+      rotation: {x: -0.07004285, y: -0.5327845, z: 0.017193627, w: 0.8431721}
+      scale: {x: 1, y: 1.0000048, z: 1.0000042}
+    - name: L Srodstopie
+      parentName: L Kostka
+      position: {x: 3.899913e-11, y: 0.00081861566, z: -9.7679725e-11}
+      rotation: {x: -0.6351629, y: 0.034006573, z: -0.033527657, w: 0.7709005}
+      scale: {x: 0.9999997, y: 1.0000024, z: 1.0000017}
+    - name: L stopa
+      parentName: L Srodstopie
+      position: {x: -9.877112e-12, y: 0.0012384624, z: 3.8126016e-11}
+      rotation: {x: -0.046540882, y: 0.001066124, z: 0.0075535392, w: 0.99888724}
+      scale: {x: 1.0000006, y: 0.9999999, z: 1.0000001}
+    - name: P Udo
+      parentName: BODY
+      position: {x: 0.0010583148, y: 0.0001797421, z: 0.000017787703}
+      rotation: {x: -0.05219382, y: -0.013163572, z: -0.07953545, w: 0.9953777}
+      scale: {x: 1.0000001, y: 1.0000013, z: 1.0000011}
+    - name: P Piszczel
+      parentName: P Udo
+      position: {x: -7.4505804e-11, y: 0.004581317, z: -1.3038516e-10}
+      rotation: {x: 0.0749292, y: 0.021042792, z: 0.04155811, w: 0.9961003}
+      scale: {x: 1, y: 1.000003, z: 1.0000039}
+    - name: P Kostka
+      parentName: P Piszczel
+      position: {x: -9.313225e-11, y: 0.004911278, z: 9.778887e-11}
+      rotation: {x: -0.06985522, y: 0.53119177, z: -0.017942265, w: 0.8441763}
+      scale: {x: 0.9999991, y: 1.0000011, z: 1.0000011}
+    - name: P Srodstopie
+      parentName: P Kostka
+      position: {x: -9.3132255e-12, y: 0.00081861555, z: 6.490154e-11}
+      rotation: {x: -0.6354024, y: -0.034862246, z: 0.028637657, w: 0.7708621}
+      scale: {x: 1.0000005, y: 1, z: 1.0000004}
+    - name: P Stopa
+      parentName: P Srodstopie
+      position: {x: -1.06520015e-10, y: 0.001238462, z: -4.6566128e-12}
+      rotation: {x: -0.046489228, y: -0.00095104217, z: -0.0078654345, w: 0.99888736}
+      scale: {x: 0.9999996, y: 1.0000036, z: 1.000003}
+    - name: gostek
+      parentName: gosciuu(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071067, y: -0.000000030908616, z: 0.000000030908623, w: 0.7071068}
+      scale: {x: 32.52275, y: 32.52275, z: 32.52275}
+    - name: buty
+      parentName: gosciuu(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071067, y: -0.000000030908616, z: 0.000000030908623, w: 0.7071068}
+      scale: {x: 32.52275, y: 32.52275, z: 32.52275}
+    - name: spodnie
+      parentName: gosciuu(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071067, y: -0.000000030908616, z: 0.000000030908623, w: 0.7071068}
+      scale: {x: 32.52275, y: 32.52275, z: 32.52275}
+    - name: broda
+      parentName: gosciuu(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071067, y: -0.000000030908616, z: 0.000000030908623, w: 0.7071068}
+      scale: {x: 32.52275, y: 32.52275, z: 32.52275}
+    - name: wlosy
+      parentName: gosciuu(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071067, y: -0.000000030908616, z: 0.000000030908623, w: 0.7071068}
+      scale: {x: 32.52275, y: 32.52275, z: 32.52275}
+    - name: koszula2
+      parentName: gosciuu(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071067, y: -0.000000030908616, z: 0.000000030908623, w: 0.7071068}
+      scale: {x: 32.52275, y: 32.52275, z: 32.52275}
     armTwist: 0.5
     foreArmTwist: 0.5
     upperLegTwist: 0.5
@@ -184,13 +567,13 @@ ModelImporter:
     globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
-    hasExtraRoot: 0
+    hasExtraRoot: 1
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   autoGenerateAvatarMappingIfUnspecified: 1
-  animationType: 2
+  animationType: 3
   humanoidOversampling: 1
-  avatarSetup: 0
+  avatarSetup: 1
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
   additionalBone: 0
   userData: 

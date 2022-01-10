@@ -56,6 +56,7 @@ public class GameControl2 : MonoBehaviourPun
     public GameObject freelook;
     public EventControl eventControl;
     public Equipment[] ItemList;
+    public GameObject cameraObj;
 
     public Light mainLight;
     public Material day;

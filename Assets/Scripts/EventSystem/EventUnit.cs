@@ -44,6 +44,10 @@ public class EventUnit : MonoBehaviour
             eventType = eventObj.type;
             eventIndex = index;
 
+            if (eventType == "shop") {
+                // eventGOPassed = 
+            }
+
             Vector3 pos = transform.position;
             eventGO = Instantiate(eventGOPassed, pos, Quaternion.identity);
             eventGO.transform.parent = DontDestroy.Instance.gameObject.transform;

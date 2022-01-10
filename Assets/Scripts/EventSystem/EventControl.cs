@@ -29,6 +29,7 @@ public class EventControl : MonoBehaviour
     
     public EventUnit[] unitList;
     public EventObject[] eventList;
+    public EventObject shop;
     public bool addEvent = false;
     public GameObject eventGO;
     public int lastEventIndex;
@@ -63,7 +64,11 @@ public class EventControl : MonoBehaviour
 
     public void AddEvent(string uid, int randPlace, int eventIndex)
     {
-        EventObject randEventObj = eventList[eventIndex];
+        EventObject randEventObj;
+        if (eventIndex == -1) {
+            randEventObj = shop;
+        } else randEventObj = eventList[eventIndex];
+
         unitList[randPlace].AddEvent(uid, randEventObj, eventGO, eventIndex);
     }
 
@@ -77,7 +82,7 @@ public class EventControl : MonoBehaviour
         
         foreach (EventUnit item in unitList)
         {
-            if (item.eventID == eventID)
+            if (item.eventID == eventID && item.eventType != "shop")
             {
                 item.RemoveEvent();
             }
@@ -111,6 +116,11 @@ public class EventControl : MonoBehaviour
         //         Debug.Log("dopoki nie ukonczysz questa losujesz 1");
         //         break;
         // }
+    }
+
+    public void TransferToShop() {
+        SceneManager.LoadScene("Shop");
+        DontDestroy.Instance.gameObject.SetActive(false);
     }
 
     public void TransferToCombat()
@@ -148,6 +158,9 @@ public class EventControl : MonoBehaviour
         string eventName = eventObj.name;
         string eventType = eventObj.type;
         switch (eventType) {
+            case "shop":
+                TransferToShop();
+                break;
             case "combat":
                 currentEnemy = eventObj.enemy;
                 TransferToCombat();

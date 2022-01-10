@@ -48,7 +48,7 @@ public class PlayerStats : MonoBehaviour, IPunInstantiateMagicCallback
     {
         DontDestroyOnLoad(this.gameObject);
         PV = GetComponent<PhotonView>();
-        gameControl = GameObject.FindGameObjectWithTag("GameControl").GetComponent<GameControl2>();
+        gameControl = GameControl2.instance;
         actorNo = PV.Owner.ActorNumber;
         gameControl.playersList = GameObject.FindGameObjectsWithTag("Player").OrderBy(go => go.GetComponent<PlayerStats>().actorNo).ToArray();
         Vector3 startPos = new Vector3(gameControl.startPosX, gameControl.startPosY, gameControl.startPosZ);
@@ -66,13 +66,14 @@ public class PlayerStats : MonoBehaviour, IPunInstantiateMagicCallback
             string uid = System.Guid.NewGuid().ToString();
 
             PV.RPC("RPC_CreateEvent", RpcTarget.AllBuffered, uid, 1, 1);
+            PV.RPC("RPC_CreateEvent", RpcTarget.AllBuffered, uid, 230, 4);
             StartCoroutine("FirstTurn");
         }
     }
 
     void Update()
     {
-        if (GetComponent<PhotonView>().Owner != null && PlayerNameText)
+        if (GetComponent<PhotonView>().Owner != null && PlayerNameText && gameControl.isActiveAndEnabled)
         {
             string nickName = GetComponent<PhotonView>().Owner.NickName;
             PlayerNameText.transform.LookAt(Camera.main.transform.position);
