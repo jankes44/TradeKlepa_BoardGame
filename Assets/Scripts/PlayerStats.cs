@@ -90,6 +90,10 @@ public class PlayerStats : MonoBehaviour, IPunInstantiateMagicCallback
 
     }
 
+    GameObject FindPlayer(int actorNo) {
+        return gameControl.playersList.Where(pl => pl.GetComponent<PlayerStats>().actorNo == actorNo).SingleOrDefault();
+    }
+
     public void OnPhotonInstantiate(PhotonMessageInfo info)
     {
         info.Sender.TagObject = gameObject;
@@ -277,16 +281,18 @@ public class PlayerStats : MonoBehaviour, IPunInstantiateMagicCallback
         gameControl.eventControl.AddEvent(uid, randPlace, randEvent);
     }
 
-    public void EnterEvent(string eventID, int spriteIndex)
+    public void EnterEvent(string eventID, int eventIndex)
     {
-        PV.RPC("RPC_EnterEvent", RpcTarget.AllBuffered, eventID, spriteIndex);
+        PV.RPC("RPC_EnterEvent", RpcTarget.AllBuffered, eventID, eventIndex);
     }
 
     [PunRPC]
-    public void RPC_EnterEvent(string eventID, int spriteIndex)
+    public void RPC_EnterEvent(string eventID, int eventIndex)
     {
         Debug.Log("RPC received, enter event");
-        gameControl.eventControl.EventEnter(eventID, gameControl.eventControl.eventList[spriteIndex]);
+        Debug.Log(eventIndex);
+        if (eventIndex == -1) gameControl.eventControl.EventEnter(eventID, gameControl.eventControl.shop);
+        else gameControl.eventControl.EventEnter(eventID, gameControl.eventControl.eventList[eventIndex]);
     }
 
     private void OnTriggerStay(Collider other)
@@ -332,7 +338,7 @@ public class PlayerStats : MonoBehaviour, IPunInstantiateMagicCallback
 
     [PunRPC]
     public void RPC_EquipItem(string newItemName, int actor) {
-        EquipmentManager player = gameControl.playersList.Where(pl => pl.GetComponent<PlayerStats>().actorNo == actor).SingleOrDefault().GetComponent<EquipmentManager>();
+        EquipmentManager player = FindPlayer(actor).GetComponent<EquipmentManager>();
         
         Equipment newItem = gameControl.ItemList.Where(item => item.name == newItemName).SingleOrDefault();
 
@@ -347,7 +353,7 @@ public class PlayerStats : MonoBehaviour, IPunInstantiateMagicCallback
 
     [PunRPC]
     public void RPC_UnequipItem(int slotIndex, int actor) {
-        EquipmentManager player = gameControl.playersList.Where(pl => pl.GetComponent<PlayerStats>().actorNo == actor).SingleOrDefault().GetComponent<EquipmentManager>();
+        EquipmentManager player = FindPlayer(actor).GetComponent<EquipmentManager>();
         
         player.UnequipSync(slotIndex);
     }

@@ -12,6 +12,6 @@ public class SceneLoaderGlobal : MonoBehaviour
 
     public void Board()
     {
-        SceneManager.LoadScene("BoardSysteme");
+        SceneManager.LoadScene("Board");
     }
 }

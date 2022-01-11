@@ -22,12 +22,12 @@ public class SceneLoader : MonoBehaviour
 
     public void BackToBoard() {
         DontDestroy.Instance.gameObject.SetActive(true);
-        SceneManager.LoadScene("BoardSysteme");
+        SceneManager.LoadScene("Board");
     }
 
     public void Board()
     {
-        SceneManager.LoadScene("BoardSysteme");
+        SceneManager.LoadScene("Board");
     }
 
     public void QuitGame()

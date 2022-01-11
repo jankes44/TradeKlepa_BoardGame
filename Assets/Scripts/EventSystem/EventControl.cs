@@ -32,6 +32,7 @@ public class EventControl : MonoBehaviour
     public EventObject shop;
     public bool addEvent = false;
     public GameObject eventGO;
+    public GameObject shopGO;
     public int lastEventIndex;
     public GameObject eventHolder;
     public GameObject eventHolderButton;
@@ -65,11 +66,13 @@ public class EventControl : MonoBehaviour
     public void AddEvent(string uid, int randPlace, int eventIndex)
     {
         EventObject randEventObj;
+        GameObject eventGO_ = eventGO;
         if (eventIndex == -1) {
             randEventObj = shop;
+            eventGO_ = shopGO; //change event game object for a shop gameobject, different gameobject look for a shop event
         } else randEventObj = eventList[eventIndex];
 
-        unitList[randPlace].AddEvent(uid, randEventObj, eventGO, eventIndex);
+        unitList[randPlace].AddEvent(uid, randEventObj, eventGO_, eventIndex);
     }
 
     public void EventEnter(string eventID, EventObject eventObj)
@@ -131,7 +134,7 @@ public class EventControl : MonoBehaviour
 
     public void TransferBack() {
         DontDestroy.Instance.gameObject.SetActive(true);
-        SceneManager.LoadScene("BoardSysteme");
+        SceneManager.LoadScene("Board");
     }
 
     // [PunRPC]

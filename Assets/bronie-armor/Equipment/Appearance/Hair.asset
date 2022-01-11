@@ -15,5 +15,5 @@ MonoBehaviour:
   name: Hair
   icon: {fileID: 0}
   slotIcon: {fileID: 0}
-  showInInventory: 1
+  showInInventory: 0
   prefab: {fileID: 7003242972614581325, guid: 5ed2827aa43384b4582bcea89c3e7ef2, type: 3}

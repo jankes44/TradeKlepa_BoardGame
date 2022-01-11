@@ -114,7 +114,7 @@ namespace Photon.Pun
                 return 1;
             }
 
-            if (sceneName == "BoardSysteme")
+            if (sceneName == "Board")
             {
                 return 500;
             }
