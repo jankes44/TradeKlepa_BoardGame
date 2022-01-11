@@ -342,7 +342,7 @@ public class PlayerStats : MonoBehaviour, IPunInstantiateMagicCallback
         
         Equipment newItem = gameControl.ItemList.Where(item => item.name == newItemName).SingleOrDefault();
 
-        player.EquipSync(newItem);
+        player.EquipSync(newItem, player);
     }
 
     public void UnequipItem(int slotIndex) {
@@ -355,6 +355,6 @@ public class PlayerStats : MonoBehaviour, IPunInstantiateMagicCallback
     public void RPC_UnequipItem(int slotIndex, int actor) {
         EquipmentManager player = FindPlayer(actor).GetComponent<EquipmentManager>();
         
-        player.UnequipSync(slotIndex);
+        player.UnequipSync(slotIndex, player);
     }
 }

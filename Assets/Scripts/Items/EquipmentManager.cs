@@ -123,6 +123,7 @@ public class EquipmentManager : MonoBehaviour {
                 break;
             case EquipmentSlot.Weapon:
 				WeaponSlot.Equip(newItem);
+				myPlayer.damage = newItem.damageModifier;
 				break;
             case EquipmentSlot.Shield:
 				ShieldSlot.Equip(newItem);
@@ -149,17 +150,47 @@ public class EquipmentManager : MonoBehaviour {
 
 	}
 
-	public void EquipSync(Equipment newItem) {
+	public void EquipSync(Equipment newItem, EquipmentManager player) {
 		//attach mesh for other players to see
 		int slotIndex = (int)newItem.equipSlot;
+		
+		switch (newItem.equipSlot)
+        {
+            case EquipmentSlot.Null:
+				Debug.Log("EquipmentSlot is null");
+                break;
+            case EquipmentSlot.Head:
+				UnequipAppearance();
+				break;
+            case EquipmentSlot.Chest:
+				break;
+            case EquipmentSlot.Legs:
+                break;
+            case EquipmentSlot.Weapon:
+				player.GetComponent<PlayerStats>().damage = newItem.damageModifier;
+				break;
+            case EquipmentSlot.Shield:
+                break;
+            case EquipmentSlot.Feet:
+                break;
+            default:
+                break;
+        }
+
 		if (newItem.prefab) {
 			AttachToMesh(newItem.prefab, slotIndex);
+			player.GetComponent<PlayerStats>().damage = newItem.damageModifier;
+
 		}
 	}
 
-	public void UnequipSync(int slotIndex) {
+	public void UnequipSync(int slotIndex, EquipmentManager player) {
 		//attach mesh for other players to see
 		if (currentMeshes [slotIndex] != null) {
+				Equipment oldItem = currentEquipment [slotIndex];
+				if (oldItem.equipSlot == EquipmentSlot.Head) EquipAllAppearance();
+				if (oldItem.equipSlot == EquipmentSlot.Weapon) player.GetComponent<PlayerStats>().damage = 1;
+
 			Destroy(currentMeshes [slotIndex].gameObject);
 		}
 	}
@@ -175,6 +206,8 @@ public class EquipmentManager : MonoBehaviour {
 			currentEquipment [slotIndex] = null;
 			if (currentMeshes [slotIndex] != null) {
 				if (oldItem.equipSlot == EquipmentSlot.Head) EquipAllAppearance();
+				if (oldItem.equipSlot == EquipmentSlot.Weapon) myPlayer.damage = 1;
+
 				myPlayer.UnequipItem(slotIndex);
 				Destroy(currentMeshes [slotIndex].gameObject);
 			}
