@@ -15,6 +15,7 @@ public class EquipmentManager : MonoBehaviour {
 	Equipment[] currentEquipment;
 	[SerializeField]
 	SkinnedMeshRenderer[] currentMeshes;
+	[SerializeField]
 	SkinnedMeshRenderer[] appearanceMeshes;
 
 	public EqSlot WeaponSlot;
@@ -123,7 +124,7 @@ public class EquipmentManager : MonoBehaviour {
                 break;
             case EquipmentSlot.Weapon:
 				WeaponSlot.Equip(newItem);
-				myPlayer.damage = newItem.damageModifier;
+				// myPlayer.damage = newItem.damageModifier;
 				break;
             case EquipmentSlot.Shield:
 				ShieldSlot.Equip(newItem);
@@ -167,7 +168,7 @@ public class EquipmentManager : MonoBehaviour {
             case EquipmentSlot.Legs:
                 break;
             case EquipmentSlot.Weapon:
-				player.GetComponent<PlayerStats>().damage = newItem.damageModifier;
+				// player.GetComponent<PlayerStats>().damage = newItem.damageModifier;
 				break;
             case EquipmentSlot.Shield:
                 break;
@@ -176,10 +177,10 @@ public class EquipmentManager : MonoBehaviour {
             default:
                 break;
         }
+		currentEquipment [slotIndex] = newItem;
 
 		if (newItem.prefab) {
 			AttachToMesh(newItem.prefab, slotIndex);
-			player.GetComponent<PlayerStats>().damage = newItem.damageModifier;
 
 		}
 	}
@@ -188,8 +189,11 @@ public class EquipmentManager : MonoBehaviour {
 		//attach mesh for other players to see
 		if (currentMeshes [slotIndex] != null) {
 				Equipment oldItem = currentEquipment [slotIndex];
+				Debug.Log(oldItem.name);
+				Debug.Log(oldItem.equipSlot);
+				EquipAllAppearance();
 				if (oldItem.equipSlot == EquipmentSlot.Head) EquipAllAppearance();
-				if (oldItem.equipSlot == EquipmentSlot.Weapon) player.GetComponent<PlayerStats>().damage = 1;
+				// if (oldItem.equipSlot == EquipmentSlot.Weapon) player.GetComponent<PlayerStats>().damage = 1;
 
 			Destroy(currentMeshes [slotIndex].gameObject);
 		}
@@ -206,7 +210,7 @@ public class EquipmentManager : MonoBehaviour {
 			currentEquipment [slotIndex] = null;
 			if (currentMeshes [slotIndex] != null) {
 				if (oldItem.equipSlot == EquipmentSlot.Head) EquipAllAppearance();
-				if (oldItem.equipSlot == EquipmentSlot.Weapon) myPlayer.damage = 1;
+				// if (oldItem.equipSlot == EquipmentSlot.Weapon) myPlayer.damage = 1;
 
 				myPlayer.UnequipItem(slotIndex);
 				Destroy(currentMeshes [slotIndex].gameObject);

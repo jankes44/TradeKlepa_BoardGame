@@ -1443,6 +1443,7 @@ MonoBehaviour:
   combatPlayer: 0
   currentEquipment: []
   currentMeshes: []
+  appearanceMeshes: []
   WeaponSlot: {fileID: 0}
   HeadSlot: {fileID: 0}
   ChestSlot: {fileID: 0}

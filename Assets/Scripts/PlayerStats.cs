@@ -184,8 +184,7 @@ public class PlayerStats : MonoBehaviour, IPunInstantiateMagicCallback
             if (rollDebuffCount > 0)
             {
                 rand = 1;
-            }
-            rollDebuffCount--;
+            } else rollDebuffCount--;
             PV.RPC("RPC_RollTheDice", RpcTarget.AllBuffered, rand);
         }
     }
@@ -338,7 +337,7 @@ public class PlayerStats : MonoBehaviour, IPunInstantiateMagicCallback
 
     [PunRPC]
     public void RPC_EquipItem(string newItemName, int actor) {
-        EquipmentManager player = FindPlayer(actor).GetComponent<EquipmentManager>();
+        EquipmentManager player = gameControl.playersList.Where(pl => pl.GetComponent<PlayerStats>().actorNo == actorNo).SingleOrDefault().GetComponent<EquipmentManager>();
         
         Equipment newItem = gameControl.ItemList.Where(item => item.name == newItemName).SingleOrDefault();
 
@@ -353,7 +352,7 @@ public class PlayerStats : MonoBehaviour, IPunInstantiateMagicCallback
 
     [PunRPC]
     public void RPC_UnequipItem(int slotIndex, int actor) {
-        EquipmentManager player = FindPlayer(actor).GetComponent<EquipmentManager>();
+        EquipmentManager player = gameControl.playersList.Where(pl => pl.GetComponent<PlayerStats>().actorNo == actorNo).SingleOrDefault().GetComponent<EquipmentManager>();
         
         player.UnequipSync(slotIndex, player);
     }
