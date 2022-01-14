@@ -87,8 +87,8 @@ MonoBehaviour:
   strengthMultiplier: 1.34
   vitalityMultiplier: 1.1
   playerAnimator: {fileID: 0}
-  maxHP: 20
-  currentHP: 20
+  maxHP: 100
+  currentHP: 100
 --- !u!1001 &5048709243465348203
 PrefabInstance:
   m_ObjectHideFlags: 0

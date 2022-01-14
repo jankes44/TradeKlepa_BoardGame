@@ -16,7 +16,7 @@ public class Unit : MonoBehaviour
 	public float agilityMultiplier;
 	public float strengthMultiplier;
 	public float vitalityMultiplier;
-	public Animator playerAnimator;
+	public Animator unitAnimator;
 
 	public int maxHP;
 	public int currentHP;
@@ -28,7 +28,7 @@ public class Unit : MonoBehaviour
     void Start()
     {
 		updateStats();
-		playerAnimator = gameObject.GetComponent<Animator>();
+		unitAnimator = gameObject.GetComponent<Animator>();
 	}
 
 	void updateStats() {
@@ -41,13 +41,13 @@ public class Unit : MonoBehaviour
     {
 		Debug.Log(set);
 		int hash = Animator.StringToHash("walk");
-		playerAnimator.SetBool(hash, set);
+		unitAnimator.SetBool(hash, set);
 	}
 
 	public void HealAnim(bool set)
     {
 		int hash = Animator.StringToHash("heal");
-		playerAnimator.SetBool(hash, set);
+		unitAnimator.SetBool(hash, set);
     }
 
 	public void SlashAnimPlayer(bool set, string type)
@@ -65,32 +65,32 @@ public class Unit : MonoBehaviour
 				hash = Animator.StringToHash("poke");
 				break;
 		}
-		playerAnimator.SetBool(hash, set);
+		unitAnimator.SetBool(hash, set);
 	}
 
 
 	public void SlashAnim(bool set)
 	{
 		int hash = Animator.StringToHash("slash");
-		playerAnimator.SetBool(hash, set);
+		unitAnimator.SetBool(hash, set);
 	}
 
 	public void PunchAnim(bool set)
 	{
 		int hash = Animator.StringToHash("punch");
-		playerAnimator.SetBool(hash, set);
+		unitAnimator.SetBool(hash, set);
 	}
 
 	public void TakeDmgAnim(bool set)
     {
 		int hash = Animator.StringToHash("takehit");
-		playerAnimator.SetBool(hash, set);
+		unitAnimator.SetBool(hash, set);
     }
 
 	public void BlockAnim(bool set)
     {
 		int hash = Animator.StringToHash("block");
-		playerAnimator.SetBool(hash, set);
+		unitAnimator.SetBool(hash, set);
     }
 
 	public bool TakeDamage(int dmg)

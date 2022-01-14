@@ -18,5 +18,10 @@ MonoBehaviour:
   showInInventory: 1
   equipSlot: 4
   armorModifier: 0
-  damageModifier: 5
+  damageModifier: 4
   prefab: {fileID: 0}
+  weaponPrefab: {fileID: 919132149155446097, guid: c476adcff08550643a1e24d2c91a53a6,
+    type: 3}
+  PickPosition: {x: 0.0019221454, y: -0.0017542936, z: -0.0010491197}
+  PickRotation: {x: 354.12848, y: 271.42297, z: 321.69162}
+  PickScale: {x: 0.0057000667, y: 0.005694864, z: 0.005699997}

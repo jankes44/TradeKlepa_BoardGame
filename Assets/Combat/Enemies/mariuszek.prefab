@@ -561,17 +561,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitName: Mariusz
-  unitLevel: 5
+  unitLevel: 2
   damage: 2
-  agility: 20
+  agility: 12
   strength: 23
-  vitality: 10
-  agilityMultiplier: 0
-  strengthMultiplier: 0
-  vitalityMultiplier: 0
-  playerAnimator: {fileID: 0}
-  maxHP: 20
-  currentHP: 20
+  vitality: 16
+  agilityMultiplier: 1.12
+  strengthMultiplier: 1.46
+  vitalityMultiplier: 1.16
+  unitAnimator: {fileID: 0}
+  maxHP: 50
+  currentHP: 50
 --- !u!1 &1745956068025797221
 GameObject:
   m_ObjectHideFlags: 0

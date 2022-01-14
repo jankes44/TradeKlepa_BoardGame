@@ -9,6 +9,11 @@ public class Equipment : Item {
 	public int armorModifier;
 	public int damageModifier;
 	public SkinnedMeshRenderer prefab;
+	public GameObject weaponPrefab;
+
+	public Vector3 PickPosition;
+	public Vector3 PickRotation;
+	public Vector3 PickScale;
 
 	// Called when pressed in the inventory
 	public override void Use ()

@@ -25,6 +25,10 @@ public class EquipmentManager : MonoBehaviour {
 	public EqSlot ShieldSlot;
 	public EqSlot FeetSlot;
 
+	public GameObject weaponObject;
+	public GameObject weaponSlot1Hand;
+	public GameObject weaponSlot2Hand;
+
 	public SkinnedMeshRenderer targetMesh;
 
 	// Callback for when an item is equipped
@@ -124,7 +128,8 @@ public class EquipmentManager : MonoBehaviour {
                 break;
             case EquipmentSlot.Weapon:
 				WeaponSlot.Equip(newItem);
-				// myPlayer.damage = newItem.damageModifier;
+				EquipWeaponObject(newItem);
+				myPlayer.damage = newItem.damageModifier;
 				break;
             case EquipmentSlot.Shield:
 				ShieldSlot.Equip(newItem);
@@ -135,7 +140,6 @@ public class EquipmentManager : MonoBehaviour {
             default:
                 break;
         }
-
 		// An item has been equipped so we trigger the callback
 		if (onEquipmentChanged != null)
 			onEquipmentChanged.Invoke(newItem, oldItem);
@@ -168,7 +172,7 @@ public class EquipmentManager : MonoBehaviour {
             case EquipmentSlot.Legs:
                 break;
             case EquipmentSlot.Weapon:
-				// player.GetComponent<PlayerStats>().damage = newItem.damageModifier;
+				player.GetComponent<PlayerStats>().damage = newItem.damageModifier;
 				break;
             case EquipmentSlot.Shield:
                 break;
@@ -186,7 +190,6 @@ public class EquipmentManager : MonoBehaviour {
 	}
 
 	public void UnequipSync(int slotIndex, EquipmentManager player) {
-		//attach mesh for other players to see
 		if (currentMeshes [slotIndex] != null) {
 				Equipment oldItem = currentEquipment [slotIndex];
 				Debug.Log(oldItem.name);
@@ -205,17 +208,19 @@ public class EquipmentManager : MonoBehaviour {
 			Equipment oldItem = currentEquipment [slotIndex];
 			inventory.Add(oldItem);
 
-			PlayerStats myPlayer = GameControl2.instance.MyPlayer.GetComponent<PlayerStats>();
+			PlayerStats myPlayer = gameObject.GetComponent<PlayerStats>();
 
 			currentEquipment [slotIndex] = null;
 			if (currentMeshes [slotIndex] != null) {
 				if (oldItem.equipSlot == EquipmentSlot.Head) EquipAllAppearance();
-				// if (oldItem.equipSlot == EquipmentSlot.Weapon) myPlayer.damage = 1;
-
-				myPlayer.UnequipItem(slotIndex);
+				
 				Destroy(currentMeshes [slotIndex].gameObject);
 			}
+			
+			if (oldItem.equipSlot == EquipmentSlot.Weapon) myPlayer.damage = 1;
+			if (oldItem.equipSlot == EquipmentSlot.Weapon) Destroy(weaponObject);
 
+			myPlayer.UnequipItem(slotIndex);
 
 			// Equipment has been removed so we trigger the callback
 			if (onEquipmentChanged != null)
@@ -225,6 +230,16 @@ public class EquipmentManager : MonoBehaviour {
 		}
 		return null;
 	
+	}
+
+	void EquipWeaponObject(Equipment newItem) {
+		weaponObject = Instantiate(newItem.weaponPrefab);
+		weaponObject.SetActive(true);
+
+		weaponObject.transform.parent = weaponSlot1Hand.transform;
+		weaponObject.transform.localPosition = newItem.PickPosition;
+		weaponObject.transform.localEulerAngles = newItem.PickRotation;
+		weaponObject.transform.localScale = newItem.PickScale;
 	}
 
 	void UnequipAll() {
