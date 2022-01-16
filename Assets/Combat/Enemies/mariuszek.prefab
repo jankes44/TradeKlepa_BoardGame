@@ -566,9 +566,9 @@ MonoBehaviour:
   agility: 20
   strength: 23
   vitality: 10
-  agilityMultiplier: 0
-  strengthMultiplier: 0
-  vitalityMultiplier: 0
+  agilityMultiplier: 1.2
+  strengthMultiplier: 1.46
+  vitalityMultiplier: 1.1
   playerAnimator: {fileID: 0}
   maxHP: 20
   currentHP: 20
@@ -2148,14 +2148,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8893113885895781234}
-  m_LocalRotation: {x: -0.7071067, y: 5.302452e-33, z: 5.302451e-33, w: 0.7071068}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children:
   - {fileID: 70410983345917658}
   m_Father: {fileID: 2109286572916863398}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!1 &8910701748657318470
 GameObject:
   m_ObjectHideFlags: 0
