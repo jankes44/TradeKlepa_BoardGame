@@ -359,7 +359,7 @@ MonoBehaviour:
   agilityMultiplier: 1.24
   strengthMultiplier: 1.42
   vitalityMultiplier: 1.1
-  playerAnimator: {fileID: 0}
+  unitAnimator: {fileID: 0}
   maxHP: 20
   currentHP: 20
 --- !u!95 &3440709982842522635
@@ -396,12 +396,18 @@ MonoBehaviour:
   defaultWear: []
   appearance: []
   combatPlayer: 1
+  currentEquipment: []
+  currentMeshes: []
+  appearanceMeshes: []
   WeaponSlot: {fileID: 0}
   HeadSlot: {fileID: 0}
   ChestSlot: {fileID: 0}
   LegsSlot: {fileID: 0}
   ShieldSlot: {fileID: 0}
   FeetSlot: {fileID: 0}
+  weaponObject: {fileID: 0}
+  weaponSlot1Hand: {fileID: 9172551944774218611}
+  weaponSlot2Hand: {fileID: 0}
   targetMesh: {fileID: 8876181003609976368}
 --- !u!1 &2183614311840756324
 GameObject:
