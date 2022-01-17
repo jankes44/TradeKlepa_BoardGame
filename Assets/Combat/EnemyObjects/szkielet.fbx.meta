@@ -138,10 +138,10 @@ ModelImporter:
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: szkielet_combatIdle
-      takeName: szkielet|ArmatureAction
+      takeName: szkielet|szkieletAction
       internalID: 0
-      firstFrame: 0
-      lastFrame: 1
+      firstFrame: 160
+      lastFrame: 195
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

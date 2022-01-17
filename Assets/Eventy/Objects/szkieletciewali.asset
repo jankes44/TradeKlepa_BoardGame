@@ -15,5 +15,5 @@ MonoBehaviour:
   name: Day of the dead
   description: trupy wstajo z grobuf i cie bijom
   type: combat
-  enemy: {fileID: 1589313662307642140, guid: 62c5ad272d8e6774fbacf8cd4b785b53, type: 3}
+  enemy: {fileID: 9026589908166888159, guid: 19fb22c4f3ff1dd4098b60c309b7efce, type: 3}
   artwork: {fileID: 21300000, guid: 76e0a0cef5d53ff48988e64d110a6777, type: 3}

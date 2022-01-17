@@ -147,9 +147,13 @@ public class BattleSystem : MonoBehaviour
 
 		enemyHUD.SetHP(enemyUnit.currentHP);
 		dialogueText.text = attackDialog;
-
+		
+		if (damage > 0) enemyUnit.TakeDmgAnim(true);
+		
 		yield return new WaitForSeconds(2f);
-
+		
+		if (damage > 0) enemyUnit.TakeDmgAnim(false);
+		
 		playerUnit.SlashAnimPlayer(false, typeOfAttack);
 
 		if (isDead)
@@ -178,7 +182,25 @@ public class BattleSystem : MonoBehaviour
 		string attackDialog = "";
 
 		dialogueText.text = enemyUnit.unitName + " atakuje!";
-		enemyUnit.SlashAnim(true);
+
+		string typeOfAttackStr;
+		switch (typeOfAttack)
+		{
+			case 1:
+				typeOfAttackStr = "strong";
+				break;
+			case 2:
+				typeOfAttackStr = "medium";
+				break;
+			case 3:
+				typeOfAttackStr = "weak";
+				break;
+			default:
+				typeOfAttackStr = "weak";
+				break;
+		}
+		enemyUnit.SlashAnimPlayer(true, typeOfAttackStr);
+		Debug.Log(typeOfAttackStr);
 		yield return new WaitForSeconds(1f);
 	
 		float chanceCalculated = 1f+chance/100f;
@@ -238,13 +260,14 @@ public class BattleSystem : MonoBehaviour
 		if (damage > 0) playerUnit.TakeDmgAnim(true);
 
 		dialogueText.text = attackDialog;
-		enemyUnit.SlashAnim(false);
 
 		playerHUD.SetHP(playerUnit.currentHP);
 
 		yield return new WaitForSeconds(1f);
 
 		if (damage > 0) playerUnit.TakeDmgAnim(false);
+
+		enemyUnit.SlashAnimPlayer(false, typeOfAttackStr);
 
 		if (isDead)
 		{
