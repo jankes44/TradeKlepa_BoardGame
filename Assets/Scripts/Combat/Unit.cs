@@ -37,10 +37,10 @@ public class Unit : MonoBehaviour
 		vitalityMultiplier = vitality / 100f + 1f;
 	}
 
-	public void Anim(bool set)
+	public void Anim(bool set, string anim)
     {
 		Debug.Log(set);
-		int hash = Animator.StringToHash("walk");
+		int hash = Animator.StringToHash(anim);
 		unitAnimator.SetBool(hash, set);
 	}
 
@@ -68,6 +68,15 @@ public class Unit : MonoBehaviour
 		unitAnimator.SetBool(hash, set);
 	}
 
+	public void WalkAnim(bool set) {
+		int hash = Animator.StringToHash("walk");
+		unitAnimator.SetBool(hash, set);
+	}
+
+	public void WalkSlashAnim(bool set) {
+		int hash = Animator.StringToHash("walkslash");
+		unitAnimator.SetBool(hash, set);
+	}
 
 	public void SlashAnim(bool set)
 	{

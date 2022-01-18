@@ -237,9 +237,17 @@ public class EquipmentManager : MonoBehaviour {
 		weaponObject.SetActive(true);
 
 		weaponObject.transform.parent = weaponSlot1Hand.transform;
-		weaponObject.transform.localPosition = newItem.PickPosition;
-		weaponObject.transform.localEulerAngles = newItem.PickRotation;
-		weaponObject.transform.localScale = newItem.PickScale;
+		if (gameObject.GetComponent<Unit>()) {
+			weaponObject.transform.localPosition = newItem.PositionCombat;
+			weaponObject.transform.localEulerAngles = newItem.RotationCombat;
+			weaponObject.transform.localScale = newItem.PickScale;
+		} else {
+			weaponObject.transform.localPosition = newItem.PickPosition;
+			weaponObject.transform.localEulerAngles = newItem.PickRotation;
+			weaponObject.transform.localScale = newItem.PickScale;
+		}
+		
+
 	}
 
 	void UnequipAll() {

@@ -15,6 +15,10 @@ public class Equipment : Item {
 	public Vector3 PickRotation;
 	public Vector3 PickScale;
 
+	public Vector3 PositionCombat;
+	public Vector3 RotationCombat;
+	public Vector3 ScaleCombat;
+
 	// Called when pressed in the inventory
 	public override void Use ()
 	{
