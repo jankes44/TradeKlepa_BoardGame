@@ -16,12 +16,16 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: f93c2a88ead5ebc4e82e81604259fe72, type: 3}
   slotIcon: {fileID: 21300000, guid: c5164f38c51bc014686019a99d0f3d0c, type: 3}
   showInInventory: 1
-  equipSlot: 4
-  armorModifier: 0
-  damageModifier: 3
+  rarity: 4
   prefab: {fileID: 0}
   weaponPrefab: {fileID: 919132149155446097, guid: 5d18a087d60d0074cb0d2dfa380fe0b6,
     type: 3}
+  equipSlot: 4
+  armorModifier: 0
+  damageModifier: 3
   PickPosition: {x: 0.0018182477, y: -0.0021326356, z: -0.0014371731}
   PickRotation: {x: 359.69418, y: 91.00855, z: 304.76764}
   PickScale: {x: 0.786455, y: 0.13248394, z: 0.021257272}
+  PositionCombat: {x: 0.004760039, y: 0.00036009232, z: -0.0004994841}
+  RotationCombat: {x: 348.74146, y: 1.6096758, z: 358.46698}
+  ScaleCombat: {x: 0, y: 0, z: 0}

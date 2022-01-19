@@ -9,6 +9,10 @@ public class Item : ScriptableObject {
 	public Sprite icon = null;              // Item icon
 	public Sprite slotIcon = null;
 	public bool showInInventory = true;
+	public int rarity;
+
+	public SkinnedMeshRenderer prefab;
+	public GameObject weaponPrefab;
 
 	// Called when the item is pressed in the inventory
 	public virtual void Use ()

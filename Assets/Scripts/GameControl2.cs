@@ -62,6 +62,8 @@ public class GameControl2 : MonoBehaviourPun
     public Material day;
     public Material night;
 
+    public BattleSystem battleSystem;
+
     public int playerCount;
 
     void Start()

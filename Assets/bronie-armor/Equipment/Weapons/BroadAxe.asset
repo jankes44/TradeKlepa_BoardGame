@@ -13,15 +13,19 @@ MonoBehaviour:
   m_Name: BroadAxe
   m_EditorClassIdentifier: 
   name: Broad Axe
-  icon: {fileID: 21300000, guid: 7896e4a7ba842fc4f9fb0590c97511e0, type: 3}
-  slotIcon: {fileID: 21300000, guid: 3df0c668d61a56849a9185ccf5cf38d0, type: 3}
+  icon: {fileID: 21300000, guid: 3067c82b615113f4983219b7a1426853, type: 3}
+  slotIcon: {fileID: 21300000, guid: 05968d1ab135858428b0ad845d3f486e, type: 3}
   showInInventory: 1
+  rarity: 3
+  prefab: {fileID: 0}
+  weaponPrefab: {fileID: 557431401982703906, guid: 9fd6a280372370e428e0996d6c822e64,
+    type: 3}
   equipSlot: 4
   armorModifier: 0
   damageModifier: 4
-  prefab: {fileID: 0}
-  weaponPrefab: {fileID: 919132149155446097, guid: c476adcff08550643a1e24d2c91a53a6,
-    type: 3}
-  PickPosition: {x: 0.0019221454, y: -0.0017542936, z: -0.0010491197}
-  PickRotation: {x: 354.12848, y: 271.42297, z: 321.69162}
-  PickScale: {x: 0.0057000667, y: 0.005694864, z: 0.005699997}
+  PickPosition: {x: 0.0019600203, y: -0.00037000168, z: 0.00031004404}
+  PickRotation: {x: 51.818996, y: 171.66484, z: 262.5744}
+  PickScale: {x: 0.02, y: 0.02, z: 0.02}
+  PositionCombat: {x: 0.003108, y: 0.00049, z: -0.000246}
+  RotationCombat: {x: 0.6033047, y: 267.0017, z: 102.8726}
+  ScaleCombat: {x: 0, y: 0, z: 0}

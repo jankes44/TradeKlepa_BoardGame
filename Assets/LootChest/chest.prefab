@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4476960149829602677}
   - component: {fileID: 4476960149829602678}
   - component: {fileID: 4476960149829602679}
+  - component: {fileID: 8122119250099617863}
   m_Layer: 0
   m_Name: chest
   m_TagString: Untagged
@@ -66,21 +67,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd77fa209e45cc24193e918fcc9f59b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lootTable:
-    list:
-    - item: {fileID: -8679921383154817045, guid: 4539bf2123cce924f8e79c0fe47c284b,
-        type: 3}
-      weight: 4
-    - item: {fileID: -8679921383154817045, guid: c476adcff08550643a1e24d2c91a53a6,
-        type: 3}
-      weight: 3
-    - item: {fileID: -8679921383154817045, guid: b9117f66e43ba5d4ba8742b31c419232,
-        type: 3}
-      weight: 2
-    - item: {fileID: -8679921383154817045, guid: a0182ce260f2d9844aada2959011a15b,
-        type: 3}
-      weight: 1
+  items:
+  - {fileID: 11400000, guid: a854ba8af72829e47a568bd8dd42e905, type: 2}
+  - {fileID: 11400000, guid: 3e49f4d60c97c894898a03ef06ba7ebe, type: 2}
+  - {fileID: 11400000, guid: 1e512f9e753095949b9b0cfeb2665d4b, type: 2}
+  - {fileID: 11400000, guid: 1dfdaece0ce6ad7439beabaae5813a95, type: 2}
   itemHolder: {fileID: 3731858425535180792}
+  canOpen: 0
+--- !u!65 &8122119250099617863
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4476960149829602672}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.9048824, y: 1.4603691, z: 1.2564468}
+  m_Center: {x: 0.007370949, y: -0.27532935, z: -0.26580238}
 --- !u!1001 &4476960149959866046
 PrefabInstance:
   m_ObjectHideFlags: 0

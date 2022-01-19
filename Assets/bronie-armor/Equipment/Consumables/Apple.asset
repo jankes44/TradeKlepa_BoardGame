@@ -14,5 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Apple
   icon: {fileID: 21300000, guid: 5d9ba4e7d0964044ea54abe409d81dfd, type: 3}
+  slotIcon: {fileID: 0}
   showInInventory: 1
+  rarity: 6
+  prefab: {fileID: 0}
+  weaponPrefab: {fileID: 919132149155446097, guid: 36829c6c2fb5fbb43980c25b6c4f27d3,
+    type: 3}
   healthGain: 5

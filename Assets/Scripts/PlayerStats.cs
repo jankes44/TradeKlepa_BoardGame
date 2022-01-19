@@ -184,7 +184,8 @@ public class PlayerStats : MonoBehaviour, IPunInstantiateMagicCallback
             if (rollDebuffCount > 0)
             {
                 rand = 1;
-            } else rollDebuffCount--;
+                rollDebuffCount--;
+            }
             PV.RPC("RPC_RollTheDice", RpcTarget.AllBuffered, rand);
         }
     }
@@ -261,6 +262,15 @@ public class PlayerStats : MonoBehaviour, IPunInstantiateMagicCallback
 		print("Heal");
         BattleSystem BS = GameObject.FindGameObjectWithTag("BattleSystem").GetComponent<BattleSystem>();
         BS.StartCoroutine(BS.PlayerHeal(chanceEnemy, typeOfAttackEnemy));
+    }
+
+    public void OpenChest(int item) {
+        PV.RPC("RPC_OpenChest", RpcTarget.AllBuffered, item);
+    }
+
+	[PunRPC]
+    public void RPC_OpenChest(int item) {
+        GameControl2.instance.battleSystem.chest.OpenChest(item);
     }
 
     //EVENTS ------------------

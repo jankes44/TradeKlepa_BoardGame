@@ -25,3 +25,6 @@ MonoBehaviour:
   PickPosition: {x: 0, y: 0, z: 0}
   PickRotation: {x: 0, y: 0, z: 0}
   PickScale: {x: 0, y: 0, z: 0}
+  PositionCombat: {x: 0, y: 0, z: 0}
+  RotationCombat: {x: 0, y: 0, z: 0}
+  ScaleCombat: {x: 0, y: 0, z: 0}

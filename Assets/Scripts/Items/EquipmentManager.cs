@@ -147,9 +147,11 @@ public class EquipmentManager : MonoBehaviour {
 		currentEquipment [slotIndex] = newItem;
 		Debug.Log(newItem.name + " equipped!");
 
+		//sync through network for other players
+		myPlayer.EquipItem(newItem.name);
+
 		if (newItem.prefab) {
 			AttachToMesh(newItem.prefab, slotIndex);
-			myPlayer.EquipItem(newItem.name);
 		}
 		//equippedItems [itemIndex] = newMesh.gameObject;
 
@@ -172,6 +174,7 @@ public class EquipmentManager : MonoBehaviour {
             case EquipmentSlot.Legs:
                 break;
             case EquipmentSlot.Weapon:
+				EquipWeaponObject(newItem);
 				player.GetComponent<PlayerStats>().damage = newItem.damageModifier;
 				break;
             case EquipmentSlot.Shield:
@@ -190,6 +193,10 @@ public class EquipmentManager : MonoBehaviour {
 	}
 
 	public void UnequipSync(int slotIndex, EquipmentManager player) {
+		if (currentEquipment[slotIndex] != null) {
+			Equipment oldItem = currentEquipment [slotIndex];
+			if (oldItem.equipSlot == EquipmentSlot.Weapon) Destroy(weaponObject);
+		}
 		if (currentMeshes [slotIndex] != null) {
 				Equipment oldItem = currentEquipment [slotIndex];
 				Debug.Log(oldItem.name);

@@ -16,10 +16,16 @@ public class BattleSystem : MonoBehaviour
 	public GameObject playerSpawn;
 	public GameObject enemySpawn;
 
-	Vector3 EnemyAttackPos;
+	Vector3 AttackEnemyPos;
+	Vector3 AttackPlayerPos;
+
+	Vector3 EnemySpawnPos;
 	Vector3 PlayerSpawnPos;
+
 	Vector3 targetPos;
+	
 	bool playerMove = false;
+	bool enemyMove = false;
 
 	Unit playerUnit;
 	Unit enemyUnit;
@@ -33,11 +39,15 @@ public class BattleSystem : MonoBehaviour
 
 	PlayerStats eventPlayer;
 
+	public Chest chest;
+	public Transform chestEndMarker;
+
 	bool actionInProgress = false;
 
     // Start is called before the first frame update
     void Start()
     {
+		GameControl2.instance.battleSystem = this;
 		state = BattleState.START;
 		StartCoroutine(SetupBattle());
     }
@@ -85,7 +95,10 @@ public class BattleSystem : MonoBehaviour
 		GameObject enemyGO = Instantiate(enemyPrefab, enemySpawn.transform.position, enemyPrefab.transform.rotation);
 		enemyUnit = enemyGO.GetComponent<Unit>();
 
-		EnemyAttackPos = new Vector3(enemyUnit.transform.position.x - 1.5f, playerUnit.transform.position.y, playerUnit.transform.position.z);
+		AttackEnemyPos = new Vector3(enemyUnit.transform.position.x - 1.5f, playerUnit.transform.position.y, playerUnit.transform.position.z);
+		EnemySpawnPos = new Vector3(enemySpawn.transform.position.x, enemyUnit.transform.position.y, enemyUnit.transform.position.z);
+
+		AttackPlayerPos = new Vector3(playerUnit.transform.position.x + 1.5f, enemyUnit.transform.position.y, enemyUnit.transform.position.z);
 		PlayerSpawnPos = new Vector3(playerSpawn.transform.position.x, playerUnit.transform.position.y, playerUnit.transform.position.z);
 
 		dialogueText.text = "Dziki " + enemyUnit.unitName + " wkracza...";
@@ -104,8 +117,8 @@ public class BattleSystem : MonoBehaviour
 		actionInProgress = true;
 		combatHUD.SetActive(false);
 
-		//zmniejsz dystans do przeciwnika
-		targetPos = EnemyAttackPos;
+		//player get closer to enemy
+		targetPos = AttackEnemyPos;
 		playerMove = true;
 
 		playerUnit.WalkAnim(true);
@@ -127,8 +140,6 @@ public class BattleSystem : MonoBehaviour
 
 		playerUnit.SlashAnimPlayer(false, typeOfAttack);
 
-		// yield return new WaitForSeconds(1f);
-
 		int baseDamage = playerUnit.damage;
 		int damage = baseDamage;
 
@@ -141,7 +152,6 @@ public class BattleSystem : MonoBehaviour
 		switch (typeOfAttack)
         {
 			case "strong":
-				// chance = Random.Range(1, range);
 
 				//multipliers
 				damage = Mathf.RoundToInt(baseDamage * chanceCalculated * strengthMultiplier * 1.75f);
@@ -157,7 +167,6 @@ public class BattleSystem : MonoBehaviour
 
 				break;
 			case "medium":
-				// chance = Random.Range(1, range);
 				damage = Mathf.RoundToInt(baseDamage * chanceCalculated * strengthMultiplier * 1.4f);
 
 				if (chance < 50 / chanceMultiplier)
@@ -171,7 +180,6 @@ public class BattleSystem : MonoBehaviour
 
 				break;
 			case "weak":
-				// chance = Random.Range(1, range);
 				damage = Mathf.RoundToInt(baseDamage * chanceCalculated * strengthMultiplier);
 
 				if (chance < 15 / chanceMultiplier)
@@ -238,6 +246,23 @@ public class BattleSystem : MonoBehaviour
 
 		dialogueText.text = enemyUnit.unitName + " atakuje!";
 
+		//enemy get closer to player
+		targetPos = AttackPlayerPos;
+		enemyMove = true;
+
+		enemyUnit.WalkAnim(true);
+		while(enemyMove) 
+        {
+			float step = 2f * Time.deltaTime;
+			enemyUnit.transform.position = Vector3.MoveTowards(enemyUnit.transform.position, targetPos, step);
+			if (enemyUnit.transform.position == targetPos) {
+				enemyMove = false;
+				
+			}
+			yield return null;
+        }
+		enemyUnit.WalkAnim(false);
+
 		string typeOfAttackStr;
 		switch (typeOfAttack)
 		{
@@ -255,7 +280,7 @@ public class BattleSystem : MonoBehaviour
 				break;
 		}
 		enemyUnit.SlashAnimPlayer(true, typeOfAttackStr);
-		Debug.Log(typeOfAttackStr);
+
 		yield return new WaitForSeconds(1f);
 	
 		float chanceCalculated = 1f+chance/100f;
@@ -319,10 +344,25 @@ public class BattleSystem : MonoBehaviour
 		playerHUD.SetHP(playerUnit.currentHP);
 
 		yield return new WaitForSeconds(1f);
+		enemyUnit.SlashAnimPlayer(false, typeOfAttackStr);
+		//enemy back to position
+		targetPos = EnemySpawnPos;
+		enemyMove = true;
+
+		while(enemyMove) 
+        {
+			float step = 2f * Time.deltaTime;
+			enemyUnit.transform.position = Vector3.MoveTowards(enemyUnit.transform.position, targetPos, step);
+			if (enemyUnit.transform.position == targetPos) {
+				enemyMove = false;
+			}
+			yield return null;
+        }
+		
+
+		yield return new WaitForSeconds(1f);
 
 		if (damage > 0) playerUnit.TakeDmgAnim(false);
-
-		enemyUnit.SlashAnimPlayer(false, typeOfAttackStr);
 
 		if (isDead)
 		{
@@ -338,8 +378,24 @@ public class BattleSystem : MonoBehaviour
 
 	IEnumerator EndBattle() {
 		if(state == BattleState.WON)
-		{
+		{	
+			Vector3 cameraPos = Camera.main.transform.position;
 			dialogueText.text = "Wygrałeś bitkę!";
+			while (true) {
+				 //Interpolate Position
+				Camera.main.transform.position = Vector3.SmoothDamp(Camera.main.transform.position, chestEndMarker.position, ref cameraPos, 0.2f);
+				//Interpolate Rotation
+				Camera.main.transform.rotation =  Quaternion.Slerp(Camera.main.transform.rotation, chestEndMarker.rotation, 3f *  Time.deltaTime);
+				if (Camera.main.transform.rotation == chestEndMarker.rotation) break;
+				yield return null;
+			}
+			chest.canOpen = true;
+			// Camera.main.transform.position = 
+
+			while (!chest.IsOpen()) {
+				yield return null;
+			}
+			yield return new WaitForSeconds(9999f);
 		} else if (state == BattleState.LOST)
 		{
 			dialogueText.text = "Sroga porażka.";

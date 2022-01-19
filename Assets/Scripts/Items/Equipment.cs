@@ -8,8 +8,6 @@ public class Equipment : Item {
 	public EquipmentSlot equipSlot;		// What slot to equip it in
 	public int armorModifier;
 	public int damageModifier;
-	public SkinnedMeshRenderer prefab;
-	public GameObject weaponPrefab;
 
 	public Vector3 PickPosition;
 	public Vector3 PickRotation;

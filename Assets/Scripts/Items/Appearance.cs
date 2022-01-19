@@ -5,8 +5,6 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Item", menuName = "Inventory/Appearance")]
 public class Appearance : Item
 {
-	public SkinnedMeshRenderer prefab;
-
 	// Called when pressed in the inventory
 	public override void Use()
 	{
