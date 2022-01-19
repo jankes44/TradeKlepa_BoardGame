@@ -395,7 +395,7 @@ public class BattleSystem : MonoBehaviour
 			while (!chest.IsOpen()) {
 				yield return null;
 			}
-			yield return new WaitForSeconds(9999f);
+			yield return new WaitForSeconds(3f);
 		} else if (state == BattleState.LOST)
 		{
 			dialogueText.text = "Sroga porażka.";

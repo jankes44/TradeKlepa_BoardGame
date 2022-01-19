@@ -35,7 +35,7 @@ public class Chest : MonoBehaviour
     private void OnMouseDown() {
         if (canOpen)
         {
-            int item = GetRandomIndex();
+            int item = Random.Range(0, items.Count);
             Debug.Log(item);
             EventControl.instance.eventPlayer.GetComponent<PlayerStats>().OpenChest(item);
         }
@@ -125,4 +125,5 @@ public class Chest : MonoBehaviour
         Debug.Log(randItem);
         return randItem;
     }
+
 }
